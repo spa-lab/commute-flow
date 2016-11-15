@@ -5048,6 +5048,11 @@ var API = {
   // TODO: Make sure the documentation is updated.
 
   /**
+   * The proxy used to enable Cross Origin Resource Sharing.
+   */
+  corsProxy: 'http://cors.io/?u=',
+
+  /**
    * The parts of urls needed in order to query the remote geospatial server so as to get commute flows in vector format.
    */
   flowVectorsUrlParts: {
@@ -5074,7 +5079,8 @@ var API = {
    */
   getCommuteFlows: function(lyrName) {
 
-    var url = this.flowVectorsUrlParts.baseUrl +
+    var url = //this.corsProxy +
+              this.flowVectorsUrlParts.baseUrl +
               this.flowVectorsUrlParts.parametersUrl +
               lyrName +
               this.flowVectorsUrlParts.filterParameterUrl +

@@ -1,1 +1,5 @@
+
+# Ignore files
+.idea/workspace.xml
+
 # Ignore directories

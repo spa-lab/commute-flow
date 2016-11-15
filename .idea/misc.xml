@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/js/commute-flow-map.js" />
+    <file url="file://$PROJECT_DIR$/js/commute-flow-thin-points-epsg-4326.js" />
+    <file url="file://$PROJECT_DIR$/js/manchester-bus-routes-epsg-4326.js" />
+    <file url="file://$PROJECT_DIR$/js/manchester-bus-stops-epsg-4326.js" />
+    <file url="file://$PROJECT_DIR$/js/manchester-cycle-hubs-epsg-4326.js" />
+    <file url="file://$PROJECT_DIR$/js/manchester-cycle-routes-epsg-4326.js" />
+    <file url="file://$PROJECT_DIR$/js/msoa-pwc-epsg-4326.js" />
+    <file url="file://$PROJECT_DIR$/js/msoa-qc-epsg-4326-050.js" />
+    <file url="file://$PROJECT_DIR$/js/msoa-qc-epsg-4326-100.js" />
+    <file url="file://$PROJECT_DIR$/js/msoa-qc-epsg-4326-250.js" />
+    <file url="file://$PROJECT_DIR$/js/msoa-qc-epsg-4326-500.js" />
+    <file url="file://$PROJECT_DIR$/js/msoa-qc-epsg-4326.js" />
+    <file url="file://$PROJECT_DIR$/js/test-cfm.js" />
+    <file url="file://$PROJECT_DIR$/js/test-dvf-2.js" />
+    <file url="file://$PROJECT_DIR$/js/test-geojson.js" />
+    <file url="file://$PROJECT_DIR$/js/test-wms-tiles.js" />
+    <file url="file://$PROJECT_DIR$/js/test-wms.js" />
+  </component>
+</project>
