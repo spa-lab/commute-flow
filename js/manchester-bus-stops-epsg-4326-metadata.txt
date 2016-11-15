@@ -1,0 +1,11 @@
+AC:   AtcoCode
+CN:   CommonName
+I:    Indicator
+Str:  Street
+L:    Landmark
+ST:   StopType
+BST:  BusStopType
+TS:   TimingStat
+S:    Status
+LC:   LocalityCentre
+SC:   ShortCommo

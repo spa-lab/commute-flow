@@ -1,0 +1,10 @@
+RT:    RouteType
+RS:    RouteStatus
+RtS:   RouteSurface
+NCNR:  NCNRoute
+NCNRN: NCNRouteNumber
+RN:    RouteName
+R:     Responsibility
+P:     Publicise
+Lkm:   Length_km
+OY:    OpeningYear

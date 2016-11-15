@@ -1,0 +1,52 @@
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/*body {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}*/
+
+/*div {
+  box-sizing: border-box;-moz-box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  height: 100%;
+}*/
+
+#mapContainer {
+  height: 100%;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  /*width: 70%;*/
+}
+
+#infoContainer {
+  /*background: antiquewhite;*/
+  /*background: blanchedalmond;*/
+  /*background: cadetblue;*/
+  /*background: darkseagreen;*/
+  /*background: indianred;*/
+  /*background: lightblue;*/
+  /*background: lightsalmon;*/
+  /*background: skyblue;*/
+  /*background: sandybrown;*/
+  /*background: seagreen;*/
+  /*background: sienna;*/
+  /*--background: slategray;*/
+  /*background: steelblue;*/
+  /*--color: antiquewhite;*/
+  height: 100%;
+  /*width: 30%;*/
+}
+
+#map {
+  /*background: #282828;*/
+  background: #3d3d3d;
+  /*float: none;*/
+  height: 100%;
+  width: 100%;
+}
+
