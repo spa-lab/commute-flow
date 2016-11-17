@@ -2,21 +2,36 @@
   <dictionary name="mzdssvv2">
     <words>
       <w>basemap</w>
+      <w>carto</w>
       <w>choropleth</w>
       <w>clericals</w>
       <w>coords</w>
       <w>cors</w>
       <w>dblclick</w>
+      <w>echarts</w>
+      <w>esri</w>
       <w>flyers</w>
       <w>geospatial</w>
       <w>glyphicon</w>
+      <w>grau</w>
+      <w>grayscale</w>
+      <w>highdpi</w>
+      <w>hydda</w>
+      <w>mapnik</w>
+      <w>modis</w>
       <w>mouseout</w>
       <w>mouseover</w>
       <w>msoa</w>
+      <w>nasagibs</w>
+      <w>orthophoto</w>
       <w>queryable</w>
       <w>showbox</w>
       <w>stdev</w>
       <w>supergoups</w>
+      <w>thunderforest</w>
+      <w>topo</w>
+      <w>viirs</w>
+      <w>wellbeing</w>
     </words>
   </dictionary>
 </component>

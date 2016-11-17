@@ -64,7 +64,7 @@
 // style="color:#581845;"
 // CSS
 //
-//   .color-1 {color: #DAF7A6;}
+// .color-1 {color: #DAF7A6;}
 // .color-2 {color: #FFC300;}
 // .color-3 {color: #FF5733;}
 // .color-4 {color: #C70039;}
@@ -2542,11 +2542,1111 @@ var Statistics = {
 
 };
 
+var Classification = {
+
+  /**
+   * The values of the super groups.
+   */
+  superGroupValues: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+
+  /**
+   * The values of the groups.
+   */
+  groupValues: [
+    11, 12, 13, 14, 15,
+    21, 22, 23,
+    31, 32, 33, 34, 35,
+    41, 42, 43,
+    51, 52, 53, 54, 55,
+    61, 62, 63, 64, 65,
+    71, 72, 73, 74, 75,
+    81, 82, 83, 84, 85,
+    91, 92, 93, 94
+  ],
+
+
+
+
+  /**
+   * The super groups dictionary.
+   */
+  superGroups: {
+    '1': {
+      groups: [11, 12, 13, 14, 15],
+      name: 'Retail and Services',
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '2': {
+      groups: [21, 22, 23],
+      name: 'Blue Collar Traits',
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '3': {
+      groups: [31, 32, 33, 34, 35],
+      name: 'Non car commuting young professionals',
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '4': {
+      groups: [41, 42, 43],
+      name: 'Admin / Secretary',
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '5': {
+      groups: [51, 52, 53, 54, 55],
+      name: 'Part time service supporters',
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '6': {
+      groups: [61, 62, 63, 64, 65],
+      name: 'Health and Education',
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '7': {
+      groups: [71, 72, 73, 74, 75],
+      name: 'Skilled and manufacturing workers',
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '8': {
+      groups: [81, 82, 83, 84, 85],
+      name: 'Professional and managerial workers',
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '9': {
+      groups: [91, 92, 93, 94],
+      name: 'Science, IT and Finance Professionals',
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    }
+  },
+
+  /**
+   * The groups dictionary.
+   */
+  groups: {
+    '11': {
+      g: 11, sg: 1, name: 'Budding Sales Execs',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1705d6' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#1705d6' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1705d6' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '12': {
+      g: 12, sg: 1, name: 'Established in Sales and Customer Care',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1705d6' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#1705d6' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1705d6' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '13': {
+      g: 13, sg: 1, name: 'Back Office Functions',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1705d6' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#1705d6' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1705d6' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '14': {
+      g: 14, sg: 1, name: 'Multicultural Hospitality',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1705d6' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#1705d6' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1705d6' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '15': {
+      g: 15, sg: 1, name: 'On the Shop Floor',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1705d6' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#1705d6' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1705d6' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '21': {
+      g: 21, sg: 2, name: 'Multicultural Routine Logistics',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#11ea44' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#11ea44' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#11ea44' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#11ea44' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '22': {
+      g: 22, sg: 2, name: 'On the Production Line',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#11ea44' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#11ea44' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#11ea44' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#11ea44' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '23': {
+      g: 23, sg: 2, name: 'Skilled Trades in Mixed Economies',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#11ea44' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#11ea44' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#11ea44' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#11ea44' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '31': {
+      g: 31, sg: 3, name: 'Professionals Who Cycle',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#cc4704' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#cc4704' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#cc4704' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '32': {
+      g: 32, sg: 3, name: 'Sustainable Hospitality',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#cc4704' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#cc4704' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#cc4704' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '33': {
+      g: 33, sg: 3, name: 'Welfare Workers on the Bus',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#cc4704' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#cc4704' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#cc4704' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '34': {
+      g: 34, sg: 3, name: 'Active Mixed Commuters',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#cc4704' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#cc4704' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#cc4704' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '35': {
+      g: 35, sg: 3, name: 'All Aboard',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#cc4704' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#cc4704' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#cc4704' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '41': {
+      g: 41, sg: 4, name: 'Civic Duties',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#6b2ed4' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#6b2ed4' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '42': {
+      g: 42, sg: 4, name: 'Professional Support Services',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#6b2ed4' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#6b2ed4' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '43': {
+      g: 43, sg: 4, name: 'Young Clericals',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#6b2ed4' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#6b2ed4' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '51': {
+      g: 51, sg: 5, name: 'Routine Care and Leisure',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#d60003' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#d60003' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '52': {
+      g: 52, sg: 5, name: 'Multicultural Workers in Welfare',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#d60003' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#d60003' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '53': {
+      g: 53, sg: 5, name: 'Mixed Roles in Hospitality',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#d60003' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#d60003' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '54': {
+      g: 54, sg: 5, name: 'Here to Help',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#d60003' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#d60003' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '55': {
+      g: 55, sg: 5, name: 'Established in Mixed Service Economies',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#d60003' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#d60003' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '61': {
+      g: 61, sg: 6, name: 'Early Career Educators',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#23cfb8' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#191970', fillColor: '#23cfb8' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#23cfb8' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '62': {
+      g: 62, sg: 6, name: 'Helping Hands in Education',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#23cfb8' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#191970', fillColor: '#23cfb8' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#23cfb8' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '63': {
+      g: 63, sg: 6, name: 'Supporting Health and Wellbeing',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#23cfb8' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#191970', fillColor: '#23cfb8' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#23cfb8' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '64': {
+      g: 64, sg: 6, name: 'Established Nurturers',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#23cfb8' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#191970', fillColor: '#23cfb8' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#23cfb8' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '65': {
+      g: 65, sg: 6, name: 'Health and Wellbeing Professionals',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#23cfb8' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#191970', fillColor: '#23cfb8' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#23cfb8' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '71': {
+      g: 71, sg: 7, name: 'Retail Relations',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#e1de00' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#e1de00' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '72': {
+      g: 72, sg: 7, name: 'Factory Settings',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#e1de00' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#e1de00' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '73': {
+      g: 73, sg: 7, name: 'Young Construction Crews',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#e1de00' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#e1de00' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '74': {
+      g: 74, sg: 7, name: 'Mixed Warehousing and Distribution',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#e1de00' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#e1de00' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '75': {
+      g: 75, sg: 7, name: 'Part-Time Traders, Movers and Makers',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#e1de00' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#e1de00' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '81': {
+      g: 81, sg: 8, name: 'Mixed Mid-Career Professionals',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#de079a' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#de079a' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#de079a' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '82': {
+      g: 82, sg: 8, name: 'Managing the High Street',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#de079a' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#de079a' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#de079a' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '83': {
+      g: 83, sg: 8, name: 'Manufacturing Execs',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#de079a' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#de079a' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#de079a' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '84': {
+      g: 84, sg: 8, name: 'Early Career Professionals',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#de079a' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#de079a' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#de079a' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '85': {
+      g: 85, sg: 8, name: 'Aspiring Flyers',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#de079a' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#de079a' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#de079a' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '91': {
+      g: 91, sg: 9, name: 'Early Career Innovators',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#1fcd5f' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '92': {
+      g: 92, sg: 9, name: 'Administering the City',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#1fcd5f' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '93': {
+      g: 93, sg: 9, name: 'Financial Execs',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#1fcd5f' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    },
+    '94': {
+      g: 94, sg: 9, name: 'Techs and Professionals in Welfare',
+      styles: {
+        dark: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#1fcd5f' },
+        },
+        light: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          commuteFlow: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
+          highlightedCommuteFlow: { stroke: true, opacity: 0.7, color: '#ffc300' },
+          internalCommuteFlowMarker: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
+        },
+        roads: {
+          msoaCommuteFlow: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          msoaHighlightedCommuteFlow: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+        }
+      },
+      values: [],
+      min: 0, max: 0, count: 0, sum: 0, avg: 0, median: 0, mode: 0, variance: 0, stdDev: 0
+    }
+  }
+
+
+};
+
 
 
 
 var Diagrams = {
   // TODO: Update the documentation here.
+
+
+
+
+
+
 
 
   createVerticalBarDiagram: function(isSuperGroup) {
@@ -2564,7 +3664,7 @@ var Diagrams = {
 
     var chart = echarts.init(document.getElementById('chart'));
 
-    option = {
+    let option = {
       tooltip: {
         show: true,
         showContent: false,
@@ -2584,17 +3684,7 @@ var Diagrams = {
           axisLabel: {
             show: false
           },
-          data: [
-            'Retail and Services',
-            'Blue Collar Traits',
-            'Non car commuting young professionals',
-            'Admin / Secretary',
-            'Part time service supporters',
-            'Health and Education',
-            'Skilled and manufacturing workers',
-            'Professional and managerial workers',
-            'Science, IT and Finance Professionals'
-          ]
+          data: []
         }
       ],
       yAxis: [
@@ -3128,7 +4218,566 @@ var Diagrams = {
           yAxisIndex: 1
         }
       ]
+
     };
+
+    // option = {
+    //   xAxis: [
+    //     {
+    //       type: 'category',
+    //       show: true,
+    //       axisTick: {
+    //         show: true,
+    //         interval: 0
+    //       },
+    //       axisLabel: {
+    //         show: false
+    //       },
+    //       data: [
+    //         'Retail and Services',
+    //         'Blue Collar Traits',
+    //         'Non car commuting young professionals',
+    //         'Admin / Secretary',
+    //         'Part time service supporters',
+    //         'Health and Education',
+    //         'Skilled and manufacturing workers',
+    //         'Professional and managerial workers',
+    //         'Science, IT and Finance Professionals'
+    //       ]
+    //     }
+    //   ],
+    //   yAxis: [
+    //     {
+    //       type: 'value',
+    //       show: true
+    //     },
+    //     {
+    //       type: 'value',
+    //       show: true,
+    //       splitLine:{
+    //         show: false
+    //       },
+    //     }
+    //   ],
+    //   series: [
+    //     {
+    //       name: 'Supergoups',
+    //       type: 'bar',
+    //       data: [
+    //         {
+    //           // 1 - Retail and Services
+    //           value :  Statistics.superGroups['1'].sum,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#1705d6',
+    //               label: {
+    //                 show: true,
+    //                 position: 'bottom',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               barBorderColor: 'DeepSkyBlue',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 2 - Blue Collar Traits
+    //           value : Statistics.superGroups['2'].sum,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#11ea44',
+    //               label: {
+    //                 show: true,
+    //                 position: 'bottom',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               barBorderColor: 'DarkSlateBlue',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 3 - Non car commuting young professionals
+    //           value : Statistics.superGroups['3'].sum,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#cc4704',
+    //               label: {
+    //                 show: true,
+    //                 position: 'bottom',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               barBorderColor: 'DarkSlateBlue',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 4 - Admin / Secretary
+    //           value : Statistics.superGroups['4'].sum,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#6b2ed4',
+    //               label: {
+    //                 show: true,
+    //                 position: 'bottom',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               barBorderColor: 'DeepSkyBlue',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 5 - Part time service supporters
+    //           value : Statistics.superGroups['5'].sum,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#d60003',
+    //               label: {
+    //                 show: true,
+    //                 position: 'bottom',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               barBorderColor: 'DarkSlateBlue',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 6 - Health and Education
+    //           value : Statistics.superGroups['6'].sum,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#23cfb8',
+    //               label: {
+    //                 show: true,
+    //                 position: 'bottom',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               barBorderColor: 'DarkSlateBlue',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 7 - Skilled and manufacturing workers
+    //           value : Statistics.superGroups['7'].sum,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#e1de00',
+    //               label: {
+    //                 show: true,
+    //                 position: 'bottom',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               barBorderColor: 'DarkSlateBlue',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 8 - Professional and managerial workers
+    //           value : Statistics.superGroups['8'].sum,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#de079a',
+    //               label: {
+    //                 show: true,
+    //                 position: 'bottom',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               barBorderColor: 'DarkSlateBlue',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 9 - Science, IT and Finance Professionals
+    //           value : Statistics.superGroups['9'].sum,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#1fcd5f',
+    //               label: {
+    //                 show: true,
+    //                 position: 'bottom',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               barBorderColor: 'DarkSlateBlue',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         }
+    //       ],
+    //       markLine: {
+    //         itemStyle: {
+    //           normal: {
+    //             color: '#d9534f',
+    //             lineStyle: {
+    //               type: 'solid'
+    //             },
+    //             label: {
+    //               show: false
+    //             }
+    //           },
+    //           emphasis: {
+    //             color: '#ac2925',
+    //             lineStyle: {
+    //               type: 'solid'
+    //             },
+    //             label: {
+    //               show: true
+    //             }
+    //           }
+    //         },
+    //         data: [
+    //           { type: 'average', name: 'average' }
+    //         ]
+    //       },
+    //       yAxisIndex: 0
+    //     },
+    //     {
+    //       name: 'MSOAs',
+    //       type: 'scatter',
+    //       tooltip: {
+    //         show: true,
+    //         showContent: true,
+    //         trigger: 'item', // 'item' | 'axis'
+    //         axisPointer: {
+    //           type: 'shadow' // 'line' | 'cross' | 'shadow'
+    //         },
+    //         formatter: '{a} : {c}'
+    //       },
+    //       data: [
+    //         {
+    //           // 1 - Retail and Services
+    //           value: Statistics.superGroups['1'].count,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#ac2925',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 show: true,
+    //                 position: 'top',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               color: '#d9534f',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 2 - Blue Collar Traits
+    //           value: Statistics.superGroups['2'].count,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#ac2925',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 show: true,
+    //                 position: 'top',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               color: '#d9534f',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 3 - Non car commuting young professionals
+    //           value: Statistics.superGroups['3'].count,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#ac2925',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 show: true,
+    //                 position: 'top',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               color: '#d9534f',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 4 - Admin / Secretary
+    //           value: Statistics.superGroups['4'].count,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#ac2925',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 show: true,
+    //                 position: 'top',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               color: '#d9534f',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 5 - Part time service supporters
+    //           value: Statistics.superGroups['5'].count,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#ac2925',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 show: true,
+    //                 position: 'top',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               color: '#d9534f',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 6 - Health and Education
+    //           value: Statistics.superGroups['6'].count,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#ac2925',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 show: true,
+    //                 position: 'top',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               color: '#d9534f',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 7 - Skilled and manufacturing workers
+    //           value: Statistics.superGroups['7'].count,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#ac2925',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 show: true,
+    //                 position: 'top',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               color: '#d9534f',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 8 - Professional and managerial workers
+    //           value: Statistics.superGroups['8'].count,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#ac2925',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 show: true,
+    //                 position: 'top',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               color: '#d9534f',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         },
+    //         {
+    //           // 9 - Science, IT and Finance Professionals
+    //           value: Statistics.superGroups['9'].count,
+    //           itemStyle: {
+    //             normal: {
+    //               color: '#ac2925',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 show: true,
+    //                 position: 'top',
+    //                 textStyle: {
+    //                   color: 'DimGray'
+    //                 }
+    //               }
+    //             },
+    //             emphasis: {
+    //               color: '#d9534f',
+    //               borderColor: '#8b0000',
+    //               label: {
+    //                 textStyle: {
+    //                   color: 'DimGray',
+    //                   fontWeight: 'bold'
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         }
+    //       ],
+    //       yAxisIndex: 1
+    //     }
+    //   ]
+    // };
 
     chart.setOption(option);
 
@@ -5079,7 +6728,7 @@ var API = {
    */
   getCommuteFlows: function(lyrName) {
 
-    var url = //this.corsProxy +
+    var url = //this.corsProxy + // TODO: Remove this ???
               this.flowVectorsUrlParts.baseUrl +
               this.flowVectorsUrlParts.parametersUrl +
               lyrName +
@@ -5251,7 +6900,7 @@ var statisticsViewModel = new Vue({
       else if (this.currentDiagramType == ':horizontalBar') {
         document.getElementById('horizontalBarDiagramButton').blur();
       }
-      else {
+      else if (this.currentDiagramType == ':doughnut') {
         document.getElementById('doughnutDiagramButton').blur();
       }
 
@@ -5450,7 +7099,7 @@ var toggleBaseMapViewModel = new Vue({
       baseLayer.addTo(Spatial.map);
       baseLayer.bringToBack();
 
-      // MAke sure the associated styles for MSOAs layer is applied.
+      // Make sure the associated styles for MSOAs layer is applied.
       MapLayers.MSOAs.mapLayer.options.style = MapLayers.MSOAs.namedBasemapLayers[namedBaseMap].style;
       MapLayers.MSOAs.mapLayer.setStyle(MapLayers.MSOAs.namedBasemapLayers[namedBaseMap].style);
 
@@ -5658,7 +7307,7 @@ var groupSetContentViewModel = new Vue({
       let groups = MapLayers.CommuteFlows.superGroups[supergroup.toString()].groups;
 
       if (groups != undefined || groups != null) {
-        for (i = 0; i < groups.length; i++) {
+        for (let i = 0; i < groups.length; i++) {
           let group = groups[i].toString();
 
           if ($.inArray(group, this.checkedGroups) == -1) {
@@ -5673,7 +7322,7 @@ var groupSetContentViewModel = new Vue({
       if (performSelect) {
         let groupsToPush = [];
 
-        for (i = 0; i < groups.length; i++) {
+        for (let i = 0; i < groups.length; i++) {
           let group = groups[i].toString();
 
           if ($.inArray(group, this.checkedGroups) == -1) {
@@ -5681,14 +7330,14 @@ var groupSetContentViewModel = new Vue({
           }
         }
 
-        for (i = 0; i < groupsToPush.length; i++) {
+        for (let i = 0; i < groupsToPush.length; i++) {
           this.checkedGroups.push(groupsToPush[i]);
         }
       }
       else {
         let groupsToRemove = [];
 
-        for (i = 0; i < groups.length; i++) {
+        for (let i = 0; i < groups.length; i++) {
           let group = groups[i].toString();
 
           if ($.inArray(group, this.checkedGroups) != -1) {
@@ -5696,7 +7345,7 @@ var groupSetContentViewModel = new Vue({
           }
         }
 
-        for (i = 0; i < groupsToRemove.length; i++) {
+        for (let i = 0; i < groupsToRemove.length; i++) {
           this.checkedGroups.splice( $.inArray(groupsToRemove[i], this.checkedGroups), 1 );
         }
       }
