@@ -1867,7 +1867,7 @@ var MapLayers = {
     renderLayer: function() {
 
       // Get the MSOA field based on if it is a Residence to Work or Work to Residence trip.
-      let msoaCodeFieldName = toggleRW2WRCommuteFlowsViewModel.unusedMSOAFieldDictionary[toggleRW2WRCommuteFlowsViewModel.queryField];
+      //let msoaCodeFieldName = toggleRW2WRCommuteFlowsViewModel.unusedMSOAFieldDictionary[toggleRW2WRCommuteFlowsViewModel.queryField];
 
       // Get the current basemap. This will be used to decide how the commute flow polygons will be rendered.
       let currentBaseMap = toggleBaseMapViewModel.currentBaseMap;
@@ -1921,14 +1921,14 @@ var MapLayers = {
 
           this.mapLayer.eachLayer(function(layer) {
             var htmlContent = '<div><table><tbody>' +
-                '<tr><th>Primary Key: </th><td>' + layer.feature.properties.pk + '</td></tr>' +
-                '<tr><th>Residential Code: </th><td>' + layer.feature.properties.rc + '</td></tr>' +
-                '<tr><th>Workplace Code: </th><td>' + layer.feature.properties.wc + '</td></tr>' +
-                '<tr><th>Total Persons: </th><td>' + layer.feature.properties.tp + '</td></tr>' +
-                '<tr><th>Group: </th><td>' + layer.feature.properties.g + '</td></tr>' +
-                '<tr><th>QCL Distance: </th><td>' + layer.feature.properties.qd + '</td></tr>' +
-                '<tr><th>MSOA Distance (km): </th><td>' + layer.feature.properties.md + '</td></tr>' +
-              '</tbody></table></div>';
+                                '<tr><th>Primary Key: </th><td>' + layer.feature.properties.pk + '</td></tr>' +
+                                '<tr><th>Residential Code: </th><td>' + layer.feature.properties.rc + '</td></tr>' +
+                                '<tr><th>Workplace Code: </th><td>' + layer.feature.properties.wc + '</td></tr>' +
+                                '<tr><th>Total Persons: </th><td>' + layer.feature.properties.tp + '</td></tr>' +
+                                '<tr><th>Group: </th><td>' + layer.feature.properties.g + '</td></tr>' +
+                                '<tr><th>QCL Distance: </th><td>' + layer.feature.properties.qd + '</td></tr>' +
+                                '<tr><th>MSOA Distance (km): </th><td>' + layer.feature.properties.md + '</td></tr>' +
+                              '</tbody></table></div>';
 
             //layer.bindPopup(htmlContent);
 
@@ -2069,7 +2069,6 @@ var Classification = {
     81, 82, 83, 84, 85,
     91, 92, 93, 94
   ],
-
 
   /**
    * The super groups dictionary.
@@ -4167,6 +4166,11 @@ var Diagrams = {
     ]
   },
 
+  /**
+   * Creates a vertical bar diagram.
+   *
+   * @param isSuperGroup - Indicates whether the map displays super groups or not.
+   */
   createVerticalBarDiagram: function(isSuperGroup) {
 
     if (isSuperGroup) {
@@ -4178,9 +4182,12 @@ var Diagrams = {
 
   },
 
+  /**
+   * Creates a vertical bar diagram showing the commute flows aggregated by super groups.
+   */
   createSuperGroupsVerticalBarDiagram: function() {
 
-    var chart = echarts.init(document.getElementById('chart'));
+    var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
 
     let option = {
       tooltip: {
@@ -4301,602 +4308,35 @@ var Diagrams = {
       }
     }
 
-    chart.setOption(option);
+    dataDiagram.setOption(option);
 
-    chart.on('click', function(params) {
-      alert(params.value);
+    dataDiagram.on('click', function(params) {
+      alert(params.value); // TODO: Add the data diagram click code.
     });
 
-    chart.on('mouseover', function(params) {
-      console.log('mouseover: ' + params.value);
+    dataDiagram.on('mouseover', function(params) {
+      console.log('mouseover: ' + params.value); // TODO: Add the data diagram mouseover code.
     });
 
   },
 
+  /**
+   * Creates a stacked vertical bar diagram showing the commute flows aggregated by groups.
+   */
   createGroupsVerticalBarDiagram: function() {
 
-    var chart = echarts.init(document.getElementById('chart'));
-    alert('Groups Vertical Bar Diagram');
+    // var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
+    // alert('Groups Vertical Bar Diagram');
 
-    // option = {
-    //   tooltip: {
-    //     show: true,
-    //     showContent: false,
-    //     trigger: 'axis', // 'item' | 'axis'
-    //     axisPointer: {
-    //       type: 'shadow' // 'line' | 'cross' | 'shadow'
-    //     }
-    //   },
-    //   xAxis: [
-    //     {
-    //       type: 'category',
-    //       show: true,
-    //       axisTick: {
-    //         show: true,
-    //         interval: 0
-    //       },
-    //       axisLabel: {
-    //         show: false
-    //       },
-    //       data: [
-    //         'Retail and Services',
-    //         'Blue Collar Traits',
-    //         'Non car commuting young professionals',
-    //         'Admin / Secretary',
-    //         'Part time service supporters',
-    //         'Health and Education',
-    //         'Skilled and manufacturing workers',
-    //         'Professional and managerial workers',
-    //         'Science, IT and Finance Professionals'
-    //       ]
-    //     }
-    //   ],
-    //   yAxis: [
-    //     {
-    //       type: 'value',
-    //       show: true
-    //     },
-    //     {
-    //       type: 'value',
-    //       show: true,
-    //       splitLine:{
-    //         show: false
-    //       },
-    //     }
-    //   ],
-    //   series: [
-    //     {
-    //       name: 'Supergoups',
-    //       type: 'bar',
-    //       data: [
-    //         {
-    //           // 1 - Retail and Services
-    //           value :  Statistics.superGroups['1'].sum,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#1705d6',
-    //               label: {
-    //                 show: true,
-    //                 position: 'bottom',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               barBorderColor: 'DeepSkyBlue',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 2 - Blue Collar Traits
-    //           value : Statistics.superGroups['2'].sum,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#11ea44',
-    //               label: {
-    //                 show: true,
-    //                 position: 'bottom',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               barBorderColor: 'DarkSlateBlue',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 3 - Non car commuting young professionals
-    //           value : Statistics.superGroups['3'].sum,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#cc4704',
-    //               label: {
-    //                 show: true,
-    //                 position: 'bottom',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               barBorderColor: 'DarkSlateBlue',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 4 - Admin / Secretary
-    //           value : Statistics.superGroups['4'].sum,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#6b2ed4',
-    //               label: {
-    //                 show: true,
-    //                 position: 'bottom',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               barBorderColor: 'DeepSkyBlue',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 5 - Part time service supporters
-    //           value : Statistics.superGroups['5'].sum,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#d60003',
-    //               label: {
-    //                 show: true,
-    //                 position: 'bottom',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               barBorderColor: 'DarkSlateBlue',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 6 - Health and Education
-    //           value : Statistics.superGroups['6'].sum,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#23cfb8',
-    //               label: {
-    //                 show: true,
-    //                 position: 'bottom',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               barBorderColor: 'DarkSlateBlue',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 7 - Skilled and manufacturing workers
-    //           value : Statistics.superGroups['7'].sum,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#e1de00',
-    //               label: {
-    //                 show: true,
-    //                 position: 'bottom',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               barBorderColor: 'DarkSlateBlue',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 8 - Professional and managerial workers
-    //           value : Statistics.superGroups['8'].sum,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#de079a',
-    //               label: {
-    //                 show: true,
-    //                 position: 'bottom',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               barBorderColor: 'DarkSlateBlue',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 9 - Science, IT and Finance Professionals
-    //           value : Statistics.superGroups['9'].sum,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#1fcd5f',
-    //               label: {
-    //                 show: true,
-    //                 position: 'bottom',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               barBorderColor: 'DarkSlateBlue',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         }
-    //       ],
-    //       markLine: {
-    //         itemStyle: {
-    //           normal: {
-    //             color: '#d9534f',
-    //             lineStyle: {
-    //               type: 'solid'
-    //             },
-    //             label: {
-    //               show: false
-    //             }
-    //           },
-    //           emphasis: {
-    //             color: '#ac2925',
-    //             lineStyle: {
-    //               type: 'solid'
-    //             },
-    //             label: {
-    //               show: true
-    //             }
-    //           }
-    //         },
-    //         data: [
-    //           { type: 'average', name: 'average' }
-    //         ]
-    //       },
-    //       yAxisIndex: 0
-    //     },
-    //     {
-    //       name: 'MSOAs',
-    //       type: 'scatter',
-    //       tooltip: {
-    //         show: true,
-    //         showContent: true,
-    //         trigger: 'item', // 'item' | 'axis'
-    //         axisPointer: {
-    //           type: 'shadow' // 'line' | 'cross' | 'shadow'
-    //         },
-    //         formatter: '{a} : {c}'
-    //       },
-    //       data: [
-    //         {
-    //           // 1 - Retail and Services
-    //           value: Statistics.superGroups['1'].count,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#ac2925',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 show: true,
-    //                 position: 'top',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               color: '#d9534f',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 2 - Blue Collar Traits
-    //           value: Statistics.superGroups['2'].count,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#ac2925',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 show: true,
-    //                 position: 'top',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               color: '#d9534f',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 3 - Non car commuting young professionals
-    //           value: Statistics.superGroups['3'].count,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#ac2925',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 show: true,
-    //                 position: 'top',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               color: '#d9534f',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 4 - Admin / Secretary
-    //           value: Statistics.superGroups['4'].count,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#ac2925',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 show: true,
-    //                 position: 'top',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               color: '#d9534f',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 5 - Part time service supporters
-    //           value: Statistics.superGroups['5'].count,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#ac2925',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 show: true,
-    //                 position: 'top',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               color: '#d9534f',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 6 - Health and Education
-    //           value: Statistics.superGroups['6'].count,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#ac2925',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 show: true,
-    //                 position: 'top',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               color: '#d9534f',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 7 - Skilled and manufacturing workers
-    //           value: Statistics.superGroups['7'].count,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#ac2925',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 show: true,
-    //                 position: 'top',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               color: '#d9534f',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 8 - Professional and managerial workers
-    //           value: Statistics.superGroups['8'].count,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#ac2925',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 show: true,
-    //                 position: 'top',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               color: '#d9534f',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         },
-    //         {
-    //           // 9 - Science, IT and Finance Professionals
-    //           value: Statistics.superGroups['9'].count,
-    //           itemStyle: {
-    //             normal: {
-    //               color: '#ac2925',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 show: true,
-    //                 position: 'top',
-    //                 textStyle: {
-    //                   color: 'DimGray'
-    //                 }
-    //               }
-    //             },
-    //             emphasis: {
-    //               color: '#d9534f',
-    //               borderColor: '#8b0000',
-    //               label: {
-    //                 textStyle: {
-    //                   color: 'DimGray',
-    //                   fontWeight: 'bold'
-    //                 }
-    //               }
-    //             }
-    //           }
-    //         }
-    //       ],
-    //       yAxisIndex: 1
-    //     }
-    //   ]
-    // };
-    //
-    // chart.setOption(option);
-    //
-    // chart.on('click', function(params) {
-    //   alert(params.value);
-    // });
-    //
-    // chart.on('mouseover', function(params) {
-    //   console.log('mouseover: ' + params.value);
-    // });
+    this.createChart3();
 
   },
 
-
+  /**
+   * Creates a horizontal bar diagram.
+   *
+   * @param isSuperGroup - Indicates whether the map displays super groups or not.
+   */
   createHorizontalBarDiagram: function(isSuperGroup) {
 
     if (isSuperGroup) {
@@ -4908,9 +4348,12 @@ var Diagrams = {
 
   },
 
+  /**
+   * Creates a horizontal bar diagram showing the commute flows aggregated by super groups.
+   */
   createSuperGroupsHorizontalBarDiagram: function() {
 
-    var chart = echarts.init(document.getElementById('chart'));
+    var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
 
     let option = {
       tooltip: {
@@ -5031,24 +4474,35 @@ var Diagrams = {
       }
     }
 
-    chart.setOption(option);
+    dataDiagram.setOption(option);
 
-    chart.on('click', function(params) {
-      alert(params.value);
+    dataDiagram.on('click', function(params) {
+      alert(params.value); // TODO: Add the data diagram click code.
     });
 
-    chart.on('mouseover', function(params) {
-      console.log('mouseover: ' + params.value);
+    dataDiagram.on('mouseover', function(params) {
+      console.log('mouseover: ' + params.value); // Add the data diagram mouseover code.
     });
 
   },
 
+  /**
+   * Creates a stacked horizontal bar diagram showing the commute flows aggregated by groups
+   */
   createGroupsHorizontalBarDiagram: function() {
-    var chart = echarts.init(document.getElementById('chart'));
-    alert('Groups Horizontal Bar Diagram');
+
+    //var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
+    //alert('Groups Horizontal Bar Diagram');
+
+    this.createChart3();
+
   },
 
-
+  /**
+   * Creates a doughnut diagram.
+   *
+   * @param isSuperGroup - Indicates whether the map displays super groups or not.
+   */
   createDoughnutDiagram: function(isSuperGroup) {
 
     if (isSuperGroup) {
@@ -5060,18 +4514,21 @@ var Diagrams = {
 
   },
 
+  /**
+   * Creates a doughnut diagram showing the commute flows aggregated by super groups.
+   */
   createSuperGroupsDoughnutDiagram: function() {
-    var chart = echarts.init(document.getElementById('chart'));
+    var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
     alert('Supergroups Doughnut Diagram');
   },
 
+  /**
+   * Creates a doughnut diagram showing the commute flows aggregated by groups.
+   */
   createGroupsDoughnutDiagram: function() {
-    var chart = echarts.init(document.getElementById('chart'));
+    var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
     alert('Groups Doughnut Diagram');
   },
-
-
-
 
   /**
    * Creates a data visualization diagram.
@@ -5094,9 +4551,10 @@ var Diagrams = {
 
 
 
+
   createChart1: function() {
 
-    var chart = echarts.init(document.getElementById('chart'));
+    var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
 
     // Stacked Column
     option = {
@@ -5515,13 +4973,13 @@ var Diagrams = {
       ]
     };
 
-    chart.setOption(option);
+    dataDiagram.setOption(option);
 
-    chart.on('click', function(params) {
+    dataDiagram.on('click', function(params) {
       alert(params.value);
     });
 
-    chart.on('mouseover', function(params) {
+    dataDiagram.on('mouseover', function(params) {
       console.log('mouseover: ' + params.value);
     });
 
@@ -5530,7 +4988,7 @@ var Diagrams = {
 
   createChart2: function() {
 
-    var chart = echarts.init(document.getElementById('chart'));
+    var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
 
     option = {
       tooltip: {
@@ -6098,17 +5556,438 @@ var Diagrams = {
       ]
     };
 
-    chart.setOption(option);
+    dataDiagram.setOption(option);
 
-    chart.on('click', function(params) {
+    dataDiagram.on('click', function(params) {
       alert(params.value);
     });
 
-    chart.on('mouseover', function(params) {
+    dataDiagram.on('mouseover', function(params) {
       console.log('mouseover: ' + params.value);
     });
 
-  }
+  },
+
+
+  createChart3: function() {
+
+    var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
+
+    // Stacked Column
+    option = {
+      tooltip: {
+        show: false, // if false then onhover on each stack - if true then on hover on each stack
+        showContent: false,
+        trigger: 'axis', // 'item' | 'axis'
+        axisPointer: {
+          type: 'cross' // 'line' | 'cross' | 'shadow'
+        }
+      },
+      // calculable: true,
+      xAxis: [
+        {
+          type: 'category',
+          show: true,
+          axisTick: {
+            show: true,
+            interval: 0
+          },
+          axisLabel: {
+            show: false
+          },
+          data: [
+            'Retail and Services',
+            'Blue Collar Traits',
+            'Non car commuting young professionals',
+            'Admin / Secretary',
+            'Part time service supporters',
+            'Health and Education',
+            'Skilled and manufacturing workers',
+            'Professional and managerial workers',
+            'Science, IT and Finance Professionals'
+          ]
+        }
+      ],
+      yAxis: [
+        {
+          type: 'value',
+          show: true
+        },
+        {
+          type: 'value',
+          show: true,
+          splitLine:{
+            show: false
+          }
+        }
+      ],
+      color: [
+        '#1705d6', '#1705d6', '#1705d6', '#1705d6', '#1705d6',
+        '#11ea44', '#11ea44', '#11ea44',
+        '#cc4704', '#cc4704', '#cc4704', '#cc4704', '#cc4704',
+        '#6b2ed4', '#6b2ed4', '#6b2ed4',
+        '#d60003', '#d60003', '#d60003', '#d60003', '#d60003',
+        '#23cfb8', '#23cfb8', '#23cfb8', '#23cfb8', '#23cfb8',
+        '#e1de00', '#e1de00', '#e1de00', '#e1de00', '#e1de00',
+        '#de079a', '#de079a', '#de079a', '#de079a', '#de079a',
+        '#1fcd5f', '#1fcd5f', '#1fcd5f', '#1fcd5f'
+      ],
+      series: [
+        {
+          name: 'g11 - Building Sales Execs',
+          type: 'bar',
+          stack: 's1',
+          data: [ {
+            value : 11,
+            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
+            itemStyle: { color: '#1705d6' }    //custom itemStyle=，applicable to the item only, see itemStyle
+          }, '-', '-', '-', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g12 - Established in Sales and Customer Care',
+          type: 'bar',
+          stack: 's1',
+          data: [ {
+            value : 12,
+            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
+            itemStyle: { color: '#1705d6' }    //custom itemStyle=，applicable to the item only, see itemStyle
+          }, '-', '-', '-', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g13 - Back Office Functions',
+          type: 'bar',
+          stack: 's1',
+          data: [ {
+            value : 13,
+            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
+            itemStyle: { color: '#1705d6' }    //custom itemStyle=，applicable to the item only, see itemStyle
+          }, '-', '-', '-', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g14 - Multicultural Hospitality',
+          type: 'bar',
+          stack: 's1',
+          data: [ {
+            value : 14,
+            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
+            itemStyle: { color: '#1705d6' }    //custom itemStyle=，applicable to the item only, see itemStyle
+          }, '-', '-', '-', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g15 - On the Shop Floor',
+          type: 'bar',
+          stack: 's1',
+          data: [ {
+            value : 15,
+            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
+            itemStyle: { color: '#1705d6' }    //custom itemStyle=，applicable to the item only, see itemStyle
+          }, '-', '-', '-', '-', '-', '-', '-', '-' ]
+        },
+
+        {
+          name: 'g21 - Multicultural Routine Logistics',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', {
+            value : 21,
+            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
+            itemStyle: { color: '#11ea44' }    //custom itemStyle=，applicable to the item only, see itemStyle
+          }, '-', '-', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g22 - On the Production Line',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', {
+            value : 22,
+            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
+            itemStyle: { color: '#11ea44' }    //custom itemStyle=，applicable to the item only, see itemStyle
+          }, '-', '-', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g23 - Skilled Trades in Mixed Economies',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', {
+            value : 23,
+            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
+            itemStyle: { color: '#11ea44' }    //custom itemStyle=，applicable to the item only, see itemStyle
+          }, '-', '-', '-', '-', '-', '-', '-' ]
+        },
+
+        {
+          name: 'g31 - Professionals Who Cycle',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '31', '-', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g32 - Sustainable Hospitality',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '32', '-', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g33 - Welfare Workers on the Bus',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '33', '-', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g34 - Active Mixed Commuters',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '34', '-', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g35 - All Aboard',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '35', '-', '-', '-', '-', '-', '-' ]
+        },
+
+        {
+          name: 'g41 - Civic Duties',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '41', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g42 - Professional Support Services',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '42', '-', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g43 - Young Clericals',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '43', '-', '-', '-', '-', '-' ]
+        },
+
+        {
+          name: 'g51 - Routine Care and Leisure',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '51', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g52 - Multicultural Workers in Welfare',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '52', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g53 - Mixed Roles in Hospitality',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '53', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g54 - Here to Help',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '54', '-', '-', '-', '-' ]
+        },
+        {
+          name: 'g55 - Established in Mixed Service Economies',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '55', '-', '-', '-', '-' ]
+        },
+
+        {
+          name: 'g61 - Early Career Educators',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '61', '-', '-', '-' ]
+        },
+        {
+          name: 'g62 - Helping Hands in Education',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '62', '-', '-', '-' ]
+        },
+        {
+          name: 'g63 - Supporting Health and Wellbeing',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '63', '-', '-', '-' ]
+        },
+        {
+          name: 'g64 - Established Nurturers',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '64', '-', '-', '-' ]
+        },
+        {
+          name: 'g65 - Health and Wellbeing Professionals',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '65', '-', '-', '-' ]
+        },
+
+        {
+          name: 'g71 - Retail Relations',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '71', '-', '-' ]
+        },
+        {
+          name: 'g72 - Factory Settings',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '72', '-', '-' ]
+        },
+        {
+          name: 'g73 - Young Construction Crews',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '73', '-', '-' ]
+        },
+        {
+          name: 'g74 - Mixed Warehousing and Distribution',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '74', '-', '-' ]
+        },
+        {
+          name: 'g75 - Part-Time Traders, Movers and Makers',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '75', '-', '-' ]
+        },
+
+        {
+          name: 'g81 - Mixed Mid-Career Professionals',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '-', '81', '-' ]
+        },
+        {
+          name: 'g82 - Managing the High Street',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '-', '82', '-' ]
+        },
+        {
+          name: 'g83 - Manufacturing Execs',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '-', '83', '-' ]
+        },
+        {
+          name: 'g84 - Early Career Professionals',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '-', '84', '-' ]
+        },
+        {
+          name: 'g85 - Aspiring Flyers',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '-', '85', '-' ]
+        },
+
+        {
+          name: 'g91 - Early Career Innovators',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '-', '-', {
+            value : 91,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#1fcd5f',
+                label: {
+                  show: true,
+                  position: 'top'
+                }
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          } ]
+        },
+        {
+          name: 'g92 - Administering the City',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '-', '-', {
+            value : 92,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#1fcd5f',
+                label: {
+                  show: true,
+                  position: 'top'
+                }
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          } ]
+        },
+        {
+          name: 'g93 - Financial Execs',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '-', '-', {
+            value : 93,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#1fcd5f',
+                label: {
+                  show: true,
+                  position: 'top'
+                }
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          } ]
+        },
+        {
+          name: 'g94 - Techs and Professionals in Welfare',
+          type: 'bar',
+          stack: 's1',
+          data: [ '-', '-', '-', '-', '-', '-', '-', '-', {
+            value : 94,
+            //tooltip: {},
+            itemStyle: {
+              normal: {
+                color: '#1fcd5f',
+                label: {
+                  show: true,
+                  position: 'insideTop' // 'inside' | 'left' | 'bottom' | 'insideLeft' | 'insideRight' | 'insideTop' | 'insideBottom'
+                }
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          } ]
+        }
+
+      ]
+    };
+
+    dataDiagram.setOption(option);
+
+    dataDiagram.on('click', function(params) {
+      alert(params.value);
+    });
+
+    dataDiagram.on('mouseover', function(params) {
+      console.log('mouseover: ' + params.value);
+    });
+
+  },
 
 
 };
