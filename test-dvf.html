@@ -234,20 +234,20 @@
     </div>
 
     <div class="cf-row">
-      <strong>Select the type of flow:</strong>
+      <strong>Traveling to work:</strong>
 
       <div id="toggleRW2WRCommuteFlowsButtonsVM"
            class="btn-group btn-group-justified" role="group">
         <div class="btn-group" role="group">
           <button id="rwButton" type="button" class="btn btn-danger"
                   v-bind:class="[queryField == 'rc' ? 'active' : '']" v-on:click="setFilterArgument('rc')">
-            Travel out to work
+            Outwards
           </button>
         </div>
         <div class="btn-group" role="group">
           <button id="wrButton" type="button" class="btn btn-danger"
                   v-bind:class="[queryField == 'wc' ? 'active' : '']" v-on:click="setFilterArgument('wc')">
-            Travel in to work
+            Inwards
           </button>
         </div>
       </div>
