@@ -834,7 +834,7 @@ var MapLayers = {
     /**
      * The leaflet map layer used to render the weighted centroid of the internal commute flows MSOA.
      */
-    internalCommuteFlowsMSOAMapLayer: null,
+    internalCommuteFlowsMsoaMapLayer: null,
 
     /**
      * The GeoJSON used to create the leaflet map layer.
@@ -867,7 +867,7 @@ var MapLayers = {
      * @param msoaCode - The code of the MSOA (should be an integer number).
      * @returns {string} - A string with the MSOA code.
      */
-    getMSOAString(msoaCode) {
+    getMsoaString(msoaCode) {
       let msoaCodeString = '';
 
       if (msoaCode != null) {
@@ -899,14 +899,14 @@ var MapLayers = {
              * Raised when the mouse is over a feature.
              */
             mouseover: function() {
-              MapLayers.MSOAs.highlightMSOA(feature, layer);
+              MapLayers.MSOAs.highlightMsoa(feature, layer);
             },
 
             /**
              * Raised when the mouse is going out of a feature.
              */
             mouseout: function() {
-              MapLayers.MSOAs.resetMSOAStyle(feature, layer);
+              MapLayers.MSOAs.resetMsoaStyle(feature, layer);
             },
 
             /**
@@ -983,7 +983,7 @@ var MapLayers = {
     renderCommuteFlowPolygons: function() {
 
       // Get the MSOA field based on if it is a Residence to Work or Work to Residence trip.
-      let msoaCodeFieldName = toggleRW2WRCommuteFlowsViewModel.unusedMSOAFieldDictionary[toggleRW2WRCommuteFlowsViewModel.queryField];
+      let msoaCodeFieldName = toggleRW2WRCommuteFlowsViewModel.unusedMsoaFieldDictionary[toggleRW2WRCommuteFlowsViewModel.queryField];
 
       // Get the user selected groups.
       let gs = groupSetContentViewModel.getActiveTabSelectedGroups();
@@ -1045,29 +1045,29 @@ var MapLayers = {
      * @param feature - The feature that will be highlighted.
      * @param layer - The internal layer of the feature that will be highlighted.
      */
-    highlightMSOA: function(feature, layer) {
+    highlightMsoa: function(feature, layer) {
 
       // Get the named basemap layer.
       let namedBaseMap = toggleBaseMapViewModel.currentBaseMap;
 
       // Get the MSOA field based on if it is a Residence to Work or Work to Residence trip.
-      //let msoaCodeFieldName = toggleRW2WRCommuteFlowsViewModel.unusedMSOAFieldDictionary[toggleRW2WRCommuteFlowsViewModel.queryField];
+      //let msoaCodeFieldName = toggleRW2WRCommuteFlowsViewModel.unusedMsoaFieldDictionary[toggleRW2WRCommuteFlowsViewModel.queryField];
 
       let commuteFlowsDictionary = this.commuteFlowsDictionary;
 
-      let isCommuteFlowMSOA = false;
+      let isCommuteFlowMsoa = false;
 
       // Check out if the MSOA is participating in a commute flow.
       if (commuteFlowsDictionary != undefined || commuteFlowsDictionary != null) {
         let msoaCode = feature.properties.C;
 
         if (commuteFlowsDictionary[msoaCode] != undefined || commuteFlowsDictionary[msoaCode] != null) {
-          isCommuteFlowMSOA = true;
+          isCommuteFlowMsoa = true;
         }
       }
 
       // Highlight the current MSOA.
-      if (isCommuteFlowMSOA) {
+      if (isCommuteFlowMsoa) {
         layer.setStyle(
           this.namedBasemapLayers[namedBaseMap].highlightedCommuteFlowStyles[commuteFlowsDictionary[feature.properties.C].g]
         );
@@ -1103,29 +1103,29 @@ var MapLayers = {
      * @param feature - The feature that whose style will be reset.
      * @param layer - The internal layer of the feature whose style will be reset.
      */
-    resetMSOAStyle: function(feature, layer) {
+    resetMsoaStyle: function(feature, layer) {
 
       // Get the named basemap layer.
       let namedBaseMap = toggleBaseMapViewModel.currentBaseMap;
 
       // Get the MSOA field based on if it is a Residence to Work or Work to Residence trip.
-      //let msoaCodeFieldName = toggleRW2WRCommuteFlowsViewModel.unusedMSOAFieldDictionary[toggleRW2WRCommuteFlowsViewModel.queryField];
+      //let msoaCodeFieldName = toggleRW2WRCommuteFlowsViewModel.unusedMsoaFieldDictionary[toggleRW2WRCommuteFlowsViewModel.queryField];
 
       let commuteFlowsDictionary = this.commuteFlowsDictionary;
 
-      let isCommuteFlowMSOA = false;
+      let isCommuteFlowMsoa = false;
 
       // Check out if the MSOA is participating in a commute flow.
       if (commuteFlowsDictionary != undefined || commuteFlowsDictionary != null) {
         let msoaCode = feature.properties.C;
 
         if (commuteFlowsDictionary[msoaCode] != undefined || commuteFlowsDictionary[msoaCode] != null) {
-          isCommuteFlowMSOA = true;
+          isCommuteFlowMsoa = true;
         }
       }
 
       // Reset the style of the MSOA.
-      if (isCommuteFlowMSOA) {
+      if (isCommuteFlowMsoa) {
         layer.setStyle(
           this.namedBasemapLayers[namedBaseMap].commuteFlowStyles[commuteFlowsDictionary[feature.properties.C].g]
         );
@@ -1867,7 +1867,7 @@ var MapLayers = {
     renderLayer: function() {
 
       // Get the MSOA field based on if it is a Residence to Work or Work to Residence trip.
-      //let msoaCodeFieldName = toggleRW2WRCommuteFlowsViewModel.unusedMSOAFieldDictionary[toggleRW2WRCommuteFlowsViewModel.queryField];
+      //let msoaCodeFieldName = toggleRW2WRCommuteFlowsViewModel.unusedMsoaFieldDictionary[toggleRW2WRCommuteFlowsViewModel.queryField];
 
       // Get the current basemap. This will be used to decide how the commute flow polygons will be rendered.
       let currentBaseMap = toggleBaseMapViewModel.currentBaseMap;
@@ -1959,7 +1959,7 @@ var MapLayers = {
     /**
      * Creates the internal commute flows MSOAs layer.
      */
-    createInternalCommuteFlowsMSOALayer: function() {
+    createInternalCommuteFlowsMsoaLayer: function() {
 
       if (this.internalCommuteFlowsGeoGSON != undefined || this.internalCommuteFlowsGeoGSON != null) {
         if (this.internalCommuteFlowsGeoGSON.features != undefined || this.internalCommuteFlowsGeoGSON.features != null) {
@@ -2008,7 +2008,7 @@ var MapLayers = {
           let coords = feature.geometry.coordinates;
 
           // Create a marker located on the weighted centroid by providing an html.
-          this.internalCommuteFlowsMSOAMapLayer = L.BeautifyMarker.marker([coords[1], coords[0]], {
+          this.internalCommuteFlowsMsoaMapLayer = L.BeautifyMarker.marker([coords[1], coords[0]], {
             icon: L.BeautifyIcon.icon({
               isAlphaNumericIcon: true,
               iconAnchor: [10, 10],
@@ -2023,7 +2023,7 @@ var MapLayers = {
           });
 
           // Add the marker layer on to the map.
-          this.internalCommuteFlowsMSOAMapLayer.addTo(Spatial.map);
+          this.internalCommuteFlowsMsoaMapLayer.addTo(Spatial.map);
 
         }
       }
@@ -2033,10 +2033,10 @@ var MapLayers = {
     /**
      * Removes the internal commute flows MSOAs layer.
      */
-    removeInternalCommuteFlowsMSOALayer: function() {
+    removeInternalCommuteFlowsMsoaLayer: function() {
 
-      if (this.internalCommuteFlowsMSOAMapLayer != undefined || this.internalCommuteFlowsMSOAMapLayer != null) {
-        this.internalCommuteFlowsMSOAMapLayer.remove();
+      if (this.internalCommuteFlowsMsoaMapLayer != undefined || this.internalCommuteFlowsMsoaMapLayer != null) {
+        this.internalCommuteFlowsMsoaMapLayer.remove();
       }
 
     }
@@ -2490,21 +2490,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#1705d6' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
@@ -2518,21 +2518,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#1705d6' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
@@ -2546,21 +2546,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#1705d6' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
@@ -2574,21 +2574,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#1705d6' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
@@ -2602,21 +2602,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#1705d6' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1705d6', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1705d6' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#1705d6' },
@@ -2630,21 +2630,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#11ea44' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#11ea44' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#11ea44' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#11ea44' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#11ea44' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#11ea44' },
@@ -2658,21 +2658,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#11ea44' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#11ea44' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#11ea44' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#11ea44' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#11ea44' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#11ea44' },
@@ -2686,21 +2686,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#11ea44' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#11ea44' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#11ea44' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#11ea44' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#11ea44', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#11ea44' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#11ea44' },
@@ -2714,21 +2714,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#cc4704' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
@@ -2742,21 +2742,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#cc4704' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
@@ -2770,21 +2770,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#cc4704' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
@@ -2798,21 +2798,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#cc4704' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
@@ -2826,21 +2826,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#cc4704' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#cc4704', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#cc4704' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#cc4704' },
@@ -2854,21 +2854,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#6b2ed4' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#6b2ed4' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#6b2ed4' },
@@ -2882,21 +2882,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#6b2ed4' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#6b2ed4' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#6b2ed4' },
@@ -2910,21 +2910,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#6b2ed4' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#6b2ed4' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#6b2ed4', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#6b2ed4' },
@@ -2938,21 +2938,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#d60003' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#d60003' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#d60003' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
@@ -2966,21 +2966,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#d60003' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#d60003' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#d60003' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
@@ -2994,21 +2994,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#d60003' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#d60003' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#d60003' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
@@ -3022,21 +3022,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#d60003' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#d60003' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#d60003' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
@@ -3050,21 +3050,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#6b2ed4' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#d60003' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#d60003' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#d60003', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#d60003' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#d60003' },
@@ -3078,21 +3078,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#191970', fillColor: '#23cfb8' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
@@ -3106,21 +3106,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#191970', fillColor: '#23cfb8' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
@@ -3134,21 +3134,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#191970', fillColor: '#23cfb8' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
@@ -3162,21 +3162,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#191970', fillColor: '#23cfb8' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
@@ -3190,21 +3190,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#191970', fillColor: '#23cfb8' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#23cfb8', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#23cfb8' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#483d8b', fillColor: '#23cfb8' },
@@ -3218,21 +3218,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
@@ -3246,21 +3246,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
@@ -3274,21 +3274,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
@@ -3302,21 +3302,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
@@ -3330,21 +3330,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#ff4500', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#e1de00', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#e1de00' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#000080', color: '#000080', fillColor: '#e1de00' },
@@ -3358,21 +3358,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#de079a' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
@@ -3386,21 +3386,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#de079a' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
@@ -3414,21 +3414,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#de079a' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
@@ -3442,21 +3442,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#de079a' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
@@ -3470,21 +3470,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#e6e6fa', fillColor: '#de079a' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#de079a', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#de079a' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#e6e6fA', fillColor: '#de079a' },
@@ -3498,21 +3498,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#1fcd5f' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
@@ -3526,21 +3526,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#1fcd5f' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
@@ -3554,21 +3554,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#1fcd5f' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
@@ -3582,21 +3582,21 @@ var Classification = {
       styles: {
         dark: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#e1de00', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#c0c0c0', color: '#008080', fillColor: '#1fcd5f' },
         },
         light: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#4169e1', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
         },
         roads: {
           msoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 0.5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
-          msoaHighlightedCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
+          highlightedMsoaCommuteFlowStyle: { stroke: true, color: '#282828', weight: 5, opacity: 1, fill: true, fillColor: '#1fcd5f', fillOpacity: 0.7 },
           commuteFlowStyle: { stroke: true, opacity: 0.7, color: '#1fcd5f' },
           highlightedCommuteFlowStyle: { stroke: true, opacity: 0.7, color: '#ffc300' },
           internalCommuteFlowMarkerStyle: { borderColor: '#e6e6fA', color: '#008080', fillColor: '#1fcd5f' },
@@ -4236,7 +4236,7 @@ var Diagrams = {
     };
 
     // Check if the scatter diagram is visible.
-    if (statisticsViewModel.isMSOAScatterDiagramVisible) {
+    if (statisticsViewModel.isMsoaScatterDiagramVisible) {
       option.series.push({
         name: 'MSOAs',
         type: 'scatter',
@@ -4298,7 +4298,7 @@ var Diagrams = {
         this.scatterDiagramStyle.normal.label.position = 'top';
 
         // Add the value and style of the scatter point.
-        if (statisticsViewModel.isMSOAScatterDiagramVisible) {
+        if (statisticsViewModel.isMsoaScatterDiagramVisible) {
           option.series[1].data.push({
             value: Statistics.superGroups[sgKey].count,
             itemStyle: this.scatterDiagramStyle
@@ -4402,7 +4402,7 @@ var Diagrams = {
     };
 
     // Check if the scatter diagram is visible.
-    if (statisticsViewModel.isMSOAScatterDiagramVisible) {
+    if (statisticsViewModel.isMsoaScatterDiagramVisible) {
       option.series.push({
         name: 'MSOAs',
         type: 'scatter',
@@ -4464,7 +4464,7 @@ var Diagrams = {
         });
 
         // Add the value and style of the scatter point.
-        if (statisticsViewModel.isMSOAScatterDiagramVisible) {
+        if (statisticsViewModel.isMsoaScatterDiagramVisible) {
           option.series[1].data.push({
             value: Statistics.superGroups[sgKey].count,
             itemStyle: this.scatterDiagramStyle
@@ -6038,8 +6038,8 @@ var Spatial = {
     MapLayers.CommuteFlows.clearLayer();
     MapLayers.CommuteFlows.geoJSON = null;
 
-    // MapLayers.MSOAs.createInternalCommuteFlowsMSOALayer();
-    //MapLayers.CommuteFlows.createInternalCommuteFlowsMSOALayer();
+    // MapLayers.MSOAs.createInternalCommuteFlowsMsoaLayer();
+    //MapLayers.CommuteFlows.createInternalCommuteFlowsMsoaLayer();
 
     Spatial.setInitialBaseMapLayer();
 
@@ -6074,8 +6074,8 @@ var Spatial = {
 
       MapLayers.MSOAs.resetStyleCommuteFlowPolygons();
       MapLayers.MSOAs.renderCommuteFlowPolygons();
-      MapLayers.CommuteFlows.removeInternalCommuteFlowsMSOALayer();
-      MapLayers.CommuteFlows.createInternalCommuteFlowsMSOALayer();
+      MapLayers.CommuteFlows.removeInternalCommuteFlowsMsoaLayer();
+      MapLayers.CommuteFlows.createInternalCommuteFlowsMsoaLayer();
     }
     else if (toggleCommuteFlowRenderingMethodViewModel.method == ':cfPolygonsWithLines') {
       //alert('Render Polygons and Lines');
@@ -6086,8 +6086,8 @@ var Spatial = {
 
       MapLayers.CommuteFlows.clearLayer();
       MapLayers.CommuteFlows.renderLayer();
-      MapLayers.CommuteFlows.removeInternalCommuteFlowsMSOALayer();
-      MapLayers.CommuteFlows.createInternalCommuteFlowsMSOALayer();
+      MapLayers.CommuteFlows.removeInternalCommuteFlowsMsoaLayer();
+      MapLayers.CommuteFlows.createInternalCommuteFlowsMsoaLayer();
     }
 
   },
@@ -6284,8 +6284,8 @@ var API = {
           MapLayers.MSOAs.resetStyleCommuteFlowPolygons();
           MapLayers.CommuteFlows.clearLayer();
           MapLayers.MSOAs.renderCommuteFlowPolygons();
-          MapLayers.CommuteFlows.removeInternalCommuteFlowsMSOALayer();
-          MapLayers.CommuteFlows.createInternalCommuteFlowsMSOALayer();
+          MapLayers.CommuteFlows.removeInternalCommuteFlowsMsoaLayer();
+          MapLayers.CommuteFlows.createInternalCommuteFlowsMsoaLayer();
 
           statisticsViewModel.show();
           Diagrams.createDiagram();
@@ -6297,8 +6297,8 @@ var API = {
           MapLayers.MSOAs.resetStyleCommuteFlowPolygons();
           MapLayers.CommuteFlows.clearLayer();
           MapLayers.CommuteFlows.renderLayer();
-          MapLayers.CommuteFlows.removeInternalCommuteFlowsMSOALayer();
-          MapLayers.CommuteFlows.createInternalCommuteFlowsMSOALayer();
+          MapLayers.CommuteFlows.removeInternalCommuteFlowsMsoaLayer();
+          MapLayers.CommuteFlows.createInternalCommuteFlowsMsoaLayer();
 
           statisticsViewModel.show();
           Diagrams.createDiagram();
@@ -6388,7 +6388,7 @@ var statisticsViewModel = new Vue({
     /**
      * Indicates whether the MSOA scatter diagram is visible or not.
      */
-    isMSOAScatterDiagramVisible: true,
+    isMsoaScatterDiagramVisible: true,
 
     /**
      * Indicates whether the descriptive statistics marker lines is visible or not.
@@ -6442,11 +6442,11 @@ var statisticsViewModel = new Vue({
     /**
      * Toggles the MSOA scatter diagram on/off.
      */
-    toggleMSOAScatterDiagram: function(event) {
+    toggleMsoaScatterDiagram: function(event) {
 
-      this.isMSOAScatterDiagramVisible = !this.isMSOAScatterDiagramVisible;
+      this.isMsoaScatterDiagramVisible = !this.isMsoaScatterDiagramVisible;
 
-      document.getElementById('toggleMSOAScatterDiagramButton').blur();
+      document.getElementById('toggleMsoaScatterDiagramButton').blur();
 
       Diagrams.createDiagram();
 
@@ -6556,7 +6556,7 @@ var currentMsoaViewModel = new Vue({
      * @param nmw - The name of the MSOA in Welsh.
      */
     updateView: function(code, nm, nmw) {
-      let msoaCode = MapLayers.MSOAs.getMSOAString(code);
+      let msoaCode = MapLayers.MSOAs.getMsoaString(code);
 
       if (code < MapLayers.MSOAs.codeRanges.Wales.min) {
         // This is an English MSOA.
@@ -6670,7 +6670,7 @@ var toggleRW2WRCommuteFlowsViewModel = new Vue({
      * The dictionary of the other field name.
      * It is used to retrieve the unused MSOA code field name based on the query field that has been set.
      */
-    unusedMSOAFieldDictionary: {
+    unusedMsoaFieldDictionary: {
       'rc': 'wc',
       'wc': 'rc'
     },
