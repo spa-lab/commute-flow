@@ -5639,8 +5639,15 @@ var Diagrams = {
           stack: 's1',
           data: [ {
             value : 11,
-            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
-            itemStyle: { color: '#1705d6' }    //custom itemStyle=，applicable to the item only, see itemStyle
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#1705d6'
+              },
+              emphasis: {
+                barBorderColor: 'DeepSkyBlue'
+              }
+            }
           }, '-', '-', '-', '-', '-', '-', '-', '-' ]
         },
         {
@@ -5649,8 +5656,15 @@ var Diagrams = {
           stack: 's1',
           data: [ {
             value : 12,
-            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
-            itemStyle: { color: '#1705d6' }    //custom itemStyle=，applicable to the item only, see itemStyle
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#1705d6'
+              },
+              emphasis: {
+                barBorderColor: 'DeepSkyBlue'
+              }
+            }
           }, '-', '-', '-', '-', '-', '-', '-', '-' ]
         },
         {
@@ -5659,8 +5673,15 @@ var Diagrams = {
           stack: 's1',
           data: [ {
             value : 13,
-            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
-            itemStyle: { color: '#1705d6' }    //custom itemStyle=，applicable to the item only, see itemStyle
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#1705d6'
+              },
+              emphasis: {
+                barBorderColor: 'DeepSkyBlue'
+              }
+            }
           }, '-', '-', '-', '-', '-', '-', '-', '-' ]
         },
         {
@@ -5669,8 +5690,15 @@ var Diagrams = {
           stack: 's1',
           data: [ {
             value : 14,
-            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
-            itemStyle: { color: '#1705d6' }    //custom itemStyle=，applicable to the item only, see itemStyle
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#1705d6'
+              },
+              emphasis: {
+                barBorderColor: 'DeepSkyBlue'
+              }
+            }
           }, '-', '-', '-', '-', '-', '-', '-', '-' ]
         },
         {
@@ -5679,8 +5707,15 @@ var Diagrams = {
           stack: 's1',
           data: [ {
             value : 15,
-            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
-            itemStyle: { color: '#1705d6' }    //custom itemStyle=，applicable to the item only, see itemStyle
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#1705d6'
+              },
+              emphasis: {
+                barBorderColor: 'DeepSkyBlue'
+              }
+            }
           }, '-', '-', '-', '-', '-', '-', '-', '-' ]
         },
 
@@ -5690,8 +5725,15 @@ var Diagrams = {
           stack: 's1',
           data: [ '-', {
             value : 21,
-            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
-            itemStyle: { color: '#11ea44' }    //custom itemStyle=，applicable to the item only, see itemStyle
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#11ea44'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
           }, '-', '-', '-', '-', '-', '-', '-' ]
         },
         {
@@ -5700,8 +5742,15 @@ var Diagrams = {
           stack: 's1',
           data: [ '-', {
             value : 22,
-            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
-            itemStyle: { color: '#11ea44' }    //custom itemStyle=，applicable to the item only, see itemStyle
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#11ea44'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
           }, '-', '-', '-', '-', '-', '-', '-' ]
         },
         {
@@ -5710,8 +5759,15 @@ var Diagrams = {
           stack: 's1',
           data: [ '-', {
             value : 23,
-            //tooltip:{},     //custom tooltip，applicable to the item only, see tooltip
-            itemStyle: { color: '#11ea44' }    //custom itemStyle=，applicable to the item only, see itemStyle
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#11ea44'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
           }, '-', '-', '-', '-', '-', '-', '-' ]
         },
 
@@ -5719,174 +5775,483 @@ var Diagrams = {
           name: 'g31 - Professionals Who Cycle',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '31', '-', '-', '-', '-', '-', '-' ]
+          data: [ '-', '-', {
+            value : 31,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#cc4704'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-', '-', '-', '-' ]
         },
         {
           name: 'g32 - Sustainable Hospitality',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '32', '-', '-', '-', '-', '-', '-' ]
+          data: [ '-', '-', {
+            value : 32,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#cc4704'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-', '-', '-', '-' ]
         },
         {
           name: 'g33 - Welfare Workers on the Bus',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '33', '-', '-', '-', '-', '-', '-' ]
+          data: [ '-', '-', {
+            value : 33,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#cc4704'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-', '-', '-', '-' ]
         },
         {
           name: 'g34 - Active Mixed Commuters',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '34', '-', '-', '-', '-', '-', '-' ]
+          data: [ '-', '-', {
+            value : 34,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#cc4704'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-', '-', '-', '-' ]
         },
         {
           name: 'g35 - All Aboard',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '35', '-', '-', '-', '-', '-', '-' ]
+          data: [ '-', '-', {
+            value : 35,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#cc4704'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-', '-', '-', '-' ]
         },
 
         {
           name: 'g41 - Civic Duties',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '41', '-', '-', '-', '-', '-' ]
+          data: [ '-', '-', '-', {
+            value : 41,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#6b2ed4'
+              },
+              emphasis: {
+                barBorderColor: 'DeepSkyBlue'
+              }
+            }
+          }, '-', '-', '-', '-', '-' ]
         },
         {
           name: 'g42 - Professional Support Services',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '42', '-', '-', '-', '-', '-' ]
+          data: [ '-', '-', '-', {
+            value : 42,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#6b2ed4'
+              },
+              emphasis: {
+                barBorderColor: 'DeepSkyBlue'
+              }
+            }
+          }, '-', '-', '-', '-', '-' ]
         },
         {
           name: 'g43 - Young Clericals',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '43', '-', '-', '-', '-', '-' ]
+          data: [ '-', '-', '-', {
+            value : 43,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#6b2ed4'
+              },
+              emphasis: {
+                barBorderColor: 'DeepSkyBlue'
+              }
+            }
+          }, '-', '-', '-', '-', '-' ]
         },
 
         {
           name: 'g51 - Routine Care and Leisure',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '51', '-', '-', '-', '-' ]
+          data: [ '-', '-', '-', '-', {
+            value : 51,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#d60003'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-', '-' ]
         },
         {
           name: 'g52 - Multicultural Workers in Welfare',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '52', '-', '-', '-', '-' ]
+          data: [ '-', '-', '-', '-', {
+            value : 52,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#d60003'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-', '-' ]
         },
         {
           name: 'g53 - Mixed Roles in Hospitality',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '53', '-', '-', '-', '-' ]
+          data: [ '-', '-', '-', '-', {
+            value : 53,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#d60003'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-', '-' ]
         },
         {
           name: 'g54 - Here to Help',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '54', '-', '-', '-', '-' ]
+          data: [ '-', '-', '-', '-', {
+            value : 54,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#d60003'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-', '-' ]
         },
         {
           name: 'g55 - Established in Mixed Service Economies',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '55', '-', '-', '-', '-' ]
+          data: [ '-', '-', '-', '-', {
+            value : 55,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#d60003'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-', '-' ]
         },
 
         {
           name: 'g61 - Early Career Educators',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '61', '-', '-', '-' ]
+          data: [ '-', '-', '-', '-', '-', {
+            value : 61,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#23cfb8'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-' ]
         },
         {
           name: 'g62 - Helping Hands in Education',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '62', '-', '-', '-' ]
+          data: [ '-', '-', '-', '-', '-', {
+            value : 62,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#23cfb8'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-' ]
         },
         {
           name: 'g63 - Supporting Health and Wellbeing',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '63', '-', '-', '-' ]
+          data: [ '-', '-', '-', '-', '-', {
+            value : 63,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#23cfb8'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-' ]
         },
         {
           name: 'g64 - Established Nurturers',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '64', '-', '-', '-' ]
+          data: [ '-', '-', '-', '-', '-', {
+            value : 64,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#23cfb8'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-' ]
         },
         {
           name: 'g65 - Health and Wellbeing Professionals',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '65', '-', '-', '-' ]
+          data: [ '-', '-', '-', '-', '-', {
+            value : 65,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#23cfb8'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-', '-' ]
         },
 
         {
           name: 'g71 - Retail Relations',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '-', '71', '-', '-' ]
+          data: [ '-', '-', '-', '-', '-', '-', {
+            value : 71,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#e1de00'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-' ]
         },
         {
           name: 'g72 - Factory Settings',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '-', '72', '-', '-' ]
+          data: [ '-', '-', '-', '-', '-', '-', {
+            value : 72,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#e1de00'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-' ]
         },
         {
           name: 'g73 - Young Construction Crews',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '-', '73', '-', '-' ]
+          data: [ '-', '-', '-', '-', '-', '-', {
+            value : 73,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#e1de00'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-' ]
         },
         {
           name: 'g74 - Mixed Warehousing and Distribution',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '-', '74', '-', '-' ]
+          data: [ '-', '-', '-', '-', '-', '-', {
+            value : 74,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#e1de00'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-' ]
         },
         {
           name: 'g75 - Part-Time Traders, Movers and Makers',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '-', '75', '-', '-' ]
+          data: [ '-', '-', '-', '-', '-', '-', {
+            value : 75,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#e1de00'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-', '-' ]
         },
 
         {
           name: 'g81 - Mixed Mid-Career Professionals',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '-', '-', '81', '-' ]
+          data: [ '-', '-', '-', '-', '-', '-', '-', {
+            value : 81,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#de079a'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-' ]
         },
         {
           name: 'g82 - Managing the High Street',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '-', '-', '82', '-' ]
+          data: [ '-', '-', '-', '-', '-', '-', '-', {
+            value : 82,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#de079a'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-' ]
         },
         {
           name: 'g83 - Manufacturing Execs',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '-', '-', '83', '-' ]
+          data: [ '-', '-', '-', '-', '-', '-', '-', {
+            value : 83,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#de079a'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-' ]
         },
         {
           name: 'g84 - Early Career Professionals',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '-', '-', '84', '-' ]
+          data: [ '-', '-', '-', '-', '-', '-', '-', {
+            value : 84,
+            //tooltip:{},
+            itemStyle: {
+              normal: {
+                color: '#de079a'
+              },
+              emphasis: {
+                barBorderColor: 'DarkSlateBlue'
+              }
+            }
+          }, '-' ]
         },
         {
           name: 'g85 - Aspiring Flyers',
           type: 'bar',
           stack: 's1',
-          data: [ '-', '-', '-', '-', '-', '-', '-', '85', '-' ]
+          data: [ '-', '-', '-', '-', '-', '-', '-',
+            {
+              value : 85,
+              //tooltip:{},
+              itemStyle: {
+                normal: {
+                  color: '#de079a'
+                },
+                emphasis: {
+                  barBorderColor: 'DarkSlateBlue'
+                }
+              }
+            }, '-' ]
         },
 
         {
@@ -5898,11 +6263,7 @@ var Diagrams = {
             //tooltip:{},
             itemStyle: {
               normal: {
-                color: '#1fcd5f',
-                label: {
-                  show: true,
-                  position: 'top'
-                }
+                color: '#1fcd5f'
               },
               emphasis: {
                 barBorderColor: 'DarkSlateBlue'
@@ -5919,11 +6280,7 @@ var Diagrams = {
             //tooltip:{},
             itemStyle: {
               normal: {
-                color: '#1fcd5f',
-                label: {
-                  show: true,
-                  position: 'top'
-                }
+                color: '#1fcd5f'
               },
               emphasis: {
                 barBorderColor: 'DarkSlateBlue'
@@ -5940,11 +6297,7 @@ var Diagrams = {
             //tooltip:{},
             itemStyle: {
               normal: {
-                color: '#1fcd5f',
-                label: {
-                  show: true,
-                  position: 'top'
-                }
+                color: '#1fcd5f'
               },
               emphasis: {
                 barBorderColor: 'DarkSlateBlue'
@@ -5961,11 +6314,7 @@ var Diagrams = {
             //tooltip: {},
             itemStyle: {
               normal: {
-                color: '#1fcd5f',
-                label: {
-                  show: true,
-                  position: 'insideTop' // 'inside' | 'left' | 'bottom' | 'insideLeft' | 'insideRight' | 'insideTop' | 'insideBottom'
-                }
+                color: '#1fcd5f'
               },
               emphasis: {
                 barBorderColor: 'DarkSlateBlue'
