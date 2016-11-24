@@ -6321,7 +6321,125 @@ var Diagrams = {
               }
             }
           } ]
+        },
+
+
+        {
+          name: 'MSOAs',
+          type: 'scatter',
+          tooltip: {
+            show: true,
+            showContent: true,
+            trigger: 'item', // 'item' | 'axis'
+            axisPointer: {
+              type: 'shadow' // 'line' | 'cross' | 'shadow'
+            },
+            formatter: '{a} : {c}'
+          },
+          data: [
+            {
+              value: 5,
+              itemStyle: {
+                normal: {
+                  color: '#d9534f'
+                },
+                emphasis: {
+                  color: '#ac2925'
+                }
+              }
+            },
+            {
+              value: 15,
+              itemStyle: {
+                normal: {
+                  color: '#d9534f'
+                },
+                emphasis: {
+                  color: '#ac2925'
+                }
+              }
+            },
+            {
+              value: 12,
+              itemStyle: {
+                normal: {
+                  color: '#d9534f'
+                },
+                emphasis: {
+                  color: '#ac2925'
+                }
+              }
+            },
+            {
+              value: 20,
+              itemStyle: {
+                normal: {
+                  color: '#d9534f'
+                },
+                emphasis: {
+                  color: '#ac2925'
+                }
+              }
+            },
+            {
+              value: 25,
+              itemStyle: {
+                normal: {
+                  color: '#d9534f'
+                },
+                emphasis: {
+                  color: '#ac2925'
+                }
+              }
+            },
+            {
+              value: 28,
+              itemStyle: {
+                normal: {
+                  color: '#d9534f'
+                },
+                emphasis: {
+                  color: '#ac2925'
+                }
+              }
+            },
+            {
+              value: 16,
+              itemStyle: {
+                normal: {
+                  color: '#d9534f'
+                },
+                emphasis: {
+                  color: '#ac2925'
+                }
+              }
+            },
+            {
+              value: 8,
+              itemStyle: {
+                normal: {
+                  color: '#d9534f'
+                },
+                emphasis: {
+                  color: '#ac2925'
+                }
+              }
+            },
+            {
+              value: 14,
+              itemStyle: {
+                normal: {
+                  color: '#d9534f'
+                },
+                emphasis: {
+                  color: '#ac2925'
+                }
+              }
+            }
+          ],
+          yAxisIndex: 1
         }
+
 
       ]
     };
