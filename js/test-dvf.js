@@ -4325,13 +4325,6 @@ var Diagrams = {
    */
   createGroupsVerticalBarDiagram: function() {
 
-    // var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
-    // alert('Groups Vertical Bar Diagram');
-
-    this.createChart3();
-
-
-
     var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
 
     let option = {
@@ -4370,18 +4363,8 @@ var Diagrams = {
           }
         }
       ],
-      color: [],
       series: []
     };
-
-    // Loop through the supergroups and add their names as names of the bars.
-    for (let sgKey in Classification.superGroups) {
-      if (Classification.superGroups.hasOwnProperty(sgKey)) {
-
-        option.xAxis[0].data.push(Classification.groups[sgKey].name);
-
-      }
-    }
 
     // Add the bars and scatter points if any.
     for (let gKey in Classification.groups) {
@@ -4389,56 +4372,75 @@ var Diagrams = {
 
         let baseMap = toggleBaseMapViewModel.currentBaseMap;
 
-        // Add the color of the stacked bar.
-        // TODO
+        let dataSeries = [];
 
-        // Create stacked data series.
-        for (let i = 0; i < 9; i++) {
+        // Create the data series for an individual stack.
+        for (let i = 0; i < Classification.superGroupValues.length; i++) {
 
+          let g = Classification.groups[gKey].g;
+          let sg = Classification.groups[gKey].sg;
+          let sgKey = sg.toString();
 
+          // Decide whether to add a value in the data series or a dash ('-').
+          if (i == sg - 1) {
+
+            let color = null;
+
+            if (toggleCommuteFlowRenderingMethodViewModel.method == ':cfPolygons') {
+              color = Classification.groups[gKey].styles[baseMap].msoaCommuteFlowStyle.fillColor;
+            }
+            else if (toggleCommuteFlowRenderingMethodViewModel.method == ':cfPolygonsWithLines') {
+              // TODO: See if this needs to be implemented as well.
+            }
+            else if (toggleCommuteFlowRenderingMethodViewModel.method == ':cfLines') {
+              color = Classification.groups[gKey].styles[baseMap].commuteFlowStyle.fillColor;
+            }
+
+            // A Value will be added.
+            dataSeries.push({
+              value: Statistics.groups[gKey].sum,
+              itemStyle: {
+                normal: {
+                  color: color,
+                  barBorderColor: 'DimGray'
+                },
+                emphasis: {
+                  barBorderColor: Classification.superGroups[sgKey].styles[baseMap].diagramStyle.emphasis.barBorderColor
+                }
+              }
+            });
+
+          }
+          else {
+            // A dash will be added.
+            dataSeries.push('-');
+          }
 
         }
 
-        // Add the value and style of the stacked bar.
-        option.series[0].data.push({
+        // Add the value (dataseries) and style of the stack in the bar.
+        option.series.push({
           name: Classification.groups[gKey].name,
           type: 'bar',
           stack: 's1',
-          data: [ {
-            value: Classification.groups[gKey].g,
-            itemStyle: {
-              normal: {
-                color: Classification.groups[gKey].styles[baseMap].diagramStyle.normal.color
-              },
-              emphasis: {
-                barBorderColor: Classification.groups[gKey].styles[baseMap].diagramStyle.emphasis.barBorderColor
-              }
-            }
-
-
-
-          }]
-
-          value :  Statistics.groups[gKey].sum,
-
+          data: dataSeries
         });
 
-        // Make sure that the scatter point label is positioned on top.
-        this.scatterDiagramStyle.normal.label.position = 'top';
 
-        // Add the value and style of the scatter point.
-        if (statisticsViewModel.isMsoaScatterDiagramVisible) {
-          option.series[1].data.push({
-            value: Statistics.superGroups[sgKey].count,
-            itemStyle: this.scatterDiagramStyle
-          });
-        }
+
+        // // Make sure that the scatter point label is positioned on top.
+        // this.scatterDiagramStyle.normal.label.position = 'top';
+        //
+        // // Add the value and style of the scatter point.
+        // if (statisticsViewModel.isMsoaScatterDiagramVisible) {
+        //   option.series[1].data.push({
+        //     value: Statistics.superGroups[sgKey].count,
+        //     itemStyle: this.scatterDiagramStyle
+        //   });
+        // }
 
       }
     }
-
-
-
 
 
 
@@ -4451,9 +4453,6 @@ var Diagrams = {
     dataDiagram.on('mouseover', function(params) {
       console.log('mouseover: ' + params.value);
     });
-
-
-
 
 
 
@@ -5749,17 +5748,17 @@ var Diagrams = {
           }
         }
       ],
-      color: [
-        '#1705d6', '#1705d6', '#1705d6', '#1705d6', '#1705d6',
-        '#11ea44', '#11ea44', '#11ea44',
-        '#cc4704', '#cc4704', '#cc4704', '#cc4704', '#cc4704',
-        '#6b2ed4', '#6b2ed4', '#6b2ed4',
-        '#d60003', '#d60003', '#d60003', '#d60003', '#d60003',
-        '#23cfb8', '#23cfb8', '#23cfb8', '#23cfb8', '#23cfb8',
-        '#e1de00', '#e1de00', '#e1de00', '#e1de00', '#e1de00',
-        '#de079a', '#de079a', '#de079a', '#de079a', '#de079a',
-        '#1fcd5f', '#1fcd5f', '#1fcd5f', '#1fcd5f'
-      ],
+      // color: [
+      //   '#1705d6', '#1705d6', '#1705d6', '#1705d6', '#1705d6',
+      //   '#11ea44', '#11ea44', '#11ea44',
+      //   '#cc4704', '#cc4704', '#cc4704', '#cc4704', '#cc4704',
+      //   '#6b2ed4', '#6b2ed4', '#6b2ed4',
+      //   '#d60003', '#d60003', '#d60003', '#d60003', '#d60003',
+      //   '#23cfb8', '#23cfb8', '#23cfb8', '#23cfb8', '#23cfb8',
+      //   '#e1de00', '#e1de00', '#e1de00', '#e1de00', '#e1de00',
+      //   '#de079a', '#de079a', '#de079a', '#de079a', '#de079a',
+      //   '#1fcd5f', '#1fcd5f', '#1fcd5f', '#1fcd5f'
+      // ],
       series: [
         {
           name: 'g11 - Building Sales Execs',
