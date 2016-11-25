@@ -4330,6 +4330,134 @@ var Diagrams = {
 
     this.createChart3();
 
+
+
+    var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
+
+    let option = {
+      tooltip: {
+        show: false, // if false then onhover on each stack - if true then on hover on each stack
+        showContent: false,
+        trigger: 'axis', // 'item' | 'axis'
+        axisPointer: {
+          type: 'cross' // 'line' | 'cross' | 'shadow'
+        }
+      },
+      xAxis: [
+        {
+          type: 'category',
+          show: true,
+          axisTick: {
+            show: true,
+            interval: 0
+          },
+          axisLabel: {
+            show: false
+          },
+          data: []
+        }
+      ],
+      yAxis: [
+        {
+          type: 'value',
+          show: true
+        },
+        {
+          type: 'value',
+          show: true,
+          splitLine:{
+            show: false
+          }
+        }
+      ],
+      color: [],
+      series: []
+    };
+
+    // Loop through the supergroups and add their names as names of the bars.
+    for (let sgKey in Classification.superGroups) {
+      if (Classification.superGroups.hasOwnProperty(sgKey)) {
+
+        option.xAxis[0].data.push(Classification.groups[sgKey].name);
+
+      }
+    }
+
+    // Add the bars and scatter points if any.
+    for (let gKey in Classification.groups) {
+      if (Classification.groups.hasOwnProperty(gKey)) {
+
+        let baseMap = toggleBaseMapViewModel.currentBaseMap;
+
+        // Add the color of the stacked bar.
+        // TODO
+
+        // Create stacked data series.
+        for (let i = 0; i < 9; i++) {
+
+
+
+        }
+
+        // Add the value and style of the stacked bar.
+        option.series[0].data.push({
+          name: Classification.groups[gKey].name,
+          type: 'bar',
+          stack: 's1',
+          data: [ {
+            value: Classification.groups[gKey].g,
+            itemStyle: {
+              normal: {
+                color: Classification.groups[gKey].styles[baseMap].diagramStyle.normal.color
+              },
+              emphasis: {
+                barBorderColor: Classification.groups[gKey].styles[baseMap].diagramStyle.emphasis.barBorderColor
+              }
+            }
+
+
+
+          }]
+
+          value :  Statistics.groups[gKey].sum,
+
+        });
+
+        // Make sure that the scatter point label is positioned on top.
+        this.scatterDiagramStyle.normal.label.position = 'top';
+
+        // Add the value and style of the scatter point.
+        if (statisticsViewModel.isMsoaScatterDiagramVisible) {
+          option.series[1].data.push({
+            value: Statistics.superGroups[sgKey].count,
+            itemStyle: this.scatterDiagramStyle
+          });
+        }
+
+      }
+    }
+
+
+
+
+
+
+    dataDiagram.setOption(option);
+
+    dataDiagram.on('click', function(params) {
+      alert(params.value);
+    });
+
+    dataDiagram.on('mouseover', function(params) {
+      console.log('mouseover: ' + params.value);
+    });
+
+
+
+
+
+
+
   },
 
   /**
