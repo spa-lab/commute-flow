@@ -4229,6 +4229,7 @@ var Diagrams = {
         {
           name: 'Supergoups',
           type: 'bar',
+          barMinHeight: 2, // TODO: Maybe we need to remove this ?
           data: [],
           yAxisIndex: 0
         }
@@ -4366,6 +4367,8 @@ var Diagrams = {
       series: []
     };
 
+    let lastSuperGroupIndex = 0;
+
     // Add the bars and scatter points if any.
     for (let gKey in Classification.groups) {
       if (Classification.groups.hasOwnProperty(gKey)) {
@@ -4377,7 +4380,7 @@ var Diagrams = {
         // Create the data series for an individual stack.
         for (let i = 0; i < Classification.superGroupValues.length; i++) {
 
-          let g = Classification.groups[gKey].g;
+          //let g = Classification.groups[gKey].g;
           let sg = Classification.groups[gKey].sg;
           let sgKey = sg.toString();
 
@@ -4396,8 +4399,7 @@ var Diagrams = {
               color = Classification.groups[gKey].styles[baseMap].commuteFlowStyle.fillColor;
             }
 
-            // A Value will be added.
-            dataSeries.push({
+            let stackedBarItem = {
               value: Statistics.groups[gKey].sum,
               itemStyle: {
                 normal: {
@@ -4405,10 +4407,35 @@ var Diagrams = {
                   barBorderColor: 'DimGray'
                 },
                 emphasis: {
-                  barBorderColor: Classification.superGroups[sgKey].styles[baseMap].diagramStyle.emphasis.barBorderColor
+                  barBorderColor: Classification.superGroups[sgKey].styles[baseMap].diagramStyle.emphasis.barBorderColor,
                 }
               }
-            });
+            };
+
+            if (lastSuperGroupIndex < sg) {
+
+              // Add the bar total label for this supergroup (stacked bars).
+              stackedBarItem.itemStyle.normal.label = {
+                show: true,
+                position: 'bottom',
+                textStyle: {
+                  color: Classification.superGroups[sgKey].styles[baseMap].diagramStyle.normal.textColor
+                }
+              };
+
+              stackedBarItem.itemStyle.emphasis.label = {
+                textStyle: {
+                  color: Classification.superGroups[sgKey].styles[baseMap].diagramStyle.emphasis.textColor,
+                  fontWeight: 'bold'
+                }
+              };
+
+              lastSuperGroupIndex = sg;
+
+            }
+
+            // A value and style will be added.
+            dataSeries.push(stackedBarItem);
 
           }
           else {
@@ -4423,6 +4450,7 @@ var Diagrams = {
           name: Classification.groups[gKey].name,
           type: 'bar',
           stack: 's1',
+          barMinHeight: 3,
           data: dataSeries
         });
 
