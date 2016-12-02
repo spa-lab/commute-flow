@@ -1,5 +1,5 @@
 # commute-flow
-![commute-flow logo](http://www.ppgis.manchester.ac.uk/commute-flow/images/cf_logo.png | width=100)
+![commute-flow logo](http://www.ppgis.manchester.ac.uk/commute-flow/images/cf_logo.png)
 
 Here you can find the source code for the commute flow project.
 
