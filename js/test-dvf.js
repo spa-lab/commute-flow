@@ -4222,7 +4222,7 @@ var Diagrams = {
           show: true,
           splitLine:{
             show: false
-          },
+          }
         }
       ],
       series: [
@@ -4346,7 +4346,7 @@ var Diagrams = {
             interval: 0
           },
           axisLabel: {
-            show: false
+            show: true
           },
           data: []
         }
@@ -4367,7 +4367,27 @@ var Diagrams = {
       series: []
     };
 
-    let lastSuperGroupIndex = 0;
+    let scatterDataSeries = [];
+
+    // Make sure that the scatter point label is positioned on top.
+    this.scatterDiagramStyle.normal.label.position = 'top';
+
+    for (let sgKey in Classification.superGroups) {
+      if (Classification.superGroups.hasOwnProperty(sgKey)) {
+
+        // Add the total of the persons travelling in all groups of the stackbar (ie: the sum of the supergroup).
+        option.xAxis[0].data.push(Statistics.superGroups[sgKey].sum);
+
+        // Add the value and style of the scatter point.
+        if (statisticsViewModel.isMsoaScatterDiagramVisible) {
+          scatterDataSeries.push({
+            value: Statistics.superGroups[sgKey].count,
+            itemStyle: this.scatterDiagramStyle
+          });
+        }
+
+      }
+    }
 
     // Add the bars and scatter points if any.
     for (let gKey in Classification.groups) {
@@ -4412,28 +4432,6 @@ var Diagrams = {
               }
             };
 
-            if (lastSuperGroupIndex < sg) {
-
-              // Add the bar total label for this supergroup (stacked bars).
-              stackedBarItem.itemStyle.normal.label = {
-                show: true,
-                position: 'bottom',
-                textStyle: {
-                  color: Classification.superGroups[sgKey].styles[baseMap].diagramStyle.normal.textColor
-                }
-              };
-
-              stackedBarItem.itemStyle.emphasis.label = {
-                textStyle: {
-                  color: Classification.superGroups[sgKey].styles[baseMap].diagramStyle.emphasis.textColor,
-                  fontWeight: 'bold'
-                }
-              };
-
-              lastSuperGroupIndex = sg;
-
-            }
-
             // A value and style will be added.
             dataSeries.push(stackedBarItem);
 
@@ -4470,12 +4468,34 @@ var Diagrams = {
       }
     }
 
+    // Check if the scatter diagram is visible.
+    if (statisticsViewModel.isMsoaScatterDiagramVisible) {
+      option.series.push({
+        name: 'MSOAs',
+        type: 'scatter',
+        tooltip: {
+          show: true,
+          showContent: true,
+          trigger: 'item', // 'item' | 'axis'
+          axisPointer: {
+            type: 'shadow' // 'line' | 'cross' | 'shadow'
+          },
+          formatter: '{a} : {c}'
+        },
+        data: scatterDataSeries,
+        yAxisIndex: 1
+      });
+    }
 
 
     dataDiagram.setOption(option);
 
     dataDiagram.on('click', function(params) {
-      alert(params.value);
+      alert(
+        'Series Name: ' + params.seriesName + '\r\n\r\n' +
+        'Name: ' + params.name + '\r\n\r\n' +
+        'Value: ' + params.value
+      );
     });
 
     dataDiagram.on('mouseover', function(params) {
