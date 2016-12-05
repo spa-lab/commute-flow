@@ -1,4 +1,16 @@
 
+// ================================================================================
+//  University of Manchester. UK.
+//  School of Environment, Education, and Development.
+//  Spatial Policy Analysis Laboratory.
+//
+//  Name:            index.js
+//  Original coding: Vasilis Vlastaras (@gisvlasta), 05/12/2016.
+//
+//  Description:     The commute-flow web app mapping functionality.
+// ================================================================================
+
+
 // http://maps.humanities.manchester.ac.uk:8090/geoserver/commute-flow/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=commute-flow:commute-flow-thin-epsg-4326&cql_filter=rc = 102003570&outputFormat=application/json
 //
 // http://maps.humanities.manchester.ac.uk:8090/geoserver/commute-flow/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=commute-flow:commute-flow-thin-epsg-4326&cql_filter=wc = 102003570&outputFormat=application/json
@@ -7108,6 +7120,22 @@ var statisticsViewModel = new Vue({
       document.getElementById('toggleMarkerLinesDiagramButton').blur();
 
       Diagrams.createDiagram();
+
+    },
+
+    /**
+     * Shows a popup with help for the web application.
+     */
+    showHelp: function() {
+
+      let headerContent = 'commute-flow Help';
+
+      let bodyContent = '<div>' +
+        '<p>Start by selecting an MSOA on the map to view outward commuting for the super-groups.</p>' +
+        '<p>You can choose inward commuting, change to map the groups or switch between visualising lines rather than polygons.</p>' +
+        '</div>';
+
+      Popup.showInfo(headerContent, bodyContent);
 
     },
 
