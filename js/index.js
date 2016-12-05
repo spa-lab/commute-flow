@@ -7599,6 +7599,10 @@ var toggleCommuteFlowRenderingMethodViewModel = new Vue({
 // ================================================================================
 //  Main Body
 
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 Spatial.initializeMap();
 
 //
