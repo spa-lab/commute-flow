@@ -2,7 +2,7 @@
 // ================================================================================
 //  University of Manchester. UK.
 //  School of Environment, Education, and Development.
-//  Centre for Urban Policy Studies.
+//  Spatial Policy Analysis Laboratory.
 //  
 //  Name:            shared.js
 //  Original coding: Vasilis Vlastaras (@gisvlasta), 18/08/2016.

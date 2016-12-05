@@ -150,12 +150,11 @@
 
         <div class="btn-group" role="group">
           <div class="btn-group" role="group">
-            <span data-toggle="modal" data-target="#help">
-            <button type="button" class="btn btn-danger"
-                    data-toggle="tooltip" data-placement="top" title="Commute-flow help">
+            <button id="showHelpButton" type="button" class="btn btn-danger"
+                    data-toggle="tooltip" data-placement="top" title="Commute-flow help"
+                    v-on:click="showHelp">
               <i class="fa fa-question-circle" aria-hidden="true"></i>
             </button>
-            </span>
           </div>
         </div>
 
@@ -764,7 +763,6 @@
 
   <br>
 
-
   <br>
 
   <!--<div id="currentMsoaInfoVM">-->
@@ -789,23 +787,6 @@
   <!--&lt;!&ndash;</div>&ndash;&gt;-->
   <!--</div>-->
 
-</div>
-<div id="help" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-primary">
-        <button type="button" class="close" style="opacity: 1.0;" data-dismiss="modal" aria-label="Close"></button>
-        <h4 class="modal-title">Commute-flow help</h4>
-      </div>
-      <div class="modal-body">
-        <p>Start by selecting an MSOA on the map to view outward commuting for the super-groups.</p>
-        <p>You can choose inward commuting, change to map the groups or wsitch between visualising lines rather than polygons.</p>
-      </div>
-      <div class="modal-footer bg-info">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="OK"><b>OK</b></button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!--<script type="text/javascript" src="libs/proj4js-2.3.12/proj4.js"></script>-->
