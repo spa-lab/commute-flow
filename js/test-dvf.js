@@ -4229,7 +4229,7 @@ var Diagrams = {
         {
           name: 'Supergoups',
           type: 'bar',
-          barMinHeight: 2, // TODO: Maybe we need to remove this ?
+          //barMinHeight: 2, // TODO: Maybe we need to remove this ?
           data: [],
           yAxisIndex: 0
         }
@@ -4404,41 +4404,45 @@ var Diagrams = {
           let sg = Classification.groups[gKey].sg;
           let sgKey = sg.toString();
 
-          // Decide whether to add a value in the data series or a dash ('-').
-          if (i == sg - 1) {
+          if (Statistics.groups[gKey].sum > 0) {
 
-            let color = null;
+            // Decide whether to add a value in the data series or a dash ('-').
+            if (i == sg - 1) {
 
-            if (toggleCommuteFlowRenderingMethodViewModel.method == ':cfPolygons') {
-              color = Classification.groups[gKey].styles[baseMap].msoaCommuteFlowStyle.fillColor;
-            }
-            else if (toggleCommuteFlowRenderingMethodViewModel.method == ':cfPolygonsWithLines') {
-              // TODO: See if this needs to be implemented as well.
-            }
-            else if (toggleCommuteFlowRenderingMethodViewModel.method == ':cfLines') {
-              color = Classification.groups[gKey].styles[baseMap].commuteFlowStyle.fillColor;
-            }
+              let color = null;
 
-            let stackedBarItem = {
-              value: Statistics.groups[gKey].sum,
-              itemStyle: {
-                normal: {
-                  color: color,
-                  barBorderColor: 'DimGray'
-                },
-                emphasis: {
-                  barBorderColor: Classification.superGroups[sgKey].styles[baseMap].diagramStyle.emphasis.barBorderColor,
-                }
+              if (toggleCommuteFlowRenderingMethodViewModel.method == ':cfPolygons') {
+                color = Classification.groups[gKey].styles[baseMap].msoaCommuteFlowStyle.fillColor;
               }
-            };
+              else if (toggleCommuteFlowRenderingMethodViewModel.method == ':cfPolygonsWithLines') {
+                // TODO: See if this needs to be implemented as well.
+              }
+              else if (toggleCommuteFlowRenderingMethodViewModel.method == ':cfLines') {
+                color = Classification.groups[gKey].styles[baseMap].commuteFlowStyle.fillColor;
+              }
 
-            // A value and style will be added.
-            dataSeries.push(stackedBarItem);
+              let stackedBarItem = {
+                value: Statistics.groups[gKey].sum,
+                itemStyle: {
+                  normal: {
+                    color: color,
+                    barBorderColor: 'DimGray'
+                  },
+                  emphasis: {
+                    barBorderColor: Classification.superGroups[sgKey].styles[baseMap].diagramStyle.emphasis.barBorderColor,
+                  }
+                }
+              };
 
-          }
-          else {
-            // A dash will be added.
-            dataSeries.push('-');
+              // A value and style will be added.
+              dataSeries.push(stackedBarItem);
+
+            }
+            else {
+              // A dash will be added.
+              dataSeries.push('-');
+            }
+
           }
 
         }
