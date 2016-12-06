@@ -7131,9 +7131,9 @@ var statisticsViewModel = new Vue({
       let headerContent = 'commute-flow Help';
 
       let bodyContent = '<div>' +
-        '<p>Start by selecting an MSOA on the map to view outward commuting for the super-groups.</p>' +
-        '<p>You can choose inward commuting, change to map the groups or switch between visualising lines rather than polygons.</p>' +
-        '</div>';
+                          '<p>Start by selecting an MSOA on the map to view outward commuting for the super-groups.</p>' +
+                          '<p>You can choose inward commuting, change to map the groups or switch between visualising lines rather than polygons.</p>' +
+                        '</div>';
 
       Popup.showInfo(headerContent, bodyContent);
 
