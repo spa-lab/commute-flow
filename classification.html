@@ -28,11 +28,6 @@
 
   <script type="text/javascript" src="libs/jquery-2.1.4/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();
-    });
-  </script>
 </head>
 <body data-spy="scroll" data-target=".scrollspy">
 <!-- Fixed navbar -->
@@ -52,9 +47,10 @@
     <!--/.nav-collapse -->
   </div>
 </nav>
-<div class="container">
+<!--<div class="container">-->
+<div>
   <div class="row-top">
-    <div class="col-md-3 scrollspy">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 scrollspy">
       <!--ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix" -->
       <ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix" style="overflow-y:scroll; height:80%">
         <li><a href="#g1">1. Consumer Services</a>
@@ -145,7 +141,7 @@
       </ul>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-lg-9 col-md-8 col-sm-8 col-xs-8">
 
       <div class="well">
         <p class="lead">We have developed a two-tier geodemographic typology of commuting patterns with 9 super-groups and a total of 40 groups. For each classification there is a pen portrait containing a statistical description with a radial chart and flow map.</p>
@@ -162,7 +158,7 @@
               <td rowspan="2"><img class="img-responsive" src="images/sg/Group1.jpg" width="500px" alt="super-group 1 map"></td>
             </tr>
             <tr>
-              <td><code>insert radial graph code</code></td>
+              <td><div id="dataDiagram" style="height: 340px;"></div></td>
             </tr>
           </table>
         </div>
@@ -1013,19 +1009,8 @@
   </div>
 </div>
 
-<script>
-  $('#nav').affix({
-    offset: {
-      top: $('#nav').offset().top,
-      bottom: $('footer').outerHeight(true) + $('.application').outerHeight(true) + 40
-    }
-  });
+<script type="text/javascript" src="libs/echarts-3.2.3/echarts.min.js"></script>
+<script src="js/classification.js" ></script>
 
-  $("#pop").on("click", function() {
-    $('#imagepreview').attr('src', $('#imageresource').attr('src')); // here asign the image to the modal when the user click the enlarge link
-    $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal
-  });
-
-</script>
 </body>
 </html>
