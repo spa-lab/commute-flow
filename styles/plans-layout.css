@@ -1,0 +1,801 @@
+﻿
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -50px 0;
+  /* Pad bottom by footer height */
+  padding: 0 0 50px 0;
+}
+
+#body {
+  padding-left: 0;
+  padding-right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#map {
+  height:100%;
+  width:100%;
+}
+
+#conta {
+  height: 100%;
+  width: 100%;
+}
+
+#navbar-container {
+  width: 100%;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 50px;
+  background-color: #f5f5f5;
+  /*background-color: #ff6a00;*/
+}
+
+#wrap > .center-container {
+  padding: 50px 0 0 0;
+  margin: 0;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+  /*margin-bottom: 0px;*/
+  width: 100%;
+}
+
+.center-container {
+  height: 100%;
+}
+
+.center-row {
+  height: 100%;
+  background-size: cover;
+  /*color:#fff;*/
+}
+
+#planNamesListBox {
+  width: 100%;
+}
+
+.table-popup {
+  margin-bottom: 0px;
+}
+
+.row-sidebar-pane {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+/* 
+ *  ================================================================================
+ *    Override Leaflet default values
+ *  ================================================================================
+ */
+.leaflet-popup-content-wrapper {
+  padding: 1px;
+  text-align: left;
+  border-radius: 2px;
+}
+
+.leaflet-popup-content {
+  margin: 4px 4px;
+  line-height: 1.4;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 12px 23px 0 0;
+  text-align: center;
+  width: 18px;
+  height: 14px;
+  font: 16px/14px Tahoma, Verdana, sans-serif;
+  color: #c3c3c3;
+  text-decoration: none;
+  font-weight: bold;
+  background: transparent;
+}
+
+
+/* 
+ *  ================================================================================
+ *    Override Sidebar default values
+ *  ================================================================================
+ */
+.sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 50px 0 50px 0; /* OVERRIDE */
+  overflow: hidden;
+  z-index: 2000;
+}
+
+/*.sidebar-map {
+  height: 100%;
+}*/
+
+.sidebar.collapsed {
+  width: 40px;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    top: 0px; /* OVERRIDE */
+    bottom: 0px; /* OVERRIDE */
+    transition: width 250ms; /* OVERRIDE */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar {
+    /*width: 305px;*/
+    width: 600px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar {
+    /*width: 390px;*/
+    width: 690px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sidebar {
+    /*width: 460px;*/
+    /*width: 780px;*/
+    width: 580px;
+  }
+}
+
+.sidebar-left {
+  left: 0;
+}
+
+@media (min-width: 768px) {
+  .sidebar-left {
+    left: 0px;
+  }
+}
+
+.sidebar-right {
+  right: 0;
+}
+
+@media (min-width: 768px) {
+  .sidebar-right {
+    right: 0px; /* OVERRIDE */
+  }
+}
+
+.sidebar-tabs {
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: #fff;
+}
+
+.sidebar-left .sidebar-tabs {
+  left: 0;
+}
+
+.sidebar-right .sidebar-tabs {
+  right: 0;
+}
+
+.sidebar-tabs,
+.sidebar-tabs > ul {
+  position: absolute;
+  width: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-tabs > li,
+.sidebar-tabs > ul > li {
+  width: 100%;
+  height: 40px;
+  color: #333;
+  font-size: 12pt;
+  overflow: hidden;
+  transition: all 80ms;
+}
+
+.sidebar-tabs > li:hover,
+.sidebar-tabs > ul > li:hover {
+  color: #000;
+  background-color: #eee;
+}
+
+.sidebar-tabs > li.active,
+.sidebar-tabs > ul > li.active {
+  color: #fff;
+  background-color: #337ab7; /*#0074d9;*/
+}
+
+.sidebar-tabs > li.disabled,
+.sidebar-tabs > ul > li.disabled {
+  color: rgba(51, 51, 51, 0.4);
+}
+
+.sidebar-tabs > li.disabled:hover,
+.sidebar-tabs > ul > li.disabled:hover {
+  background: transparent;
+}
+
+.sidebar-tabs > li.disabled > a,
+.sidebar-tabs > ul > li.disabled > a {
+  cursor: default;
+}
+
+.sidebar-tabs > li > a,
+.sidebar-tabs > ul > li > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+}
+
+.sidebar-tabs > ul + ul {
+  bottom: 0;
+}
+
+.sidebar-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  overflow-x: hidden;
+  overflow-y: auto;
+  /*direction: ltf;*/  /* This neess to be used after padding changed so as to allow nice scrollbars appear on the panel */
+}
+
+.sidebar-left .sidebar-content {
+  left: 40px;
+  right: 0;
+}
+
+.sidebar-right .sidebar-content {
+  left: 0;
+  right: 40px;
+}
+
+.sidebar.collapsed > .sidebar-content {
+  overflow-y: hidden;
+}
+
+.sidebar-pane {
+  display: none;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+
+.sidebar-pane.active {
+  display: block;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar-pane {
+    /*min-width: 265px;*/
+    min-width: 560px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar-pane {
+    /*min-width: 350px;*/
+    min-width: 650px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sidebar-pane {
+    /*min-width: 420px;*/
+    /*min-width: 720px;*/
+    min-width: 520px;
+  }
+}
+
+.sidebar-header {
+  margin: -10px -20px 0;
+  height: 40px;
+  padding: 0 20px;
+  line-height: 40px;
+  font-size: 14.4pt;
+  color: #fff;
+  background-color: #337ab7; /*#0074d9;*/
+}
+
+.sidebar-right .sidebar-header {
+  padding-left: 40px;
+}
+
+.sidebar-close {
+  position: absolute;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sidebar-left .sidebar-close {
+  right: 0;
+}
+
+.sidebar-right .sidebar-close {
+  left: 0;
+}
+
+.sidebar-left ~ .sidebar-map {
+  margin-left: 40px;
+}
+
+@media (min-width: 768px) {
+  .sidebar-left ~ .sidebar-map {
+    margin-left: 0;
+  }
+}
+
+.sidebar-right ~ .sidebar-map {
+  margin-right: 40px;
+}
+
+@media (min-width: 768px) {
+  .sidebar-right ~ .sidebar-map {
+    margin-right: 0;
+  }
+}
+
+.sidebar {
+  /*box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);*/
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25); /* OVERRIDE */
+}
+
+.sidebar.leaflet-touch {
+  box-shadow: none;
+  border-right: 2px solid rgba(0, 0, 0, 0);
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    border-radius: 0px; /* OVERRIDE */
+  }
+  .sidebar.leaflet-touch {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-left ~ .sidebar-map .leaflet-left {
+    transition: left 250ms; /* OVERRIDE */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar-left ~ .sidebar-map .leaflet-left {
+    /*left: 315px;*/
+    left: 620px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar-left ~ .sidebar-map .leaflet-left {
+    /*left: 400px;*/
+    left: 700px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sidebar-left ~ .sidebar-map .leaflet-left {
+    /*left: 470px;*/
+    /*left: 800px;*/
+    left: 600px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-left.collapsed ~ .sidebar-map .leaflet-left {
+    left: 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-right ~ .sidebar-map .leaflet-right {
+    transition: right 250ms; /* OVERRIDE */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar-right ~ .sidebar-map .leaflet-right {
+    /*right: 315px;*/
+    right: 620px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar-right ~ .sidebar-map .leaflet-right {
+    /*right: 400px;*/
+    right: 700px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sidebar-right ~ .sidebar-map .leaflet-right {
+    /*right: 470px;*/
+    /*right: 800px;*/
+    right: 600px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar-right.collapsed ~ .sidebar-map .leaflet-right {
+    right: 50px;
+  }
+}
+
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.bs-callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code {
+  border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+  margin-top: -5px;
+}
+.bs-callout-default {
+  border-left-color: #777;
+}
+.bs-callout-default h4 {
+  color: #777;
+}
+.bs-callout-primary {
+  border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+  color: #428bca;
+}
+.bs-callout-success {
+  border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+  color: #5cb85c;
+}
+.bs-callout-danger {
+  border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+  color: #d9534f;
+}
+.bs-callout-warning {
+  border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+  color: #f0ad4e;
+}
+.bs-callout-info {
+  border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+  color: #5bc0de;
+}
+
+
+/* 
+ *  ================================================================================
+ *    File Badges
+ *  ================================================================================
+ */
+.update-nag{
+  display: inline-block;
+  font-size: 14px;
+  text-align: left;
+  background-color: #fff;
+  /*height: 40px;*/
+  height: 100%;
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.update-nag:hover{
+  cursor: pointer;
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.4);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.3);
+}
+
+.update-nag > .update-split{
+  background: #337ab7;
+  width: 33px;
+  float: left;
+  color: #fff!important;
+  height: 100%;
+  text-align: center;
+}
+
+.update-nag > .update-split > .glyphicon{
+  position:relative;
+  top: calc(50% - 9px)!important; /* 50% - 3/4 of icon height */
+}
+.update-nag > .update-split.update-success{
+  background: #5cb85c!important;
+}
+
+.update-nag > .update-split.update-danger{
+  background: #d9534f!important;
+}
+
+.update-nag > .update-split.update-info{
+  background: #5bc0de!important;
+}
+
+.update-nag > .update-text{
+  line-height: 19px;
+  padding-top: 11px;
+  padding-left: 45px;
+  padding-right: 20px;
+  padding-bottom: 11px;
+  height: 100%;
+}
+
+/* LISTS */
+.list-group-item {
+  margin-left: 15px;
+  padding-left: 0;
+}
+.list-group-item .list-group-item-text {
+  line-height: 18px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+.list-group-item .list-group-item-heading:last-child,
+.list-group-item .list-group-item-text:last-child {
+  margin-bottom: 0;
+}
+.list-group-item .row div > .list-group-item-heading:last-child,
+.list-group-item .row div > .list-group-item-text:last-child {
+  margin-bottom: 5px;
+}
+.list-group-item .row div:last-child > .list-group-item-heading:last-child,
+.list-group-item .row div:last-child > .list-group-item-text:last-child {
+  margin-bottom: 0;
+}
+.list-group-item img {
+  height: 40px;
+  width: 40px;
+  margin-right: 15px;
+}
+.list-group-item i {
+  opacity: 0.8;
+  width: 40px;
+  text-align: center;
+  margin-right: 15px;
+}
+
+a.list-group-item {
+  cursor: pointer;
+}
+a.list-group-item:hover, a.list-group-item:active, a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
+  margin-left: 0;
+  padding-left: 15px;
+}
+        
+.panel > .list-group .list-group-item:last-child {
+  border-bottom: 0;
+}
+
+/* List Images */
+.bootcards-list-group-item-content {
+  overflow: hidden;
+}
+
+/* Disclosure Indicators */
+a.list-group-item:before {
+  font-family: 'FontAwesome';
+  content: '';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  font-size: 14px;
+  line-height: 14px;
+  margin-top: -7px;
+  color: #ccc;
+}
+
+.list-group.bootcards-no-indicators a.list-group-item:before {
+  display: none;
+}
+
+/* FOOTER */
+.bootcards-desktop-footer {
+  display: none;
+}
+
+/* CARDS */
+.panel-default .panel-heading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+
+.panel-body > *:last-child {
+  margin-bottom: 0;
+}
+
+.panel-footer {
+  overflow: hidden;
+}
+
+.panel-footer small,
+.modal-footer small {
+  color: #aaa;
+  display: block;
+  text-align: center;
+  line-height: 22px;
+  /* Line up vertically with .btn */
+}
+
+.list-group + .panel-footer {
+  border-top-width: 1px;
+  /* ML: panel-footer has a top border, but that's removed by Bootstrap if there's a list-group before it. We restore it here. */
+}
+
+
+/* FILE CARD */
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?-n2q9vw");
+  src: url("../fonts/icomoon.eot?#iefix-n2q9vw") format("embedded-opentype"), url("../fonts/icomoon.woff?-n2q9vw") format("woff"), url("../fonts/icomoon.ttf?-n2q9vw") format("truetype"), url("../fonts/icomoon.svg?-n2q9vw#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+}
+
+.icon-file-pdf:before {
+  content: "\e4e2";
+}
+
+.icon-file-word:before {
+  content: "\e4e4";
+}
+
+.icon-file-excel:before {
+  content: "\e4e5";
+}
+
+.icon-file-powerpoint:before {
+  content: "\e4e7";
+}
+
+.icon-file:before {
+  content: "\e08d";
+}
+
+.bootcards-file .list-group-item:first-child {
+  position: relative;
+  padding-left: 74px;
+}
+
+.bootcards-file .list-group-item:first-child i {
+  font-size: 64px;
+  width: 64px;
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+
+.bootcards-file .list-group-item *:last-child {
+  margin-bottom: 0;
+}
+
+
+/* 
+ *  ================================================================================
+ *    Override z-indexes
+ *  ================================================================================
+ */
+
+/* bootstrap */
+
+.dropdown-menu {
+  z-index: 3000; /* 1000 */
+}
+
+.dropdown-backdrop {
+  z-index: 2990; /* 990 */
+}
+
+.navbar-static-top {
+  z-index: 3000; /* 1000 */
+}
+
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  z-index: 3030; /* 1030 */
+}
+
+/* bootstrap modal */
+.modal {
+  /*position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;*/
+  z-index: 4050; /* 1050 */
+  /*display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;*/
+}
+
+.modal-backdrop {
+  /*position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;*/
+  z-index: 4040; /* 1040 */
+  /*background-color: #000;*/
+}
+
+.tooltip {
+  z-index: 3070;
+}
+
+.popover {
+  z-index: 3060;
+}
+
+/* Leaflet Plugin - sidebar-v2 */
+/*.sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2000
+}*/
