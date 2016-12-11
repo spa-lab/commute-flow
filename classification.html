@@ -30,7 +30,7 @@
   <script type="text/javascript" src="libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body data-spy="scroll" data-target=".scrollspy">
-<!-- Fixed navbar -->
+
 <nav class="navbar navbar-default top">
   <div class="container">
     <div class="navbar-header">
@@ -44,10 +44,25 @@
         <li><a href="contact.html" data-toggle="tooltip" data-placement="bottom" title="Contact us">contacts</a></li>
       </ul>
     </div>
-    <!--/.nav-collapse -->
   </div>
 </nav>
-<!--<div class="container">-->
+
+<div id="imagemodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Title</h4>
+      </div>
+      <div class="modal-body">
+        <img class="centerModal" src="" id="imagepreview" style="width:500px;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div>
   <div class="row-top">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 scrollspy">
@@ -983,31 +998,14 @@
     </div>
 
   </div>
-  <!--end of .row-->
 </div>
-<!--end of .container-->
+
 <footer>
   <div class="container">
     <p class="pull-right"> &nbsp; &nbsp; <a href="#top"><span class="glyphicon glyphicon-circle-arrow-up glyphicon-large" aria-hidden="true"></span></a></p>
     <p class="text-muted"><img src="images/logo-university-of-manchester.png" alt="University of Manchester" height="60px"> <img src="images/esrc.png" alt="ESRC" height="60px"> <img src="images/sdai.png" alt="SDAI" height="60px"> &nbsp; &nbsp; </p>
   </div>
 </footer>
-<!-- Create modal where the larger map image will appear -->
-<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Title</h4>
-      </div>
-      <div class="modal-body">
-        <img class="centerModal" src="" id="imagepreview" style="width:500px;">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script type="text/javascript" src="libs/echarts-3.2.3/echarts.min.js"></script>
 <script src="js/classification.js" ></script>
