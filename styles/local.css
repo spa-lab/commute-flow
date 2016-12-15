@@ -34,3 +34,7 @@ hr.supergroups {
   font-size: 24px;
   padding-top: 20px;
 }
+p.small {
+  font-size: small;
+
+}
