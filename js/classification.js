@@ -247,6 +247,91 @@ var Diagrams = {
 };
 
 
+
+// ================================================================================
+//  View Models.
+
+var toggleClassificationNavigationGroupsViewModel = new Vue({
+
+  /**
+   * The name of the view model.
+   */
+  el: '#toggleClassificationNavigationGroupsVM',
+
+  data: {
+
+    g1: true,
+    g2: true,
+    g3: true,
+    g4: true,
+    g5: true,
+    g6: true,
+    g7: true,
+    g8: true,
+    g9: true
+
+  },
+
+  methods: {
+
+    toggleGroupsVisibility(supergroup) {
+
+      alert(supergroup);
+
+      //this[supergroup] = !this[supergroup];
+
+    }
+
+  }
+
+});
+
+
+var testViewModel = new Vue({
+
+  /**
+   * The name of the view model.
+   */
+  el: '#testVM',
+
+  data: {
+
+    sg1: true,
+    sg2: true,
+    sg3: true,
+    sg4: true,
+    sg5: true,
+    sg6: true,
+    sg7: true,
+    sg8: true,
+    sg9: true
+
+  },
+
+  methods: {
+
+    showSuperGroup(supergroup) {
+
+      alert(supergroup);
+
+      //this[supergroup] = !this[supergroup];
+
+    }
+
+  }
+
+});
+
+
+
+//
+// ================================================================================
+
+
+// ================================================================================
+//  Main Body
+
+
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
@@ -266,7 +351,8 @@ $("#pop").on("click", function() {
 
 Diagrams.createRadialDiagram(true);
 
-
+//
+// ================================================================================
 
 
 

@@ -91,14 +91,28 @@
       <div id="body" class="container">
         <div id="conta">
 
-          <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4" style="height: 100%;">
+          <div id="testVM">
+            <button type="button" class="btn btn-danger"
+                    v-on:click="showSuperGroup('sg1')">
+              show
+            </button>
+          </div>
+
+          <div id="toggleClassificationNavigationGroupsVM" class="classification-nav col-lg-3 col-md-4 col-sm-4 col-xs-4" style="height: 100%;">
           <!--<div class="classification-nav col-lg-3 col-md-4 col-sm-4 col-xs-4">-->
             <!--ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix" -->
             <!--<ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix" style="overflow-y:scroll; height:80%">-->
-            <ul id="nav" class="nav hidden-xs hidden-sm" style="overflow-y: scroll; height: 100%;">
+            <!--<ul id="nav" class="nav hidden-xs hidden-sm" style="overflow-y: auto; height: 100%;">-->
+            <!--<ul id="nav" class="nav" style="overflow-y: auto; height: 100%;">-->
+            <button id="darkButton" type="button" class="btn btn-danger"
+                    v-on:click="toggleGroupsVisibility('g1')">
+              koula
+            </button>
+
+            <ul id="nav" class="nav" style="height: 100%; overflow-y: auto;">
               <li>
-                <a href="#g1">1. Consumer Services</a>
-                <ul class="nav">
+                <a href="#g1" v-on:click="toggleGroupsVisibility('g1')">1. Consumer Services</a>
+                <ul class="nav" v-bind:class="[g1 == true ? 'hidden' : '']">
                   <li><a href="#g11">1.1 Budding Sales Execs <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g12">1.2 Established in Sales &amp; Customer Care <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g13">1.3 Back Office Functions <span class="fa fa-arrow-right pull-right"></span></a></li>
@@ -107,16 +121,18 @@
                 </ul>
               </li>
               <hr class="supergroups">
-              <li><a href="#g2">2. Typical Blue Collar Traits</a>
-                <ul class="nav">
+              <li>
+                <a href="#g2" v-on:click="toggleGroupsVisibility('g2')">2. Typical Blue Collar Traits</a>
+                <ul class="nav" v-bind:class="[g2 == true ? 'hidden' : '']">
                   <li><a href="#g21">2.1 Multicultural Routine Logistics <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g22">2.2 On the Production Line <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g23">2.3 Skilled Trades in Mixed Economies <span class="fa fa-arrow-right pull-right"></span></a></li>
                 </ul>
               </li>
               <hr class="supergroups">
-              <li><a href="#g3">3. Sustainable Sorts</a>
-                <ul class="nav">
+              <li>
+                <a href="#g3" v-on:click="toggleGroupsVisibility('g3')">3. Sustainable Sorts</a>
+                <ul class="nav" v-bind:class="[g3 == true ? 'hidden' : '']">
                   <li><a href="#g31">3.1 Professionals Who Cycle <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g32">3.2 Sustainable Hospitality <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g33">3.3 Welfare Workers on the Bus <span class="fa fa-arrow-right pull-right"></span></a></li>
@@ -125,16 +141,18 @@
                 </ul>
               </li>
               <hr class="supergroups">
-              <li><a href="#g4">4. Supporting Society</a>
-                <ul class="nav">
+              <li>
+                <a href="#g4" v-on:click="toggleGroupsVisibility('g4')">4. Supporting Society</a>
+                <ul class="nav" v-bind:class="[g4 == true ? 'hidden' : '']">
                   <li><a href="#g41">4.1 Civic Duties <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g42">4.2 Professional Support Services <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g43">4.3 Young Clericals <span class="fa fa-arrow-right pull-right"></span></a></li>
                 </ul>
               </li>
               <hr class="supergroups">
-              <li><a href="#g5">5. Friendly Faces</a>
-                <ul class="nav">
+              <li>
+                <a href="#g5" v-on:click="toggleGroupsVisibility('g5')">5. Friendly Faces</a>
+                <ul class="nav" v-bind:class="[g5 == true ? 'hidden' : '']">
                   <li><a href="#g51">5.1 Routine Care &amp; Leisure <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g52">5.2 Multicultural Workers in Welfare <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g53">5.3 Mixed Roles in Hospitality <span class="fa fa-arrow-right pull-right"></span></a></li>
@@ -143,8 +161,9 @@
                 </ul>
               </li>
               <hr class="supergroups">
-              <li><a href="#g6">6. The Nurturers</a>
-                <ul class="nav">
+              <li>
+                <a href="#g6" v-on:click="toggleGroupsVisibility('g6')">6. The Nurturers</a>
+                <ul class="nav" v-bind:class="[g6 == true ? 'hidden' : '']">
                   <li><a href="#g61">6.1 Early Career Educators <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g62">6.2 Helping Hands in Education <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g63">6.3 Supporting Health &amp; Wellbeing <span class="fa fa-arrow-right pull-right"></span></a></li>
@@ -153,8 +172,9 @@
                 </ul>
               </li>
               <hr class="supergroups">
-              <li><a href="#g7">7. Traders, Movers &amp; Makers</a>
-                <ul class="nav">
+              <li>
+                <a href="#g7" v-on:click="toggleGroupsVisibility('g7')">7. Traders, Movers &amp; Makers</a>
+                <ul class="nav" v-bind:class="[g7 == true ? 'hidden' : '']">
                   <li><a href="#g71">7.1 Retail Relations<span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g72">7.2 Factory Settings<span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g73">7.3 Young Construction Crews<span class="fa fa-arrow-right pull-right"></span></a></li>
@@ -163,8 +183,9 @@
                 </ul>
               </li>
               <hr class="supergroups">
-              <li><a href="#g8">8. High Flyers</a>
-                <ul class="nav">
+              <li>
+                <a href="#g8" v-on:click="toggleGroupsVisibility('g8')">8. High Flyers</a>
+                <ul class="nav" v-bind:class="[g8 == true ? 'hidden' : '']">
                   <li><a href="#g81">8.1 Mixed Mid-Career Professionals<span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g82">8.2 Managing the High Street <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g83">8.3 Manufacturing Execs <span class="fa fa-arrow-right pull-right"></span></a></li>
@@ -173,8 +194,9 @@
                 </ul>
               </li>
               <hr class="supergroups">
-              <li><a href="#g9">9. Techs &amp; the City Types</a>
-                <ul class="nav">
+              <li>
+                <a href="#g9" v-on:click="toggleGroupsVisibility('g9')">9. Techs &amp; the City Types</a>
+                <ul class="nav" v-bind:class="[g9 == true ? 'hidden' : '']">
                   <li><a href="#g91">9.1 Early Career Innovators <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g92">9.2 Administering the City <span class="fa fa-arrow-right pull-right"></span></a></li>
                   <li><a href="#g93">9.3 Financial Execs <span class="fa fa-arrow-right pull-right"></span></a></li>
@@ -184,7 +206,6 @@
               <hr class="supergroups">
             </ul>
           </div>
-
 
         </div>
       </div>
@@ -211,6 +232,7 @@
   </div>
 </footer>
 
+<script type="text/javascript" src="libs/vue-1.0.26/vue.js"></script>
 <script type="text/javascript" src="libs/echarts-3.2.3/echarts.min.js"></script>
 <!--<script src="js/classification.js" ></script>-->
 

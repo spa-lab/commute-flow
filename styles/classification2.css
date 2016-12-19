@@ -43,7 +43,8 @@ body {
 
 .classification-nav {
   height: 100%;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
+  margin-left: -15px;
 }
 
 .center-container {
@@ -108,9 +109,9 @@ section {
   background: #ddd;
 }
 
-.nav .nav {
-  display: none;
-}
+/*.nav .nav {*/
+  /*display: none;*/
+/*}*/
 
 .nav .active .nav {
   display: block;
