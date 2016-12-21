@@ -310,9 +310,7 @@ var toggleClassificationNavigationGroupsViewModel = new Vue({
     /**
      * Supergroup 9
      */
-    g9: true,
-
-    sg1: [ true, true, true, true, true ]
+    g9: true
 
   },
 
@@ -330,15 +328,10 @@ var toggleClassificationNavigationGroupsViewModel = new Vue({
 
       this[supergroup] = !this[supergroup];
 
-      classificationDescriptionViewModel.toggleSuperGroupDescriptionVisibility(0);
-
-    },
-
-    toggleGroupSectionVisibility(group, index) {
-
-      classificationDescriptionViewModel.toggleGroupDescriptionVisibility(group, index);
+      //classificationDescriptionViewModel.toggleSuperGroupDescriptionVisibility(0);
 
     }
+
 
   }
 
@@ -346,44 +339,44 @@ var toggleClassificationNavigationGroupsViewModel = new Vue({
 
 
 
-var classificationDescriptionViewModel = new Vue({
-
-  /**
-   * The name of the view model.
-   */
-  el: '#classificationDescriptionVM',
-
-  /**
-   * The model of the view model.
-   */
-  data: {
-
-    sg: [ true, true, true, true, true, true, true, true, true ],
-
-    sg1: [ true, true, true, true, true ]
-
-  },
-
-  /**
-   * The model of the view model.
-   */
-  methods: {
-
-    toggleSuperGroupDescriptionVisibility(index) {
-
-      this.sg[index] = !this.sg[index];
-
-    },
-
-    toggleGroupDescriptionVisibility(group, index) {
-
-      this[group][index] = !this[group][index];
-
-    }
-
-  }
-
-});
+// var classificationDescriptionViewModel = new Vue({
+//
+//   /**
+//    * The name of the view model.
+//    */
+//   el: '#classificationDescriptionVM',
+//
+//   /**
+//    * The model of the view model.
+//    */
+//   data: {
+//
+//     sg: [ true, true, true, true, true, true, true, true, true ],
+//
+//     sg1: [ true, true, true, true, true ]
+//
+//   },
+//
+//   /**
+//    * The model of the view model.
+//    */
+//   methods: {
+//
+//     toggleSuperGroupDescriptionVisibility(index) {
+//
+//       this.sg[index] = !this.sg[index];
+//
+//     },
+//
+//     toggleGroupDescriptionVisibility(group, index) {
+//
+//       this[group][index] = !this[group][index];
+//
+//     }
+//
+//   }
+//
+// });
 
 
 
