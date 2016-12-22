@@ -330,6 +330,10 @@ var toggleClassificationNavigationGroupsViewModel = new Vue({
 
       //classificationDescriptionViewModel.toggleSuperGroupDescriptionVisibility(0);
 
+    },
+
+    toggleGroupsDescriptionVisibility(group) {
+
     }
 
 
@@ -339,44 +343,54 @@ var toggleClassificationNavigationGroupsViewModel = new Vue({
 
 
 
-// var classificationDescriptionViewModel = new Vue({
-//
-//   /**
-//    * The name of the view model.
-//    */
-//   el: '#classificationDescriptionVM',
-//
-//   /**
-//    * The model of the view model.
-//    */
-//   data: {
-//
-//     sg: [ true, true, true, true, true, true, true, true, true ],
-//
-//     sg1: [ true, true, true, true, true ]
-//
-//   },
-//
-//   /**
-//    * The model of the view model.
-//    */
-//   methods: {
-//
-//     toggleSuperGroupDescriptionVisibility(index) {
-//
-//       this.sg[index] = !this.sg[index];
-//
-//     },
-//
-//     toggleGroupDescriptionVisibility(group, index) {
-//
-//       this[group][index] = !this[group][index];
-//
-//     }
-//
-//   }
-//
-// });
+var classificationDescriptionViewModel = new Vue({
+
+  /**
+   * The name of the view model.
+   */
+  el: '#classificationDescriptionVM',
+
+  /**
+   * The model of the view model.
+   */
+  data: {
+
+    g1: true,
+    g11: true,
+    g12: true,
+    g13: true,
+    g14: true,
+    g15: true,
+    g2: true,
+    g21: true,
+    g22: true,
+    g23: true
+
+
+
+
+  },
+
+  /**
+   * The model of the view model.
+   */
+  methods: {
+
+    toggleSuperGroupDescriptionVisibility(index) {
+
+      this.sg[index] = !this.sg[index];
+
+    },
+
+    toggleGroupDescriptionVisibility(group, index) {
+
+      this[group][index] = !this[group][index];
+
+    }
+
+  }
+
+});
 
 
 
