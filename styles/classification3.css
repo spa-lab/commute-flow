@@ -69,92 +69,92 @@ body {
  *  ================================================================================
  */
 
-/*h1, h2 {*/
-/*font-weight: 700;*/
+/*!*h1, h2 {*!*/
+/*!*font-weight: 700;*!*/
+/*!*}*!*/
+
+/*!*h3 span {*!*/
+/*!*color: #286090;*!*/
+/*!*}*!*/
+
+/*.row-top {*/
+  /*padding-top: 10px;*/
 /*}*/
 
-/*h3 span {*/
-/*color: #286090;*/
+/*section {*/
+  /*padding: 40px 0;*/
+  /*border-bottom: 1px solid #c1e1ec;*/
 /*}*/
 
-.row-top {
-  padding-top: 10px;
-}
+/*.nav {*/
+  /*background: #F5F5F5;*/
+/*}*/
 
-section {
-  padding: 40px 0;
-  border-bottom: 1px solid #c1e1ec;
-}
+/*.nav hr {*/
+  /*margin-top: 4px;*/
+  /*margin-bottom: 4px;*/
+/*}*/
 
-.nav {
-  background: #F5F5F5;
-}
+/*!*.nav a {*/
+	/*color: black;*/
+	/*font-style: italic;*/
+/*}*!*/
 
-.nav hr {
-  margin-top: 4px;
-  margin-bottom: 4px;
-}
-
-/*.nav a {
-	color: black;
-	font-style: italic;
-}*/
-
-.nav li a:hover, .nav li a:focus {
-  background: #eee;
-}
+/*.nav li a:hover, .nav li a:focus {*/
+  /*background: #eee;*/
+/*}*/
 
 .nav .active {
   font-weight: bold;
   background: #ddd;
 }
 
-/*.nav .nav {*/
-/*display: none;*/
+/*!*.nav .nav {*!*/
+/*!*display: none;*!*/
+/*!*}*!*/
+
+/*.nav .active .nav {*/
+  /*display: block;*/
 /*}*/
 
-.nav .active .nav {
-  display: block;
-}
+/*.nav .nav a {*/
+  /*font-weight: normal;*/
+  /*font-size: .85em;*/
+/*}*/
 
-.nav .nav a {
-  font-weight: normal;
-  font-size: .85em;
-}
+/*.nav .nav span {*/
+  /*margin: 0 5px 0 2px;*/
+/*}*/
 
-.nav .nav span {
-  margin: 0 5px 0 2px;
-}
+/*.nav .nav .active a, .nav .nav .active:hover a, .nav .nav .active:focus a {*/
+  /*font-weight: bold;*/
+  /*padding-left: 30px;*/
+  /*border-left: 5px solid black;*/
+/*}*/
 
-.nav .nav .active a, .nav .nav .active:hover a, .nav .nav .active:focus a {
-  font-weight: bold;
-  padding-left: 30px;
-  border-left: 5px solid black;
-}
+/*.nav .nav .active span, .nav .nav .active:hover span, .nav .nav .active:focus span {*/
+  /*display: none;*/
+/*}*/
 
-.nav .nav .active span, .nav .nav .active:hover span, .nav .nav .active:focus span {
-  display: none;
-}
+/*.application {*/
+  /*border-top: 1px solid #c1e1ec;*/
+/*}*/
 
-.application {
-  border-top: 1px solid #c1e1ec;
-}
+/*.affix-top {*/
+  /*position: relative;*/
+/*}*/
 
-.affix-top {
-  position: relative;
-}
+/*.affix {*/
+  /*top: 20px;*/
+/*}*/
 
-.affix {
-  top: 20px;
-}
+/*.affix, .affix-bottom {*/
+  /*width: 213px;*/
+/*}*/
 
-.affix, .affix-bottom {
-  width: 213px;
-}
-
-.affix-bottom {
-  position: absolute;
-}
+/*.affix-bottom {*/
+  /*position: absolute;*/
+/*}*/
 
 /* Set the fixed height of the footer here */
 footer {
@@ -169,16 +169,16 @@ footer > .container {
   width: 100%;
 }
 
-/*footer p {*/
-/*line-height: 50px;*/
-/*margin-bottom: 0;*/
-/*}*/
-
-@media (min-width:1200px) {
-  .affix, .affix-bottom {
-    width: 273px;
-  }
+footer p {
+  line-height: 50px;
+  margin-bottom: 0;
 }
+
+/*@media (min-width:1200px) {*/
+  /*.affix, .affix-bottom {*/
+    /*width: 273px;*/
+  /*}*/
+/*}*/
 
 .yellow {
   color: #ff9c00;
@@ -190,20 +190,20 @@ footer > .container {
   /*text-shadow: -1px 0 #808080, 0 1px #808080, 1px 0 #808080, 0 -1px #808080;*/
 }
 
-hr.supergroups {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ff9c00;
-  /*margin: 1em 0;*/
-  padding: 0;
-}
+/*hr.supergroups {*/
+  /*display: block;*/
+  /*height: 1px;*/
+  /*border: 0;*/
+  /*border-top: 1px solid #ff9c00;*/
+  /*!*margin: 1em 0;*!*/
+  /*padding: 0;*/
+/*}*/
 
-.centerModal {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+/*.centerModal {*/
+  /*display: block;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+/*}*/
 
 
 /*

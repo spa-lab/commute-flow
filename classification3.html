@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <!--<link rel='stylesheet prefetch' href='styles/cf-typology.css'>-->
   <link rel='stylesheet' href='styles/classification3.css'>
+  <link rel='stylesheet' href='styles/mega-menu.css'>
 
   <script type="text/javascript" src="libs/jquery-2.1.4/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -48,12 +49,114 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
-              <li class="active">
-                <a href="classification.html" data-toggle="tooltip" data-placement="bottom"
-                   title="Details of the super-group and group demographic classification">
-                  Typology
-                </a>
+              <!--<li class="active">-->
+                <!--<a href="classification.html">-->
+                  <!--Typology-->
+                <!--</a>-->
+              <!--</li>-->
+
+              <li class="dropdown mega-dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Typology <span class="caret"></span></a>
+                <div class="dropdown-menu mega-dropdown-menu">
+                  <div class="container-fluid">
+
+                    <ul class="nav nav-tabs" role="tablist">
+                      <li class="active"><a href="#nav-g1" role="tab" data-toggle="tab">Consumer Services</a></li>
+                      <li><a href="#nav-g2" role="tab" data-toggle="tab">Typical Blue Collar Traits</a></li>
+                      <li><a href="#nav-g3" role="tab" data-toggle="tab">Sustainable Sorts</a></li>
+                      <li><a href="#nav-g4" role="tab" data-toggle="tab">Supporting Society</a></li>
+                      <li><a href="#nav-g4" role="tab" data-toggle="tab">Friendly Faces</a></li>
+                      <li><a href="#nav-g4" role="tab" data-toggle="tab">The Nurturers</a></li>
+                      <li><a href="#nav-g4" role="tab" data-toggle="tab">Traders, Movers and Makers</a></li>
+                      <li><a href="#nav-g4" role="tab" data-toggle="tab">High Flyers</a></li>
+                      <li><a href="#nav-g4" role="tab" data-toggle="tab">Techs and the City Types</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                      <div id="nav-g1" class="tab-pane active">
+                        <ul class="nav-list list-inline">
+                          <li><a href="#g11"><span>Budding Sales Execs</span></a></li>
+                          <li><a href="#g12"><span>Established in Sales and Customer Care</span></a></li>
+                          <li><a href="#g13"><span>Back Office Functions</span></a></li>
+                          <li><a href="#g14"><span>Multicultural Hospitality</span></a></li>
+                          <li><a href="#g15"><span>On the Shop Floor</span></a></li>
+
+                          <!--//'#fee08b'-->
+                          <!--'41': { g: 41, sg: 4, name: 'Civic Duties' },-->
+                          <!--'42': { g: 42, sg: 4, name: 'Professional Support Services' },-->
+                          <!--'43': { g: 43, sg: 4, name: 'Young Clericals' },-->
+                          <!--//'#ffffbf'-->
+                          <!--'51': { g: 51, sg: 5, name: 'Routine Care and Leisure' },-->
+                          <!--'52': { g: 52, sg: 5, name: 'Multicultural Workers in Welfare' },-->
+                          <!--'53': { g: 53, sg: 5, name: 'Mixed Roles in Hospitality' },-->
+                          <!--'54': { g: 54, sg: 5, name: 'Here to Help' },-->
+                          <!--'55': { g: 55, sg: 5, name: 'Established in Mixed Service Economies' },-->
+                          <!--//'#e6f598'-->
+                          <!--'61': { g: 61, sg: 6, name: 'Early Career Educators' },-->
+                          <!--'62': { g: 62, sg: 6, name: 'Helping Hands in Education' },-->
+                          <!--'63': { g: 63, sg: 6, name: 'Supporting Health and Wellbeing' },-->
+                          <!--'64': { g: 64, sg: 6, name: 'Established Nurturers' },-->
+                          <!--'65': { g: 65, sg: 6, name: 'Health and Wellbeing Professionals' },-->
+                          <!--//'#abdda4'-->
+                          <!--'71': { g: 71, sg: 7, name: 'Retail Relations' },-->
+                          <!--'72': { g: 72, sg: 7, name: 'Factory Settings' },-->
+                          <!--'73': { g: 73, sg: 7, name: 'Young Construction Crews' },-->
+                          <!--'74': { g: 74, sg: 7, name: 'Mixed Warehousing and Distribution' },-->
+                          <!--'75': { g: 75, sg: 7, name: 'Part-Time Traders, Movers and Makers' },-->
+                          <!--//'#66c2a5'-->
+                          <!--'81': { g: 81, sg: 8, name: 'Mixed Mid-Career Professionals' },-->
+                          <!--'82': { g: 82, sg: 8, name: 'Managing the High Street' },-->
+                          <!--'83': { g: 83, sg: 8, name: 'Manufacturing Execs' },-->
+                          <!--'84': { g: 84, sg: 8, name: 'Early Career Professionals' },-->
+                          <!--'85': { g: 85, sg: 8, name: 'Aspiring Flyers' },-->
+                          <!--//'#3288bd'-->
+                          <!--'91': { g: 91, sg: 9, name: 'Early Career Innovators' },-->
+                          <!--'92': { g: 92, sg: 9, name: 'Administering the City' },-->
+                          <!--'93': { g: 93, sg: 9, name: 'Financial Execs' },-->
+                          <!--'94': { g: 94, sg: 9, name: 'Techs and Professionals in Welfare' }-->
+
+
+
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Running.png"><span>Running</span></a></li>-->
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png"><span>Basketball</span></a></li>-->
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png"><span>Football</span></a></li>-->
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png"><span>Soccer</span></a></li>-->
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_MensTraining.png"><span>Men's Training</span></a></li>-->
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_WomensTraining.png"><span>Women's Training</span></a></li>-->
+                        </ul>
+                      </div>
+                      <div id="nav-g2" class="tab-pane">
+                        <ul class="nav-list list-inline">
+                          <li><a href="#g21"><span>Multicultural Routine Logistics</span></a></li>
+                          <li><a href="#g22"><span>On the Production Line</span></a></li>
+                          <li><a href="#g23"><span>Skilled Trades in Mixed Economies</span></a></li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane">
+                        <ul class="nav-list list-inline">
+                          <li><a href="#g31"><span>Professionals Who Cycle</span></a></li>
+                          <li><a href="#g32"><span>Sustainable Hospitality</span></a></li>
+                          <li><a href="#g33"><span>Welfare Workers on the Bus</span></a></li>
+                          <li><a href="#g34"><span>Active Mixed Commuters</span></a></li>
+                          <li><a href="#g35"><span>All Aboard</span></a></li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane">
+                        <ul class="nav-list list-inline">
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Basketball.png"><span>Basketball</span></a></li>-->
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Football.png"><span>Football</span></a></li>-->
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_Soccer.png"><span>Soccer</span></a></li>-->
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_MensTraining.png"><span>Men's Training</span></a></li>-->
+                          <!--<li><a href="#"><img src="http://content.nike.com/content/dam/one-nike/globalAssets/menu_header_images/OneNike_Global_Nav_Icons_WomensTraining.png"><span>Women's Training</span></a></li>-->
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
               </li>
+
+
               <li>
                 <a href="research.html" data-toggle="tooltip" data-placement="bottom"
                    title="Read more about the under-pinning research">

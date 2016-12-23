@@ -1,3 +1,31 @@
-/**
- * Created by mzdssvv2 on 22/12/2016.
- */
+
+
+
+
+
+
+
+
+
+$(document).ready(function() {
+  $(".dropdown").hover(
+    function() {
+      $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+      $(this).toggleClass('open');
+    },
+    function() {
+      $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+      $(this).toggleClass('open');
+    }
+  );
+});
+
+
+
+
+
+
+
+
+
+
