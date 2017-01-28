@@ -14,11 +14,493 @@
 // 0.3693717 -0.2173867 -0.4305840 0.5077542 0.2015630 -0.4660718 1.8972009 -0.4743537 -1.3264320 -0.0343119 -0.4302274 0.4960191 1.1778595 0.4004408 0.4010174 -0.0358538 -0.1113047 -0.4739118 -0.4897096 -0.8872223 -0.8497859 -0.5995931 -0.2907638 -0.6155724 -0.2019198 -0.3745621 0.9805290 1.1766927 0.0322346 0.1735944 -0.4378472 -0.4991378 0.5652018 0.7461606 0.8060592 0.0928370 -0.6566640 -0.7453708 -0.4848267 -0.6584131 -0.7312058 -0.5575926 -0.7974066 0.4449221 0.5554111 1.1443854 0.0976747 -0.9250956 -0.9181678
 
 
-
-
-
 // "Male" "White" "Age 16-24" "Age 25-34" "Age 35-49" "Age 50-64" "Train" "Bus" "Drive Car" "Bike" "Walk" "Higher managerial and administrative" "Higher professional" "Lower professional and higher technical" "Lower managerial and administrative" "Higher supervisory" "Intermediate occupations" "Lower supervisory" "Lower technical" "Semi-routine" "Routine" "Manufacturing" "Construction" "Retail_Rep" "Transport and storage" "Accommodation and food services" "Finance" "Professional, scientific and technical" "Administrative and support services" "Public administration and defence; compulsory social security" "Education" "Human health and social work" "Managers, directors and senior officials" "Professional occupations" "Associate professional and technical occupations" "Administrative and secretarial occupations" "Skilled trades occupations" "Caring, leisure and other service occupations" "Sales and customer service occupations" "Process, plant and machine operatives" "Elementary occupations" "Part-time: 15 or less worked" "Part-time: 16 to 30 hours worked" "Full-time: 31 to 48 hours worked" "Full-time: 49 or more hours worked" "Approx. social grade AB" "Approx. social grade C1" "Approx. social grade C2" "Approx. social grade DE"
 // -0.2898335 -0.5652861 0.9686828 0.0054915 -0.4538302 -0.2901564 -0.0189297 0.8382217 -0.6310537 0.2251787 0.7129810 -0.2821526 -0.5806601 -0.6897176 -0.0081818 0.0553240 -0.0946947 0.2490915 -0.0380303 0.9262800 0.2125665 -0.2480418 -0.1612248 1.1801495 0.0466582 0.6508536 0.0567176 -0.2260128 0.1362883 -0.1332603 -0.2018477 -0.1527481 -0.1707232 -0.7810907 -0.4459161 -0.0758261 -0.0518984 0.1609955 1.5060163 -0.0470359 0.6210566 0.8823794 0.7680842 -0.7551477 -0.4587101 -0.6757754 -0.0836405 0.0983691 0.8167342
+
+
+// g1
+// --------
+// Gender         - "Male": -0.2898335
+// Ethnicity      - "White": -0.5652861
+// Age            - "Age 16-24": 0.9686828
+// Age            - "Age 25-34": 0.0054915
+// Age            - "Age 35-49": -0.4538302
+// Age            - "Age 50-64": -0.2901564
+// ModeOfTravel   - "Train": -0.0189297
+// ModeOfTravel   - "Bus": 0.8382217
+// ModeOfTravel   - "Drive Car": -0.6310537
+// ModeOfTravel   - "Bike": 0.2251787
+// ModeOfTravel   - "Walk": 0.7129810
+// Socioeconomic  - "Higher managerial and administrative": -0.2821526
+// Socioeconomic  - "Higher professional": -0.5806601
+// Socioeconomic  - "Lower professional and higher technical": -0.6897176
+// Socioeconomic  - "Lower managerial and administrative": -0.0081818
+// Socioeconomic  - "Higher supervisory": 0.0553240
+// Socioeconomic  - "Intermediate occupations": -0.0946947
+// Socioeconomic  - "Lower supervisory": 0.2490915
+// Socioeconomic  - "Lower technical": -0.0380303
+// Socioeconomic  - "Semi-routine": 0.9262800
+// Socioeconomic  - "Routine": 0.2125665
+// Industry       - "Manufacturing": -0.2480418
+// Industry       - "Construction": -0.1612248
+// Industry       - "Retail_Rep": 1.1801495
+// Industry       - "Transport and storage": 0.0466582
+// Industry       - "Accommodation and food services": 0.6508536
+// Industry       - "Finance": 0.0567176
+// Industry       - "Professional, scientific and technical": -0.2260128
+// Industry       - "Administrative and support services": 0.1362883
+// Industry       - "Public administration and defence; compulsory social security": -0.1332603
+// Industry       - "Education": -0.2018477
+// Industry       - "Human health and social work": -0.1527481
+// Industry       - "Managers, directors and senior officials": -0.1707232
+// Occupation     - "Professional occupations": -0.7810907
+// Occupation     - "Associate professional and technical occupations": -0.4459161
+// Occupation     - "Administrative and secretarial occupations": -0.0758261
+// Occupation     - "Skilled trades occupations": -0.0518984
+// Occupation     - "Caring, leisure and other service occupations": 0.1609955
+// Occupation     - "Sales and customer service occupations": 1.5060163
+// Occupation     - "Process, plant and machine operatives": -0.0470359
+// Occupation     - "Elementary occupations": 0.6210566
+// HoursWorked    - "Part-time: 15 or less worked": 0.8823794
+// HoursWorked    - "Part-time: 16 to 30 hours worked": 0.7680842
+// HoursWorked    - "Full-time: 31 to 48 hours worked": -0.7551477
+// HoursWorked    - "Full-time: 49 or more hours worked": -0.4587101
+// SocialGrade    - "Approx. social grade AB": -0.6757754
+// SocialGrade    - "Approx. social grade C1": -0.0836405
+// SocialGrade    - "Approx. social grade C2": 0.0983691
+// SocialGrade    - "Approx. social grade DE": 0.8167342
+//
+//
+// g2
+// --------
+// Gender         - "Male": 0.6921886
+// Ethnicity      - "White": -0.2179667
+// Age            - "Age 16-24": 0.0822853
+// Age            - "Age 25-34": 0.0976481
+// Age            - "Age 35-49": -0.0576619
+// Age            - "Age 50-64": -0.0329160
+// ModeOfTravel   - "Train": -0.2770772
+// ModeOfTravel   - "Bus": 0.2928897
+// ModeOfTravel   - "Drive Car": -0.1487155
+// ModeOfTravel   - "Bike": 0.1406652
+// ModeOfTravel   - "Walk": 0.1331504
+// Socioeconomic  - "Higher managerial and administrative": -0.3063253
+// Socioeconomic  - "Higher professional": -0.6367453
+// Socioeconomic  - "Lower professional and higher technical": -0.7997461
+// Socioeconomic  - "Lower managerial and administrative": -0.3110026
+// Socioeconomic  - "Higher supervisory": -0.2215988
+// Socioeconomic  - "Intermediate occupations": -0.4063652
+// Socioeconomic  - "Lower supervisory": 0.5122560
+// Socioeconomic  - "Lower technical": 0.3179224
+// Socioeconomic  - "Semi-routine": 0.5589849
+// Socioeconomic  - "Routine": 1.3628863
+// Industry       - "Manufacturing": 0.7685182
+// Industry       - "Construction": 0.1976581
+// Industry       - "Retail_Rep": 0.2944021
+// Industry       - "Transport and storage": 0.8399924
+// Industry       - "Accommodation and food services": 0.1424404
+// Industry       - "Finance": -0.3265282
+// Industry       - "Professional, scientific and technical": -0.4115332
+// Industry       - "Administrative and support services": 0.3272479
+// Industry       - "Public administration and defence; compulsory social security": -0.3264130
+// Industry       - "Education": -0.4612495
+// Industry       - "Human health and social work": -0.3919847
+// Industry       - "Managers, directors and senior officials": -0.4605616
+// Occupation     - "Professional occupations": -0.8942234
+// Occupation     - "Associate professional and technical occupations": -0.5429719
+// Occupation     - "Administrative and secretarial occupations": -0.3464534
+// Occupation     - "Skilled trades occupations": 0.3863276
+// Occupation     - "Caring, leisure and other service occupations": -0.1571611
+// Occupation     - "Sales and customer service occupations": -0.0314337
+// Occupation     - "Process, plant and machine operatives": 1.3034280
+// Occupation     - "Elementary occupations": 1.1361079
+// HoursWorked    - "Part-time: 15 or less worked": -0.1752512
+// HoursWorked    - "Part-time: 16 to 30 hours worked": -0.1604380
+// HoursWorked    - "Full-time: 31 to 48 hours worked": 0.3242213
+// HoursWorked    - "Full-time: 49 or more hours worked": -0.1271104
+// SocialGrade    - "Approx. social grade AB": -0.9773783
+// SocialGrade    - "Approx. social grade C1": -0.6692093
+// SocialGrade    - "Approx. social grade C2": 0.5131781
+// SocialGrade    - "Approx. social grade DE": 1.2242827
+//
+//
+// g3
+// --------
+// Gender         - "Male": -0.1383337
+// Ethnicity      - "White": -1.1176567
+// Age            - "Age 16-24": 0.0945963
+// Age            - "Age 25-34": 0.7689261
+// Age            - "Age 35-49": -0.3402549
+// Age            - "Age 50-64": -0.5478919
+// ModeOfTravel   - "Train": 0.4941188
+// ModeOfTravel   - "Bus": 0.9284404
+// ModeOfTravel   - "Drive Car": -1.1090853
+// ModeOfTravel   - "Bike": 0.6150350
+// ModeOfTravel   - "Walk": 0.2717948
+// Socioeconomic  - "Higher managerial and administrative": -0.1099024
+// Socioeconomic  - "Higher professional": 0.2844357
+// Socioeconomic  - "Lower professional and higher technical": 0.3522773
+// Socioeconomic  - "Lower managerial and administrative": -0.0484586
+// Socioeconomic  - "Higher supervisory": -0.0922282
+// Socioeconomic  - "Intermediate occupations": 0.0930132
+// Socioeconomic  - "Lower supervisory": -0.0276900
+// Socioeconomic  - "Lower technical": -0.2942923
+// Socioeconomic  - "Semi-routine": -0.1770289
+// Socioeconomic  - "Routine": -0.2468847
+// Industry       - "Manufacturing": -0.5057908
+// Industry       - "Construction": -0.3081932
+// Industry       - "Retail_Rep": -0.1748507
+// Industry       - "Transport and storage": -0.0645648
+// Industry       - "Accommodation and food services": 0.4210545
+// Industry       - "Finance": 0.1265434
+// Industry       - "Professional, scientific and technical": 0.3608892
+// Industry       - "Administrative and support services": 0.2169626
+// Industry       - "Public administration and defence; compulsory social security": 0.0057368
+// Industry       - "Education": 0.0487506
+// Industry       - "Human health and social work": 0.1198899
+// Industry       - "Managers, directors and senior officials": -0.1145679
+// Occupation     - "Professional occupations": 0.3284165
+// Occupation     - "Associate professional and technical occupations": 0.2758764
+// Occupation     - "Administrative and secretarial occupations": 0.1654425
+// Occupation     - "Skilled trades occupations": -0.3432391
+// Occupation     - "Caring, leisure and other service occupations": -0.0459711
+// Occupation     - "Sales and customer service occupations": 0.1055633
+// Occupation     - "Process, plant and machine operatives": -0.3726837
+// Occupation     - "Elementary occupations": 0.0833680
+// HoursWorked    - "Part-time: 15 or less worked": 0.0131419
+// HoursWorked    - "Part-time: 16 to 30 hours worked": -0.1267229
+// HoursWorked    - "Full-time: 31 to 48 hours worked": 0.1773345
+// HoursWorked    - "Full-time: 49 or more hours worked": -0.0876224
+// SocialGrade    - "Approx. social grade AB": 0.2310285
+// SocialGrade    - "Approx. social grade C1": 0.2599061
+// SocialGrade    - "Approx. social grade C2": -0.4200608
+// SocialGrade    - "Approx. social grade DE": -0.0466512
+//
+//
+// g4
+// --------
+// Gender         - "Male": -0.1095386
+// Ethnicity      - "White": 0.3446663
+// Age            - "Age 16-24": -0.0540398
+// Age            - "Age 25-34": -0.0390868
+// Age            - "Age 35-49": 0.1020836
+// Age            - "Age 50-64": 0.0438033
+// ModeOfTravel   - "Train": -0.0209371
+// ModeOfTravel   - "Bus": -0.2074652
+// ModeOfTravel   - "Drive Car": 0.4025716
+// ModeOfTravel   - "Bike": -0.1658626
+// ModeOfTravel   - "Walk": -0.2813606
+// Socioeconomic  - "Higher managerial and administrative": 0.0442326
+// Socioeconomic  - "Higher professional": -0.1238970
+// Socioeconomic  - "Lower professional and higher technical": 0.0151416
+// Socioeconomic  - "Lower managerial and administrative": 0.0071637
+// Socioeconomic  - "Higher supervisory": 0.6050119
+// Socioeconomic  - "Intermediate occupations": 0.9862203
+// Socioeconomic  - "Lower supervisory": -0.1771114
+// Socioeconomic  - "Lower technical": -0.0781881
+// Socioeconomic  - "Semi-routine": -0.3003612
+// Socioeconomic  - "Routine": -0.3770784
+// Industry       - "Manufacturing": -0.1979887
+// Industry       - "Construction": -0.0495727
+// Industry       - "Retail_Rep": -0.1117021
+// Industry       - "Transport and storage": -0.0578071
+// Industry       - "Accommodation and food services": -0.2558921
+// Industry       - "Finance": 0.3970735
+// Industry       - "Professional, scientific and technical": 0.0337406
+// Industry       - "Administrative and support services": 0.0397453
+// Industry       - "Public administration and defence; compulsory social security": 1.0803257
+// Industry       - "Education": -0.2424297
+// Industry       - "Human health and social work": -0.1440021
+// Industry       - "Managers, directors and senior officials": -0.0168772
+// Occupation     - "Professional occupations": -0.3006862
+// Occupation     - "Associate professional and technical occupations": 0.6993775
+// Occupation     - "Administrative and secretarial occupations": 0.8452230
+// Occupation     - "Skilled trades occupations": -0.2238220
+// Occupation     - "Caring, leisure and other service occupations": -0.1956955
+// Occupation     - "Sales and customer service occupations": 0.1235428
+// Occupation     - "Process, plant and machine operatives": -0.2383630
+// Occupation     - "Elementary occupations": -0.3646593
+// HoursWorked    - "Part-time: 15 or less worked": -0.1952320
+// HoursWorked    - "Part-time: 16 to 30 hours worked": -0.1089420
+// HoursWorked    - "Full-time: 31 to 48 hours worked": 0.3849601
+// HoursWorked    - "Full-time: 49 or more hours worked": -0.2656536
+// SocialGrade    - "Approx. social grade AB": -0.2120123
+// SocialGrade    - "Approx. social grade C1": 0.9244299
+// SocialGrade    - "Approx. social grade C2": -0.2170127
+// SocialGrade    - "Approx. social grade DE": -0.3795964
+//
+//
+// g5
+// --------
+// Gender         - "Male": -0.8066910
+// Ethnicity      - "White": 0.1338176
+// Age            - "Age 16-24": 0.2756893
+// Age            - "Age 25-34": -0.3428722
+// Age            - "Age 35-49": -0.0541734
+// Age            - "Age 50-64": 0.2540122
+// ModeOfTravel   - "Train": -0.3319610
+// ModeOfTravel   - "Bus": 0.2308739
+// ModeOfTravel   - "Drive Car": -0.1093251
+// ModeOfTravel   - "Bike": 0.1632835
+// ModeOfTravel   - "Walk": 0.6909768
+// Socioeconomic  - "Higher managerial and administrative": -0.2253850
+// Socioeconomic  - "Higher professional": -0.5042127
+// Socioeconomic  - "Lower professional and higher technical": -0.1618568
+// Socioeconomic  - "Lower managerial and administrative": -0.1537298
+// Socioeconomic  - "Higher supervisory": 0.0602273
+// Socioeconomic  - "Intermediate occupations": 0.1816937
+// Socioeconomic  - "Lower supervisory": 0.2320642
+// Socioeconomic  - "Lower technical": -0.0122877
+// Socioeconomic  - "Semi-routine": 0.6864039
+// Socioeconomic  - "Routine": 0.2791192
+// Industry       - "Manufacturing": -0.2053144
+// Industry       - "Construction": 0.0167518
+// Industry       - "Retail_Rep": -0.1038595
+// Industry       - "Transport and storage": -0.1244135
+// Industry       - "Accommodation and food services": 0.4702802
+// Industry       - "Finance": -0.1720812
+// Industry       - "Professional, scientific and technical": -0.2729487
+// Industry       - "Administrative and support services": 0.0048873
+// Industry       - "Public administration and defence; compulsory social security": -0.1554605
+// Industry       - "Education": 0.5995690
+// Industry       - "Human health and social work": 0.7102548
+// Industry       - "Managers, directors and senior officials": -0.2975045
+// Occupation     - "Professional occupations": -0.2476269
+// Occupation     - "Associate professional and technical occupations": -0.4545134
+// Occupation     - "Administrative and secretarial occupations": 0.0119751
+// Occupation     - "Skilled trades occupations": 0.1231673
+// Occupation     - "Caring, leisure and other service occupations": 1.2035224
+// Occupation     - "Sales and customer service occupations": 0.0330400
+// Occupation     - "Process, plant and machine operatives": -0.1103047
+// Occupation     - "Elementary occupations": 0.4353290
+// HoursWorked    - "Part-time: 15 or less worked": 0.6052734
+// HoursWorked    - "Part-time: 16 to 30 hours worked": 0.8394410
+// HoursWorked    - "Full-time: 31 to 48 hours worked": -0.7037885
+// HoursWorked    - "Full-time: 49 or more hours worked": -0.2963621
+// SocialGrade    - "Approx. social grade AB": -0.3896853
+// SocialGrade    - "Approx. social grade C1": -0.2354561
+// SocialGrade    - "Approx. social grade C2": 0.5288084
+// SocialGrade    - "Approx. social grade DE": 0.4015905
+//
+//
+// g6
+// --------
+// Gender         - "Male": -0.8364380
+// Ethnicity      - "White": 0.2209645
+// Age            - "Age 16-24": -0.3876986
+// Age            - "Age 25-34": -0.1547229
+// Age            - "Age 35-49": 0.1092002
+// Age            - "Age 50-64": 0.2868450
+// ModeOfTravel   - "Train": -0.3207544
+// ModeOfTravel   - "Bus": -0.3210237
+// ModeOfTravel   - "Drive Car": 0.6320914
+// ModeOfTravel   - "Bike": -0.2436658
+// ModeOfTravel   - "Walk": -0.3421073
+// Socioeconomic  - "Higher managerial and administrative": -0.2158200
+// Socioeconomic  - "Higher professional": 0.3236253
+// Socioeconomic  - "Lower professional and higher technical": 1.2175987
+// Socioeconomic  - "Lower managerial and administrative": -0.4532189
+// Socioeconomic  - "Higher supervisory": -0.1611447
+// Socioeconomic  - "Intermediate occupations": -0.1155475
+// Socioeconomic  - "Lower supervisory": -0.4046916
+// Socioeconomic  - "Lower technical": -0.4584408
+// Socioeconomic  - "Semi-routine": -0.4210402
+// Socioeconomic  - "Routine": -0.6141827
+// Industry       - "Manufacturing": -0.5407315
+// Industry       - "Construction": -0.3924519
+// Industry       - "Retail_Rep": -0.6531226
+// Industry       - "Transport and storage": -0.5261400
+// Industry       - "Accommodation and food services": -0.4304750
+// Industry       - "Finance": -0.3713757
+// Industry       - "Professional, scientific and technical": -0.3073041
+// Industry       - "Administrative and support services": -0.4568249
+// Industry       - "Public administration and defence; compulsory social security": -0.2099109
+// Industry       - "Education": 0.9686500
+// Industry       - "Human health and social work": 0.9382419
+// Industry       - "Managers, directors and senior officials": -0.4255680
+// Occupation     - "Professional occupations": 1.3197721
+// Occupation     - "Associate professional and technical occupations": -0.1743819
+// Occupation     - "Administrative and secretarial occupations": -0.1963083
+// Occupation     - "Skilled trades occupations": -0.5224782
+// Occupation     - "Caring, leisure and other service occupations": 0.2399035
+// Occupation     - "Sales and customer service occupations": -0.5319696
+// Occupation     - "Process, plant and machine operatives": -0.5739635
+// Occupation     - "Elementary occupations": -0.6040223
+// HoursWorked    - "Part-time: 15 or less worked": -0.0017715
+// HoursWorked    - "Part-time: 16 to 30 hours worked": 0.3070976
+// HoursWorked    - "Full-time: 31 to 48 hours worked": -0.2816310
+// HoursWorked    - "Full-time: 49 or more hours worked": 0.0442447
+// SocialGrade    - "Approx. social grade AB": 0.7225477
+// SocialGrade    - "Approx. social grade C1": -0.0421280
+// SocialGrade    - "Approx. social grade C2": -0.3467375
+// SocialGrade    - "Approx. social grade DE": -0.5860279
+//
+//
+// g7
+// --------
+// Gender         - "Male": 0.8118140
+// Ethnicity      - "White": 0.5647489
+// Age            - "Age 16-24": -0.1202079
+// Age            - "Age 25-34": -0.2569240
+// Age            - "Age 35-49": 0.0965638
+// Age            - "Age 50-64": 0.2704365
+// ModeOfTravel   - "Train": -0.4000961
+// ModeOfTravel   - "Bus": -0.5043332
+// ModeOfTravel   - "Drive Car": 0.7142068
+// ModeOfTravel   - "Bike": -0.2416887
+// ModeOfTravel   - "Walk": -0.3652387
+// Socioeconomic  - "Higher managerial and administrative": 0.0557403
+// Socioeconomic  - "Higher professional": -0.2629691
+// Socioeconomic  - "Lower professional and higher technical": -0.3531495
+// Socioeconomic  - "Lower managerial and administrative": 0.0744140
+// Socioeconomic  - "Higher supervisory": -0.0905067
+// Socioeconomic  - "Intermediate occupations": -0.2585494
+// Socioeconomic  - "Lower supervisory": 0.2634966
+// Socioeconomic  - "Lower technical": 0.9492904
+// Socioeconomic  - "Semi-routine": -0.0245353
+// Socioeconomic  - "Routine": 0.4698080
+// Industry       - "Manufacturing": 0.9250227
+// Industry       - "Construction": 0.6703313
+// Industry       - "Retail_Rep": 0.1616322
+// Industry       - "Transport and storage": 0.2767232
+// Industry       - "Accommodation and food services": -0.2586319
+// Industry       - "Finance": -0.3233533
+// Industry       - "Professional, scientific and technical": -0.2570401
+// Industry       - "Administrative and support services": -0.0710186
+// Industry       - "Public administration and defence; compulsory social security": -0.2733666
+// Industry       - "Education": -0.3285085
+// Industry       - "Human health and social work": -0.4442048
+// Industry       - "Managers, directors and senior officials": 0.1123581
+// Occupation     - "Professional occupations": -0.4263343
+// Occupation     - "Associate professional and technical occupations": -0.1700432
+// Occupation     - "Administrative and secretarial occupations": -0.2077403
+// Occupation     - "Skilled trades occupations": 1.1180310
+// Occupation     - "Caring, leisure and other service occupations": -0.3344422
+// Occupation     - "Sales and customer service occupations": -0.2382526
+// Occupation     - "Process, plant and machine operatives": 0.7605151
+// Occupation     - "Elementary occupations": -0.1046744
+// HoursWorked    - "Part-time: 15 or less worked": -0.3371610
+// HoursWorked    - "Part-time: 16 to 30 hours worked": -0.4806472
+// HoursWorked    - "Full-time: 31 to 48 hours worked": 0.3586286
+// HoursWorked    - "Full-time: 49 or more hours worked": 0.2818674
+// SocialGrade    - "Approx. social grade AB": -0.3540266
+// SocialGrade    - "Approx. social grade C1": -0.2002235
+// SocialGrade    - "Approx. social grade C2": 0.7913983
+// SocialGrade    - "Approx. social grade DE": 0.0237753
+//
+//
+// g8
+// --------
+// Gender         - "Male": 0.5177105
+// Ethnicity      - "White": 0.4463158
+// Age            - "Age 16-24": -0.5017661
+// Age            - "Age 25-34": -0.2271079
+// Age            - "Age 35-49": 0.3715427
+// Age            - "Age 50-64": 0.1453184
+// ModeOfTravel   - "Train": -0.3762668
+// ModeOfTravel   - "Bus": -0.6825343
+// ModeOfTravel   - "Drive Car": 0.9900446
+// ModeOfTravel   - "Bike": -0.3863205
+// ModeOfTravel   - "Walk": -0.5352035
+// Socioeconomic  - "Higher managerial and administrative": 0.7070847
+// Socioeconomic  - "Higher professional": 0.8151897
+// Socioeconomic  - "Lower professional and higher technical": 0.1600526
+// Socioeconomic  - "Lower managerial and administrative": 0.6390176
+// Socioeconomic  - "Higher supervisory": -0.2071901
+// Socioeconomic  - "Intermediate occupations": -0.4403506
+// Socioeconomic  - "Lower supervisory": -0.3773281
+// Socioeconomic  - "Lower technical": -0.2579754
+// Socioeconomic  - "Semi-routine": -0.6915248
+// Socioeconomic  - "Routine": -0.5546372
+// Industry       - "Manufacturing": 0.3299886
+// Industry       - "Construction": 0.0579094
+// Industry       - "Retail_Rep": 0.0235790
+// Industry       - "Transport and storage": -0.2132989
+// Industry       - "Accommodation and food services": -0.4366328
+// Industry       - "Finance": -0.0437310
+// Industry       - "Professional, scientific and technical": 0.3314703
+// Industry       - "Administrative and support services": -0.1630259
+// Industry       - "Public administration and defence; compulsory social security": -0.1360111
+// Industry       - "Education": -0.2157281
+// Industry       - "Human health and social work": -0.4376039
+// Industry       - "Managers, directors and senior officials": 1.0285703
+// Occupation     - "Professional occupations": 0.5592542
+// Occupation     - "Associate professional and technical occupations": 0.2901612
+// Occupation     - "Administrative and secretarial occupations": -0.3308067
+// Occupation     - "Skilled trades occupations": -0.3095334
+// Occupation     - "Caring, leisure and other service occupations": -0.6503084
+// Occupation     - "Sales and customer service occupations": -0.4117499
+// Occupation     - "Process, plant and machine operatives": -0.3154305
+// Occupation     - "Elementary occupations": -0.6205056
+// HoursWorked    - "Part-time: 15 or less worked": -0.4113380
+// HoursWorked    - "Part-time: 16 to 30 hours worked": -0.5599638
+// HoursWorked    - "Full-time: 31 to 48 hours worked": 0.2445526
+// HoursWorked    - "Full-time: 49 or more hours worked": 0.5039491
+// SocialGrade    - "Approx. social grade AB": 0.9573235
+// SocialGrade    - "Approx. social grade C1": -0.0082092
+// SocialGrade    - "Approx. social grade C2": -0.6272999
+// SocialGrade    - "Approx. social grade DE": -0.7401815
+//
+//
+// g9
+// --------
+// Gender         - "Male": 0.3693717
+// Ethnicity      - "White": -0.2173867
+// Age            - "Age 16-24": -0.4305840
+// Age            - "Age 25-34": 0.5077542
+// Age            - "Age 35-49": 0.2015630
+// Age            - "Age 50-64": -0.4660718
+// ModeOfTravel   - "Train": 1.8972009
+// ModeOfTravel   - "Bus": -0.4743537
+// ModeOfTravel   - "Drive Car": -1.3264320
+// ModeOfTravel   - "Bike": -0.0343119
+// ModeOfTravel   - "Walk": -0.4302274
+// Socioeconomic  - "Higher managerial and administrative": 0.4960191
+// Socioeconomic  - "Higher professional": 1.1778595
+// Socioeconomic  - "Lower professional and higher technical": 0.4004408
+// Socioeconomic  - "Lower managerial and administrative": 0.4010174
+// Socioeconomic  - "Higher supervisory": -0.0358538
+// Socioeconomic  - "Intermediate occupations": -0.1113047
+// Socioeconomic  - "Lower supervisory": -0.4739118
+// Socioeconomic  - "Lower technical": -0.4897096
+// Socioeconomic  - "Semi-routine": -0.8872223
+// Socioeconomic  - "Routine": -0.8497859
+// Industry       - "Manufacturing": -0.5995931
+// Industry       - "Construction": -0.2907638
+// Industry       - "Retail_Rep": -0.6155724
+// Industry       - "Transport and storage": -0.2019198
+// Industry       - "Accommodation and food services": -0.3745621
+// Industry       - "Finance": 0.9805290
+// Industry       - "Professional, scientific and technical": 1.1766927
+// Industry       - "Administrative and support services": 0.0322346
+// Industry       - "Public administration and defence; compulsory social security": 0.1735944
+// Industry       - "Education": -0.4378472
+// Industry       - "Human health and social work": -0.4991378
+// Industry       - "Managers, directors and senior officials": 0.5652018
+// Occupation     - "Professional occupations": 0.7461606
+// Occupation     - "Associate professional and technical occupations": 0.8060592
+// Occupation     - "Administrative and secretarial occupations": 0.0928370
+// Occupation     - "Skilled trades occupations": -0.6566640
+// Occupation     - "Caring, leisure and other service occupations": -0.7453708
+// Occupation     - "Sales and customer service occupations": -0.4848267
+// Occupation     - "Process, plant and machine operatives": -0.6584131
+// Occupation     - "Elementary occupations": -0.7312058
+// HoursWorked    - "Part-time: 15 or less worked": -0.5575926
+// HoursWorked    - "Part-time: 16 to 30 hours worked": -0.7974066
+// HoursWorked    - "Full-time: 31 to 48 hours worked": 0.4449221
+// HoursWorked    - "Full-time: 49 or more hours worked": 0.5554111
+// SocialGrade    - "Approx. social grade AB": 1.1443854
+// SocialGrade    - "Approx. social grade C1": 0.0976747
+// SocialGrade    - "Approx. social grade C2": -0.9250956
+// SocialGrade    - "Approx. social grade DE": -0.9181678
+//
+//
+//
+
+
+
+
+
 
 
 
@@ -34,7 +516,7 @@ var Diagrams = {
   createRadialDiagram: function(isSuperGroup) {
 
     if (isSuperGroup) {
-      this.createSuperGroupsRadialDiagram2();
+      this.createSuperGroupsRadialDiagram();
     }
     else {
       this.createGroupsRadialDiagram();
@@ -183,17 +665,111 @@ var Diagrams = {
             // { text: 'Approx. social grade C2' },
             // { text: 'Approx. social grade DE' }
 
+            // { text: 'Male' },
+            // { text: 'White' },
+            // { text: '16-24' },
+            // { text: '25-34' },
+            // { text: '35-49' },
+            // { text: '50-64' },
+            // { text: 'Train' },
+            // { text: 'Bus' },
+            // { text: 'Car' },
+            // { text: 'Bike' },
+            // { text: 'Walk' },
+            // { text: 'Higher managerial & admin' },
+            // { text: 'Higher professional' },
+            // { text: 'Lower professional & higher technical' },
+            // { text: 'Lower managerial and admin' },
+            // { text: 'Higher supervisory' },
+            // { text: 'Intermediate occupations' },
+            // { text: 'Lower supervisory' },
+            // { text: 'Lower technical' },
+            // { text: 'Semi-routine' },
+            // { text: 'Routine' },
+            // { text: 'Manufacturing' },
+            // { text: 'Construction' },
+            // { text: 'Retail & Repair' },
+            // { text: 'Transport & storage' },
+            // { text: 'Accommodation & food services' },
+            // { text: 'Finance' },
+            // { text: 'Professional, scientific & technical' },
+            // { text: 'Administrative & support services' },
+            // { text: 'Public admin & defence; compulsory social security' },
+            // { text: 'Education' },
+            // { text: 'Human health & social work' },
+            // { text: 'Managers, directors & senior officials' },
+            // { text: 'Professional' },
+            // { text: 'Associate professional & technical' },
+            // { text: 'Administrative & secretarial' },
+            // { text: 'Skilled trades occupations' },
+            // { text: 'Caring, leisure & other service' },
+            // { text: 'Sales & customer service' },
+            // { text: 'Process, plant & machine operatives' },
+            // { text: 'Elementary' },
+            // { text: '< 16' },
+            // { text: '16-30' },
+            // { text: '31-48' },
+            // { text: '> 48' },
+            // { text: 'AB' },
+            // { text: 'C1' },
+            // { text: 'C2' },
+            // { text: 'DE' }
+
+
+            // Gender         - "Male": -0.2898335
+            // Ethnicity      - "White": -0.5652861
+            // Age            - "Age 16-24": 0.9686828
+            // Age            - "Age 25-34": 0.0054915
+            // Age            - "Age 35-49": -0.4538302
+            // Age            - "Age 50-64": -0.2901564
+            // ModeOfTravel   - "Train": -0.0189297
+            // ModeOfTravel   - "Bus": 0.8382217
+            // ModeOfTravel   - "Drive Car": -0.6310537
+            // ModeOfTravel   - "Bike": 0.2251787
+            // ModeOfTravel   - "Walk": 0.7129810
+            // Socioeconomic  - "Higher managerial and administrative": -0.2821526
+            // Socioeconomic  - "Higher professional": -0.5806601
+            // Socioeconomic  - "Lower professional and higher technical": -0.6897176
+            // Socioeconomic  - "Lower managerial and administrative": -0.0081818
+            // Socioeconomic  - "Higher supervisory": 0.0553240
+            // Socioeconomic  - "Intermediate occupations": -0.0946947
+            // Socioeconomic  - "Lower supervisory": 0.2490915
+            // Socioeconomic  - "Lower technical": -0.0380303
+            // Socioeconomic  - "Semi-routine": 0.9262800
+            // Socioeconomic  - "Routine": 0.2125665
+            // Industry       - "Manufacturing": -0.2480418
+            // Industry       - "Construction": -0.1612248
+            // Industry       - "Retail_Rep": 1.1801495
+            // Industry       - "Transport and storage": 0.0466582
+            // Industry       - "Accommodation and food services": 0.6508536
+            // Industry       - "Finance": 0.0567176
+            // Industry       - "Professional, scientific and technical": -0.2260128
+            // Industry       - "Administrative and support services": 0.1362883
+            // Industry       - "Public administration and defence; compulsory social security": -0.1332603
+            // Industry       - "Education": -0.2018477
+            // Industry       - "Human health and social work": -0.1527481
+            // Industry       - "Managers, directors and senior officials": -0.1707232
+            // Occupation     - "Professional occupations": -0.7810907
+            // Occupation     - "Associate professional and technical occupations": -0.4459161
+            // Occupation     - "Administrative and secretarial occupations": -0.0758261
+            // Occupation     - "Skilled trades occupations": -0.0518984
+            // Occupation     - "Caring, leisure and other service occupations": 0.1609955
+            // Occupation     - "Sales and customer service occupations": 1.5060163
+            // Occupation     - "Process, plant and machine operatives": -0.0470359
+            // Occupation     - "Elementary occupations": 0.6210566
+            // HoursWorked    - "Part-time: 15 or less worked": 0.8823794
+            // HoursWorked    - "Part-time: 16 to 30 hours worked": 0.7680842
+            // HoursWorked    - "Full-time: 31 to 48 hours worked": -0.7551477
+            // HoursWorked    - "Full-time: 49 or more hours worked": -0.4587101
+            // SocialGrade    - "Approx. social grade AB": -0.6757754
+            // SocialGrade    - "Approx. social grade C1": -0.0836405
+            // SocialGrade    - "Approx. social grade C2": 0.0983691
+            // SocialGrade    - "Approx. social grade DE": 0.8167342
+
+
             { text: 'Male' },
             { text: 'White' },
-            { text: '16-24' },
-            { text: '25-34' },
-            { text: '35-49' },
-            { text: '50-64' },
-            { text: 'Train' },
-            { text: 'Bus' },
-            { text: 'Car' },
-            { text: 'Bike' },
-            { text: 'Walk' },
+
             { text: 'Higher managerial & admin' },
             { text: 'Higher professional' },
             { text: 'Lower professional & higher technical' },
@@ -204,6 +780,32 @@ var Diagrams = {
             { text: 'Lower technical' },
             { text: 'Semi-routine' },
             { text: 'Routine' },
+
+            { text: 'Professional' },
+            { text: 'Associate professional & technical' },
+            { text: 'Administrative & secretarial' },
+            { text: 'Skilled trades occupations' },
+            { text: 'Caring, leisure & other service' },
+            { text: 'Sales & customer service' },
+            { text: 'Process, plant & machine operatives' },
+            { text: 'Elementary' },
+
+            { text: '16-24' },
+            { text: '25-34' },
+            { text: '35-49' },
+            { text: '50-64' },
+
+            { text: 'Train' },
+            { text: 'Bus' },
+            { text: 'Car' },
+            { text: 'Bike' },
+            { text: 'Walk' },
+
+            { text: '< 16' },
+            { text: '16-30' },
+            { text: '31-48' },
+            { text: '> 48' },
+
             { text: 'Manufacturing' },
             { text: 'Construction' },
             { text: 'Retail & Repair' },
@@ -216,18 +818,7 @@ var Diagrams = {
             { text: 'Education' },
             { text: 'Human health & social work' },
             { text: 'Managers, directors & senior officials' },
-            { text: 'Professional' },
-            { text: 'Associate professional & technical' },
-            { text: 'Administrative & secretarial' },
-            { text: 'Skilled trades occupations' },
-            { text: 'Caring, leisure & other service' },
-            { text: 'Sales & customer service' },
-            { text: 'Process, plant & machine operatives' },
-            { text: 'Elementary' },
-            { text: '< 16' },
-            { text: '16-30' },
-            { text: '31-48' },
-            { text: '> 48' },
+
             { text: 'AB' },
             { text: 'C1' },
             { text: 'C2' },
