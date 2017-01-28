@@ -23,6 +23,11 @@
 
 
 
+
+
+
+
+
 var Diagrams = {
   // TODO: Update the documentation here.
 
@@ -47,9 +52,9 @@ var Diagrams = {
         subtext: 'Test subtext'
       },
       tooltip : {
-        formatter: '{a}',
+        //formatter: '{a}',
         // islandFormatter: '{a}',
-        trigger: 'item', // axis | item
+        trigger: 'axis', // axis | item
       },
       // legend: {
       //   orient : 'vertical',
@@ -128,21 +133,71 @@ var Diagrams = {
             // { text: 'Approx. social grade DE', max: 1.6 }
 
 
+            // { text: 'Male' },
+            // { text: 'White' },
+            // { text: 'Age 16-24' },
+            // { text: 'Age 25-34' },
+            // { text: 'Age 35-49' },
+            // { text: 'Age 50-64' },
+            // { text: 'Train' },
+            // { text: 'Bus' },
+            // { text: 'Drive Car' },
+            // { text: 'Bike' },
+            // { text: 'Walk' },
+            // { text: 'Higher managerial and & administrative' },
+            // { text: 'Higher professional' },
+            // { text: 'Lower professional and higher technical' },
+            // { text: 'Lower managerial and administrative' },
+            // { text: 'Higher supervisory' },
+            // { text: 'Intermediate occupations' },
+            // { text: 'Lower supervisory' },
+            // { text: 'Lower technical' },
+            // { text: 'Semi-routine' },
+            // { text: 'Routine' },
+            // { text: 'Manufacturing' },
+            // { text: 'Construction' },
+            // { text: 'Retail Rep' },
+            // { text: 'Transport and storage' },
+            // { text: 'Accommodation and food services' },
+            // { text: 'Finance' },
+            // { text: 'Professional, scientific and technical' },
+            // { text: 'Administrative and support services' },
+            // { text: 'Public administration and defence; compulsory social security' },
+            // { text: 'Education' },
+            // { text: 'Human health and social work' },
+            // { text: 'Managers, directors and senior officials' },
+            // { text: 'Professional occupations' },
+            // { text: 'Associate professional and technical occupations' },
+            // { text: 'Administrative and secretarial occupations' },
+            // { text: 'Skilled trades occupations' },
+            // { text: 'Caring, leisure and other service occupations' },
+            // { text: 'Sales and customer service occupations' },
+            // { text: 'Process, plant and machine operatives' },
+            // { text: 'Elementary occupations' },
+            // { text: 'Part-time: 15 or less worked' },
+            // { text: 'Part-time: 16 to 30 hours worked' },
+            // { text: 'Full-time: 31 to 48 hours worked' },
+            // { text: 'Full-time: 49 or more hours worked' },
+            // { text: 'Approx. social grade AB' },
+            // { text: 'Approx. social grade C1' },
+            // { text: 'Approx. social grade C2' },
+            // { text: 'Approx. social grade DE' }
+
             { text: 'Male' },
             { text: 'White' },
-            { text: 'Age 16-24' },
-            { text: 'Age 25-34' },
-            { text: 'Age 35-49' },
-            { text: 'Age 50-64' },
+            { text: '16-24' },
+            { text: '25-34' },
+            { text: '35-49' },
+            { text: '50-64' },
             { text: 'Train' },
             { text: 'Bus' },
-            { text: 'Drive Car' },
+            { text: 'Car' },
             { text: 'Bike' },
             { text: 'Walk' },
-            { text: 'Higher managerial and & administrative' },
+            { text: 'Higher managerial & admin' },
             { text: 'Higher professional' },
-            { text: 'Lower professional and higher technical' },
-            { text: 'Lower managerial and administrative' },
+            { text: 'Lower professional & higher technical' },
+            { text: 'Lower managerial and admin' },
             { text: 'Higher supervisory' },
             { text: 'Intermediate occupations' },
             { text: 'Lower supervisory' },
@@ -151,32 +206,33 @@ var Diagrams = {
             { text: 'Routine' },
             { text: 'Manufacturing' },
             { text: 'Construction' },
-            { text: 'Retail Rep' },
-            { text: 'Transport and storage' },
-            { text: 'Accommodation and food services' },
+            { text: 'Retail & Repair' },
+            { text: 'Transport & storage' },
+            { text: 'Accommodation & food services' },
             { text: 'Finance' },
-            { text: 'Professional, scientific and technical' },
-            { text: 'Administrative and support services' },
-            { text: 'Public administration and defence; compulsory social security' },
+            { text: 'Professional, scientific & technical' },
+            { text: 'Administrative & support services' },
+            { text: 'Public admin & defence; compulsory social security' },
             { text: 'Education' },
-            { text: 'Human health and social work' },
-            { text: 'Managers, directors and senior officials' },
-            { text: 'Professional occupations' },
-            { text: 'Associate professional and technical occupations' },
-            { text: 'Administrative and secretarial occupations' },
+            { text: 'Human health & social work' },
+            { text: 'Managers, directors & senior officials' },
+            { text: 'Professional' },
+            { text: 'Associate professional & technical' },
+            { text: 'Administrative & secretarial' },
             { text: 'Skilled trades occupations' },
-            { text: 'Caring, leisure and other service occupations' },
-            { text: 'Sales and customer service occupations' },
-            { text: 'Process, plant and machine operatives' },
-            { text: 'Elementary occupations' },
-            { text: 'Part-time: 15 or less worked' },
-            { text: 'Part-time: 16 to 30 hours worked' },
-            { text: 'Full-time: 31 to 48 hours worked' },
-            { text: 'Full-time: 49 or more hours worked' },
-            { text: 'Approx. social grade AB' },
-            { text: 'Approx. social grade C1' },
-            { text: 'Approx. social grade C2' },
-            { text: 'Approx. social grade DE' }
+            { text: 'Caring, leisure & other service' },
+            { text: 'Sales & customer service' },
+            { text: 'Process, plant & machine operatives' },
+            { text: 'Elementary' },
+            { text: '< 16' },
+            { text: '16-30' },
+            { text: '31-48' },
+            { text: '> 48' },
+            { text: 'AB' },
+            { text: 'C1' },
+            { text: 'C2' },
+            { text: 'DE' }
+
 
 
           ]
@@ -225,6 +281,125 @@ var Diagrams = {
     });
 
   },
+
+
+  createSuperGroupsRadialDiagram2: function() {
+
+    var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
+
+    let option = {
+      title : {
+        text: 'Test 2',
+        subtext: 'Test 2 Subtext'
+      },
+      tooltip : {
+        trigger: 'axis'
+      },
+      legend: {
+        x : 'center',
+        data:['AAAA','BBBB','CCCC','DDDD','EEEE']
+      },
+      // toolbox: {
+      //   show : true,
+      //   feature : {
+      //     mark : {show: true},
+      //     dataView : {show: true, readOnly: false},
+      //     restore : {show: true},
+      //     saveAsImage : {show: true}
+      //   }
+      // },
+      calculable : true,
+      polar : [
+        {
+          indicator : [
+            {text : '品牌', max  : 100},
+            {text : '内容', max  : 100},
+            {text : '可用性', max  : 100},
+            {text : '功能', max  : 100}
+          ],
+          center : ['50%',200],
+          radius : 80
+        },
+        // {
+        //   indicator : [
+        //     {text : '外观', max  : 100},
+        //     {text : '拍照', max  : 100},
+        //     {text : '系统', max  : 100},
+        //     {text : '性能', max  : 100},
+        //     {text : '屏幕', max  : 100}
+        //   ],
+        //   radius : 80
+        // },
+        // {
+        //   indicator : (function (){
+        //     var res = [];
+        //     for (var i = 1; i <= 12; i++) {
+        //       res.push({text:i+'月',max:100});
+        //     }
+        //     return res;
+        //   })(),
+        //   center : ['75%', 200],
+        //   radius : 80
+        // }
+      ],
+      series : [
+        {
+          type: 'radar',
+          tooltip : {
+            trigger: 'item'
+          },
+          itemStyle: {normal: {areaStyle: {type: 'default'}}},
+          data : [
+            {
+              value : [60,73,85,40],
+              name : '某软件'
+            }
+          ]
+        },
+        // {
+        //   type: 'radar',
+        //   polarIndex : 1,
+        //   data : [
+        //     {
+        //       value : [85, 90, 90, 95, 95],
+        //       name : '某主食手机'
+        //     },
+        //     {
+        //       value : [95, 80, 95, 90, 93],
+        //       name : '某水果手机'
+        //     }
+        //   ]
+        // },
+        // {
+        //   type: 'radar',
+        //   polarIndex : 2,
+        //   itemStyle: {normal: {areaStyle: {type: 'default'}}},
+        //   data : [
+        //     {
+        //       name : '降水量',
+        //       value : [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 75.6, 82.2, 48.7, 18.8, 6.0, 2.3],
+        //     },
+        //     {
+        //       name:'蒸发量',
+        //       value:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 35.6, 62.2, 32.6, 20.0, 6.4, 3.3]
+        //     }
+        //   ]
+        // }
+      ]
+    };
+
+    dataDiagram.setOption(option);
+
+    dataDiagram.on('click', function(params) {
+      alert(params.value); // TODO: Add the data diagram click code.
+    });
+
+    dataDiagram.on('mouseover', function(params) {
+      console.log('mouseover: ' + params.value); // TODO: Add the data diagram mouseover code.
+    });
+
+  },
+
 
   createGroupsRadialDiagram: function() {
 
