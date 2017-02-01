@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="libs/font-awesome-4.7.0/css/font-awesome.min.css" >
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <!--<link rel='stylesheet prefetch' href='styles/cf-typology.css'>-->
-  <link rel='stylesheet' href='styles/classification8.css'>
+  <link rel='stylesheet' href='styles/classification9.css'>
 
   <script type="text/javascript" src="libs/jquery-2.1.4/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
@@ -216,16 +216,18 @@
                     aged 16-24. There is an above average level of workers in the lowest social grade category.
                   </td>
                   <td class="col-lg-9 col-md-8 col-sm-8 col-xs-8">
-                    <img class="img-responsive pull-right" src="images/sg/Group1.jpg" width="500px" alt="super-group 1 map">
+                    <img class="img-responsive" style="margin: auto;" src="images/sg/Group1.jpg" width="500px" alt="super-group 1 map">
                   </td>
                 </tr>
                 <tr>
-                  <td colspan="2">
+                  <td colspan="2" class="col-lg-9 col-md-8 col-sm-8 col-xs-8">
                     <!--<div id="dataDiagram"></div>-->
                     <!--<div id="dataDiagram" style="height: 600%;"></div>-->
-
-                    <div id="dataDiagram" style="width: 100%; min-height: 600px;"></div>
+                    <!--<div id="dataDiagram" style="width: 100%; min-height: 600px;"></div>-->
                     <!--<div id="dataDiagram" class="col-lg-9 col-md-8 col-sm-8 col-xs-8" style="height: 600px;"></div>-->
+
+                    <!--<canvas id="dataDiagram" width="10" height="10"></canvas>-->
+                    <canvas id="dataDiagram" style="vertical-align: baseline;"></canvas>
                   </td>
                 </tr>
               </table>
@@ -233,22 +235,22 @@
 
             <!--<div id="g1">-->
 
-              <!--<h2 >1. Consumer Services</h2>-->
+            <!--<h2 >1. Consumer Services</h2>-->
 
-              <!--<p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">-->
-                <!--This Supergroup has a higher than average distribution of commuters employed part-time in sales and-->
-                <!--customer service or elementary occupations. Their roles are predominately defined as semi-routine.-->
-                <!--The main associated industries include wholesale and retail trade and repair of motor vehicles and-->
-                <!--motorcycles, and accommodation and food services. This Supergroup has an above average propensity-->
-                <!--to travel to work by bus, bike or on foot and above average levels of multicultural female workers-->
-                <!--aged 16-24. There is an above average level of workers in the lowest social grade category.-->
-              <!--</p>-->
+            <!--<p class="col-lg-3 col-md-4 col-sm-4 col-xs-4">-->
+            <!--This Supergroup has a higher than average distribution of commuters employed part-time in sales and-->
+            <!--customer service or elementary occupations. Their roles are predominately defined as semi-routine.-->
+            <!--The main associated industries include wholesale and retail trade and repair of motor vehicles and-->
+            <!--motorcycles, and accommodation and food services. This Supergroup has an above average propensity-->
+            <!--to travel to work by bus, bike or on foot and above average levels of multicultural female workers-->
+            <!--aged 16-24. There is an above average level of workers in the lowest social grade category.-->
+            <!--</p>-->
 
-              <!--<div class="col-lg-9 col-md-8 col-sm-8 col-xs-8">-->
-                <!--<img class="img-responsive pull-right" src="images/sg/1.jpg" width="500px" alt="super-group 1 map">-->
-              <!--</div>-->
+            <!--<div class="col-lg-9 col-md-8 col-sm-8 col-xs-8">-->
+            <!--<img class="img-responsive pull-right" src="images/sg/1.jpg" width="500px" alt="super-group 1 map">-->
+            <!--</div>-->
 
-              <!--<div id="dataDiagram" class="col-lg-9 col-md-8 col-sm-8 col-xs-8" style="height: 700px;"></div>-->
+            <!--<div id="dataDiagram" class="col-lg-9 col-md-8 col-sm-8 col-xs-8" style="height: 700px;"></div>-->
 
             <!--</div>-->
 
@@ -1254,8 +1256,9 @@
 </footer>
 
 <script type="text/javascript" src="libs/vue-1.0.26/vue.js"></script>
-<script type="text/javascript" src="libs/echarts-3.2.3/echarts.min.js"></script>
-<script src="js/classification8.js"></script>
+<!--<script type="text/javascript" src="libs/echarts-3.2.3/echarts.min.js"></script>-->
+<script type="text/javascript" src="libs/chart-js-2.4.0/chart.min.js"></script>
+<script src="js/classification9.js"></script>
 
 </body>
 </html>
