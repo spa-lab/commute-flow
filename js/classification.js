@@ -922,7 +922,7 @@ var Diagrams = {
           data: this.groupData[group].data
         },
         {
-          label: 'Average',
+          label: 'England & Wales mean', //'Average',
           // backgroundColor: this.colors.average.backgroundColor,
           borderColor: this.colors.average.borderColor,
           // pointBackgroundColor: this.colors.average.pointBackgroundColor,
