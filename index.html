@@ -102,7 +102,7 @@
         <div class="btn-group" role="group">
           <div class="btn-group" role="group">
             <button id="verticalBarDiagramButton" type="button" class="btn btn-danger"
-                    data-toggle="tooltip" data-placement="top" title="Show Vertical Bar Diagram"
+                    data-toggle="tooltip" data-placement="bottom" title="Show Vertical Bar Diagram"
                     v-bind:class="[currentDiagramType == ':verticalBar' ? 'active' : '']"
                     v-on:click="setCurrentDiagramType(':verticalBar')">
               <i class="fa fa-bar-chart" aria-hidden="true"></i>
@@ -110,7 +110,7 @@
           </div>
           <div class="btn-group" role="group">
             <button id="horizontalBarDiagramButton" type="button" class="btn btn-danger"
-                    data-toggle="tooltip" data-placement="top" title="Show Horizontal Bar Diagram"
+                    data-toggle="tooltip" data-placement="bottom" title="Show Horizontal Bar Diagram"
                     v-bind:class="[currentDiagramType == ':horizontalBar' ? 'active' : '']"
                     v-on:click="setCurrentDiagramType(':horizontalBar')">
               <i class="fa fa-bar-chart fa-rotate-90" aria-hidden="true"></i>
@@ -118,7 +118,7 @@
           </div>
           <div class="btn-group" role="group">
             <button id="doughnutDiagramButton" type="button" class="btn btn-danger"
-                    data-toggle="tooltip" data-placement="top" title="Show Doughnut Diagram"
+                    data-toggle="tooltip" data-placement="bottom" title="Show Doughnut Diagram"
                     v-bind:class="[currentDiagramType == ':doughnut' ? 'active' : '']"
                     v-on:click="setCurrentDiagramType(':doughnut')">
               <i class="fa fa-pie-chart" aria-hidden="true"></i>
@@ -129,7 +129,7 @@
         <div class="btn-group" role="group">
           <div class="btn-group" role="group">
             <button id="toggleMsoaScatterDiagramButton" type="button" class="btn btn-danger"
-                    data-toggle="tooltip" data-placement="top" title="Show MSOA Scatter"
+                    data-toggle="tooltip" data-placement="bottom" title="Show MSOA Scatter"
                     v-bind:class="[isMsoaScatterDiagramVisible == true ? 'active' : '']"
                     v-on:click="toggleMsoaScatterDiagram">
               <i class="fa fa-circle" aria-hidden="true"></i>
@@ -140,7 +140,7 @@
         <div class="btn-group" role="group">
           <div class="btn-group" role="group">
             <button id="toggleMarkerLinesDiagramButton" type="button" class="btn btn-danger"
-                    data-toggle="tooltip" data-placement="top" title="Show Descriptive Statistics lines"
+                    data-toggle="tooltip" data-placement="bottom" title="Show Descriptive Statistics lines"
                     v-bind:class="[isStatisticsMarkerLinesVisible == true ? 'active' : '']"
                     v-on:click="toggleStatisticsMarkerLines">
               <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -151,7 +151,7 @@
         <div class="btn-group" role="group">
           <div class="btn-group" role="group">
             <button id="showHelpButton" type="button" class="btn btn-danger"
-                    data-toggle="tooltip" data-placement="top" title="Commute-flow help"
+                    data-toggle="tooltip" data-placement="bottom" title="Commute-flow help"
                     v-on:click="showHelp">
               <i class="fa fa-question-circle" aria-hidden="true"></i>
             </button>
