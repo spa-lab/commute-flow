@@ -34,6 +34,7 @@
   <!--<link rel="stylesheet" href="libs/leaflet-plugins/leaflet-dvf-0.3.0/css/dvf.css" >-->
   <!--<link rel="stylesheet" href="libs/leaflet-plugins/sidebar-v2-master/leaflet-sidebar.min.css" >-->
   <link rel="stylesheet" href="libs/leaflet-plugins/beautify-marker/leaflet-beautify-marker-icon.css" >
+  <link rel="stylesheet" href="libs/leaflet-plugins/leaflet-control-geocoder-1.5.4/Control.Geocoder.css" />
 
   <link rel="stylesheet" href="styles/index.css" >
   <link rel="stylesheet" href="styles/loader.css" >
@@ -80,6 +81,8 @@
       </div>
     </div>
   </div>
+  <!-- Map search control -->
+  <div id="controls"></div>
 
   <div id="statisticsInfoVM" v-show="isVisible">
     <!--<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">-->
@@ -823,6 +826,7 @@
 <!--<script type="text/javascript" src="libs/leaflet-plugins/leaflet-tilefilter-1.0dev/leaflet-tilefilter.js"></script>-->
 <!--<script type="text/javascript" src="libs/leaflet-plugins/leaflet-tilefilter-1.0dev/leaflet-tilefilter-min.js"></script>-->
 <script type="text/javascript" src="libs/leaflet-plugins/leaflet-providers-1.1.15/leaflet-providers.js"></script>
+<script type="text/javascript" src="libs/leaflet-plugins/leaflet-control-geocoder-1.5.4/Control.Geocoder.js"></script>
 <!--<script type="text/javascript" src="libs/leaflet-plugins/leaflet-providers-1.1.15/leaflet-providers-modified.js"></script>-->
 <!--<script type="text/javascript" src="libs/leaflet-plugins/leaflet-dvf-0.3.0/leaflet-dvf.js"></script>-->
 <!--<script type="text/javascript" src="libs/leaflet-dvf-0.3.0/leaflet-dvf.min.js"></script>-->
@@ -845,7 +849,7 @@
 <script src="js/msoa-qc-epsg-4326-500.js"></script>
 <!--<script src="js/msoa-pwc-epsg-4326.js"></script>-->
 <script src="js/commute-flow-thin-points-epsg-4326.js"></script>
-<script src="js/index.js"></script>
+<script src="js/index-search.js"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

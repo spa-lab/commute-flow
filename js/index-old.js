@@ -858,23 +858,6 @@ var MapLayers = {
         }
       });
 
-        // search for a places on the map
-        var geocoder = L.Control.geocoder({
-            collapsed: false,
-            position: "bottomleft",
-            showResultIcons: false,
-            geocoder: L.Control.Geocoder.nominatim({
-                geocodingQueryParams: {
-                    countrycodes: "gb"  // limit to GB. Seems to be not option to limit to just England & Wales
-                    //city: 'wakefield'
-                }
-            }),
-            text: "Search"
-        });
-
-        geocoder.addTo(Spatial.map);
-
-
       // Add the layer in to the map and make sure it is visible.
       this.mapLayer.addTo(Spatial.map);
       this.mapLayer.bringToFront();
@@ -1988,9 +1971,12 @@ var MapLayers = {
 
     }
 
-}
+  }
 
 };
+
+
+
 
 var Classification = {
 
