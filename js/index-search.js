@@ -860,12 +860,12 @@ var MapLayers = {
 
         // search for a place
         var geocoder = L.Control.geocoder({
-            collapsed: true,
-            position: "topleft",
+            collapsed: false,
+            position: "bottomleft",
             showResultIcons: false,
             geocoder: L.Control.Geocoder.nominatim({
                 geocodingQueryParams: {
-                    countrycodes: 'gb'
+                    countrycodes: "gb"
                     //city: 'wakefield'
                 }
             }),
