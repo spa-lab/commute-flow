@@ -23,9 +23,6 @@
 
 
 
-
-
-
 var Diagrams = {
   // TODO: Update the documentation here.
 
@@ -45,122 +42,122 @@ var Diagrams = {
     var dataDiagram = echarts.init(document.getElementById('dataDiagram'));
 
     let option = {
-      title : {
-        text: '1. Consumer Services',
-        subtext: 'Test subtext'
-      },
-      tooltip : {
-        trigger: 'axis'
-      },
-      legend: {
-        orient : 'vertical',
-        x : 'right',
-        y : 'bottom',
-        data:['Allocated Budget','Actual Spending']
-      },
-      // toolbox: {
-      //   show : true,
-      //   feature : {
-      //     mark : {show: true},
-      //     dataView : {show: true, readOnly: false},
-      //     restore : {show: true},
-      //     saveAsImage : {show: true}
-      //   }
-      // },
-      polar : [
-        {
-          // indicator : [
-          //   { text: 'Sales', max: 6000},
-          //   { text: 'Administration', max: 16000},
-          //   { text: 'Information Technology', max: 30000},
-          //   { text: 'Customer Support', max: 38000},
-          //   { text: 'Development', max: 52000},
-          //   { text: 'Marketing', max: 25000}
-          // ]
-          indicator : [
-            { text: 'Male' },
-            { text: 'White' },
-            { text: 'Age 16-24' },
-            { text: 'Age 25-34' },
-            { text: 'Age 35-49' },
-            { text: 'Age 50-64' },
-            { text: 'Train' },
-            { text: 'Bus' },
-            { text: 'Drive Car' },
-            { text: 'Bike' },
-            { text: 'Walk' },
-            { text: 'Higher managerial &br; and administrative' },
-            { text: 'Higher professional' },
-            { text: 'Lower professional &br; and higher technical' },
-            { text: 'Lower managerial &br; and administrative' },
-            { text: 'Higher supervisory' },
-            { text: 'Intermediate occupations' },
-            { text: 'Lower supervisory' },
-            { text: 'Lower technical' },
-            { text: 'Semi-routine' },
-            { text: 'Routine' },
-            { text: 'Manufacturing' },
-            { text: 'Construction' },
-            { text: 'Retail Rep' },
-            { text: 'Transport and storage' },
-            { text: 'Accommodation and &br; food services' },
-            { text: 'Finance' },
-            { text: 'Professional, scientific &br; and technical' },
-            { text: 'Administrative and &br; support services' },
-            { text: 'Public administration and defence; &br; compulsory social security' },
-            { text: 'Education' },
-            { text: 'Human health and social work' },
-            { text: 'Managers, directors &br; and senior officials' },
-            { text: 'Professional occupations' },
-            { text: 'Associate professional &br; and technical occupations' },
-            { text: 'Administrative and &br; secretarial occupations' },
-            { text: 'Skilled trades occupations' },
-            { text: 'Caring, leisure and &br; other service occupations' },
-            { text: 'Sales and customer &br; service occupations' },
-            { text: 'Process, plant and &br; machine operatives' },
-            { text: 'Elementary occupations' },
-            { text: 'Part-time: 15 or less worked' },
-            { text: 'Part-time: 16 to 30 hours worked' },
-            { text: 'Full-time: 31 to 48 hours worked' },
-            { text: 'Full-time: 49 or more hours worked' },
-            { text: 'Approx. social grade AB' },
-            { text: 'Approx. social grade C1' },
-            { text: 'Approx. social grade C2' },
-            { text: 'Approx. social grade DE' }
-          ]
-        }
-      ],
-      //calculable : true,
-      // -0.2898335, -0.5652861, 0.9686828, 0.0054915, -0.4538302, -0.2901564, -0.0189297, 0.8382217, -0.6310537, 0.2251787, 0.7129810, -0.2821526, -0.5806601, -0.6897176, -0.0081818, 0.0553240, -0.0946947, 0.2490915, -0.0380303, 0.9262800, 0.2125665, -0.2480418, -0.1612248, 1.1801495, 0.0466582, 0.6508536, 0.0567176, -0.2260128, 0.1362883, -0.1332603, -0.2018477, -0.1527481, -0.1707232, -0.7810907, -0.4459161, -0.0758261, -0.0518984, 0.1609955, 1.5060163, -0.0470359, 0.6210566, 0.8823794, 0.7680842, -0.7551477, -0.4587101, -0.6757754, -0.0836405, 0.0983691, 0.8167342
-      // series : [
-      //   {
-      //     name: 'Budget vs spending',
-      //     type: 'radar',
-      //     data : [
-      //       {
-      //         value : [4300, 10000, 28000, 35000, 50000, 19000],
-      //         name : 'Allocated Budget'
-      //       },
-      //       {
-      //         value : [5000, 14000, 28000, 31000, 42000, 21000],
-      //         name : 'Actual Spending'
-      //       }
-      //     ]
-      //   }
-      // ]
-      series : [
-        {
-          name: '*** Supergroup data ***',
-          type: 'radar',
-          data : [
-            {
-              value : [-0.2898335, -0.5652861, 0.9686828, 0.0054915, -0.4538302, -0.2901564, -0.0189297, 0.8382217, -0.6310537, 0.2251787, 0.7129810, -0.2821526, -0.5806601, -0.6897176, -0.0081818, 0.0553240, -0.0946947, 0.2490915, -0.0380303, 0.9262800, 0.2125665, -0.2480418, -0.1612248, 1.1801495, 0.0466582, 0.6508536, 0.0567176, -0.2260128, 0.1362883, -0.1332603, -0.2018477, -0.1527481, -0.1707232, -0.7810907, -0.4459161, -0.0758261, -0.0518984, 0.1609955, 1.5060163, -0.0470359, 0.6210566, 0.8823794, 0.7680842, -0.7551477, -0.4587101, -0.6757754, -0.0836405, 0.0983691, 0.8167342],
-              name : '*** Test 1 ***'
-            }
-          ]
-        }
-      ]
-    };
+        title : {
+          text: 'Test SuperGroup 1',
+          subtext: 'Test subtext'
+        },
+        tooltip : {
+          trigger: 'axis'
+        },
+        legend: {
+          orient : 'vertical',
+          x : 'right',
+          y : 'bottom',
+          data:['Allocated Budget','Actual Spending']
+        },
+        // toolbox: {
+        //   show : true,
+        //   feature : {
+        //     mark : {show: true},
+        //     dataView : {show: true, readOnly: false},
+        //     restore : {show: true},
+        //     saveAsImage : {show: true}
+        //   }
+        // },
+        polar : [
+          {
+            // indicator : [
+            //   { text: 'Sales', max: 6000},
+            //   { text: 'Administration', max: 16000},
+            //   { text: 'Information Technology', max: 30000},
+            //   { text: 'Customer Support', max: 38000},
+            //   { text: 'Development', max: 52000},
+            //   { text: 'Marketing', max: 25000}
+            // ]
+            indicator : [
+              { text: 'Male' },
+              { text: 'White' },
+              { text: 'Age 16-24' },
+              { text: 'Age 25-34' },
+              { text: 'Age 35-49' },
+              { text: 'Age 50-64' },
+              { text: 'Train' },
+              { text: 'Bus' },
+              { text: 'Drive Car' },
+              { text: 'Bike' },
+              { text: 'Walk' },
+              { text: 'Higher managerial and administrative' },
+              { text: 'Higher professional' },
+              { text: 'Lower professional and higher technical' },
+              { text: 'Lower managerial and administrative' },
+              { text: 'Higher supervisory' },
+              { text: 'Intermediate occupations' },
+              { text: 'Lower supervisory' },
+              { text: 'Lower technical' },
+              { text: 'Semi-routine' },
+              { text: 'Routine' },
+              { text: 'Manufacturing' },
+              { text: 'Construction' },
+              { text: 'Retail Rep' },
+              { text: 'Transport and storage' },
+              { text: 'Accommodation and food services' },
+              { text: 'Finance' },
+              { text: 'Professional, scientific and technical' },
+              { text: 'Administrative and support services' },
+              { text: 'Public administration and defence; compulsory social security' },
+              { text: 'Education' },
+              { text: 'Human health and social work' },
+              { text: 'Managers, directors and senior officials' },
+              { text: 'Professional occupations' },
+              { text: 'Associate professional and technical occupations' },
+              { text: 'Administrative and secretarial occupations' },
+              { text: 'Skilled trades occupations' },
+              { text: 'Caring, leisure and other service occupations' },
+              { text: 'Sales and customer service occupations' },
+              { text: 'Process, plant and machine operatives' },
+              { text: 'Elementary occupations' },
+              { text: 'Part-time: 15 or less worked' },
+              { text: 'Part-time: 16 to 30 hours worked' },
+              { text: 'Full-time: 31 to 48 hours worked' },
+              { text: 'Full-time: 49 or more hours worked' },
+              { text: 'Approx. social grade AB' },
+              { text: 'Approx. social grade C1' },
+              { text: 'Approx. social grade C2' },
+              { text: 'Approx. social grade DE' }
+            ]
+          }
+        ],
+        //calculable : true,
+        // -0.2898335, -0.5652861, 0.9686828, 0.0054915, -0.4538302, -0.2901564, -0.0189297, 0.8382217, -0.6310537, 0.2251787, 0.7129810, -0.2821526, -0.5806601, -0.6897176, -0.0081818, 0.0553240, -0.0946947, 0.2490915, -0.0380303, 0.9262800, 0.2125665, -0.2480418, -0.1612248, 1.1801495, 0.0466582, 0.6508536, 0.0567176, -0.2260128, 0.1362883, -0.1332603, -0.2018477, -0.1527481, -0.1707232, -0.7810907, -0.4459161, -0.0758261, -0.0518984, 0.1609955, 1.5060163, -0.0470359, 0.6210566, 0.8823794, 0.7680842, -0.7551477, -0.4587101, -0.6757754, -0.0836405, 0.0983691, 0.8167342
+        // series : [
+        //   {
+        //     name: 'Budget vs spending',
+        //     type: 'radar',
+        //     data : [
+        //       {
+        //         value : [4300, 10000, 28000, 35000, 50000, 19000],
+        //         name : 'Allocated Budget'
+        //       },
+        //       {
+        //         value : [5000, 14000, 28000, 31000, 42000, 21000],
+        //         name : 'Actual Spending'
+        //       }
+        //     ]
+        //   }
+        // ]
+        series : [
+          {
+            name: '*** Supergroup data ***',
+            type: 'radar',
+            data : [
+              {
+                value : [-0.2898335, -0.5652861, 0.9686828, 0.0054915, -0.4538302, -0.2901564, -0.0189297, 0.8382217, -0.6310537, 0.2251787, 0.7129810, -0.2821526, -0.5806601, -0.6897176, -0.0081818, 0.0553240, -0.0946947, 0.2490915, -0.0380303, 0.9262800, 0.2125665, -0.2480418, -0.1612248, 1.1801495, 0.0466582, 0.6508536, 0.0567176, -0.2260128, 0.1362883, -0.1332603, -0.2018477, -0.1527481, -0.1707232, -0.7810907, -0.4459161, -0.0758261, -0.0518984, 0.1609955, 1.5060163, -0.0470359, 0.6210566, 0.8823794, 0.7680842, -0.7551477, -0.4587101, -0.6757754, -0.0836405, 0.0983691, 0.8167342],
+                name : '*** Test 1 ***'
+              }
+            ]
+          }
+        ]
+      };
 
     dataDiagram.setOption(option);
 
@@ -251,6 +248,13 @@ var Diagrams = {
 // ================================================================================
 //  View Models.
 
+
+/**
+ * The toggleClassificationNavigationGroupsViewModel provides the data and logic
+ * to toggle the Classification Navigation and the associated supergroup and group information
+ *
+ * @type {Vue} - A Vue object with the model and methods used in the view model.
+ */
 var toggleClassificationNavigationGroupsViewModel = new Vue({
 
   /**
@@ -258,69 +262,136 @@ var toggleClassificationNavigationGroupsViewModel = new Vue({
    */
   el: '#toggleClassificationNavigationGroupsVM',
 
+  /**
+   * The model of the view model.
+   */
   data: {
 
+    /**
+     * Supergroup 1
+     */
     g1: true,
+
+    /**
+     * Supergroup 2
+     */
     g2: true,
+
+    /**
+     * Supergroup 3
+     */
     g3: true,
+
+    /**
+     * Supergroup 4
+     */
     g4: true,
+
+    /**
+     * Supergroup 5
+     */
     g5: true,
+
+    /**
+     * Supergroup 6
+     */
     g6: true,
+
+    /**
+     * Supergroup 7
+     */
     g7: true,
+
+    /**
+     * Supergroup 8
+     */
     g8: true,
+
+    /**
+     * Supergroup 9
+     */
     g9: true
 
   },
 
+  /**
+   * The model of the view model.
+   */
   methods: {
 
+    /**
+     * Toggles the visibility of the associated groups to the indicated supergroup.
+     *
+     * @param supergroup
+     */
     toggleGroupsVisibility(supergroup) {
 
-      alert(supergroup);
+      this[supergroup] = !this[supergroup];
 
-      //this[supergroup] = !this[supergroup];
+      //classificationDescriptionViewModel.toggleSuperGroupDescriptionVisibility(0);
+
+    },
+
+    toggleGroupsDescriptionVisibility(group) {
 
     }
+
 
   }
 
 });
 
 
-var testViewModel = new Vue({
+
+var classificationDescriptionViewModel = new Vue({
 
   /**
    * The name of the view model.
    */
-  el: '#testVM',
+  el: '#classificationDescriptionVM',
 
+  /**
+   * The model of the view model.
+   */
   data: {
 
-    sg1: true,
-    sg2: true,
-    sg3: true,
-    sg4: true,
-    sg5: true,
-    sg6: true,
-    sg7: true,
-    sg8: true,
-    sg9: true
+    g1: true,
+    g11: true,
+    g12: true,
+    g13: true,
+    g14: true,
+    g15: true,
+    g2: true,
+    g21: true,
+    g22: true,
+    g23: true
+
+
+
 
   },
 
+  /**
+   * The model of the view model.
+   */
   methods: {
 
-    showSuperGroup(supergroup) {
+    toggleSuperGroupDescriptionVisibility(index) {
 
-      alert(supergroup);
+      this.sg[index] = !this.sg[index];
 
-      //this[supergroup] = !this[supergroup];
+    },
+
+    toggleGroupDescriptionVisibility(group, index) {
+
+      this[group][index] = !this[group][index];
 
     }
 
   }
 
 });
+
 
 
 
@@ -330,7 +401,6 @@ var testViewModel = new Vue({
 
 // ================================================================================
 //  Main Body
-
 
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
@@ -348,11 +418,12 @@ $("#pop").on("click", function() {
   $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal
 });
 
-
-Diagrams.createRadialDiagram(true);
+// Diagrams.createRadialDiagram(true);
 
 //
 // ================================================================================
+
+
 
 
 
