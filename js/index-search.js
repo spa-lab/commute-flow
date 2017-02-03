@@ -858,14 +858,14 @@ var MapLayers = {
         }
       });
 
-        // search for a place
+        // search for a places on the map
         var geocoder = L.Control.geocoder({
             collapsed: false,
             position: "bottomleft",
             showResultIcons: false,
             geocoder: L.Control.Geocoder.nominatim({
                 geocodingQueryParams: {
-                    countrycodes: "gb"
+                    countrycodes: "gb"  // limit to GB. Seems to be not option to limit to just England & Wales
                     //city: 'wakefield'
                 }
             }),
