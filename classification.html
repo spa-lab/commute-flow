@@ -99,7 +99,10 @@
             <!--<ul id="nav" class="nav" style="overflow-y: auto; height: 100%;">-->
 
             <ul id="nav" class="nav" style="height: 100%; overflow-y: auto;">
-              <li class="list-group-item">The two-tier geodemographic typology of commuting patterns has 9 super-groups and a total of 40 groups. Each includes a pen portrait with a flow map and radial chart.</li>
+              <li class="list-group-item" style="border-top-left-radius: 0px; border-top-right-radius: 0px;">
+                The two-tier geodemographic typology of commuting patterns has 9 super-groups and a total of 40 groups.
+                Each includes a pen portrait with a flow map and radial chart.
+              </li>
               <li>
                 <a href="#g1" v-on:click="toggleGroupsVisibility('g1')">1. Consumer Services</a>
                 <ul class="nav" v-bind:class="[g1 == true ? 'hidden' : '']">
@@ -1555,6 +1558,11 @@
 <footer>
   <div class="container">
     <!--<div>-->
+    <a href="classification.html" data-toggle="tooltip" data-placement="bottom"
+       title="Details of the super-group and group demographic classification">
+      Typology
+    </a>
+
     <img src="images/logo-university-of-manchester.png" alt="University of Manchester" height="44px">
     <img src="images/esrc.png" alt="ESRC" height="44px">
     <img src="images/sdai.png" alt="SDAI" height="44px">
