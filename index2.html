@@ -3,37 +3,73 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- @@@@ -->
 
-  <title>Bootle Plans</title>
+  <title>Commute Flow Mapping</title>
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="description" content="Commute-flow is a brand new geodemographic classification of commuting flows for England and Wales based on origin-destination data from the 2011 Census that has been used to analyse the spatial dynamics of commuting.">
+  <meta name="author" content="Vasilis Vlastaras & Richard Kingston, University of Manchester">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="/libs/bootstrap-3.3.5/css/bootstrap.min.css" >
-  <link rel="stylesheet" href="/libs/font-awesome-4.4.0/css/font-awesome.min.css" >
-  <link rel="stylesheet" href="/libs/bootstrap-markdown-2.10.0/css/bootstrap-markdown.min.css" >
+  <!--<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">-->
 
-  <link rel="stylesheet" href="/libs/leaflet-0.7.7/leaflet.css" >
+  <!--<link rel="stylesheet" href="libs/bootstrap-3.3.7/css/cyborg/bootstrap.min.css" >-->
+  <!--<link rel="stylesheet" href="libs/bootstrap-3.3.7/css/darkly/bootstrap.min.css" >-->
+  <link rel="stylesheet" href="libs/bootstrap-3.3.7/css/default/bootstrap.min.css" >
+  <!--<link rel="stylesheet" href="libs/bootstrap-3.3.7/css/flatly/bootstrap.min.css" >-->
+  <!--<link rel="stylesheet" href="libs/bootstrap-3.3.7/css/paper/bootstrap.min.css" >-->
+  <!--<link rel="stylesheet" href="libs/bootstrap-3.3.7/css/simplex/bootstrap.min.css" >-->
+  <!--<link rel="stylesheet" href="libs/bootstrap-3.3.7/css/slate/bootstrap.min.css" >-->
+  <!--<link rel="stylesheet" href="libs/bootstrap-3.3.7/css/superhero/bootstrap.min.css" >-->
+  <!--<link rel="stylesheet" href="libs/bootstrap-3.3.7/css/united/bootstrap.min.css" >-->
+  <!--<link rel="stylesheet" href="libs/bootstrap-3.3.7/css/yeti/bootstrap.min.css" >-->
 
-  <link rel="stylesheet" href="/libs/leaflet-plugins/sidebar-v2-master/leaflet-sidebar.min.css" >
+  <!--<link rel="stylesheet" href="libs/bootstrap-3.3.7/css/default/bootstrap-theme.min.css" >-->
+
+  <!-- @@@@ -->
+  <link rel="stylesheet" href="libs/font-awesome-4.7.0/css/font-awesome.min.css" >
+  <!--<link rel="stylesheet" href="libs/font-awesome-4.4.0/css/font-awesome.min.css" >-->
+
+  <link rel="stylesheet" href="libs/leaflet-0.7.7/leaflet.css" >
+  <!--<link rel="stylesheet" href="libs/leaflet-1.0.0-rc.2/leaflet.css" >-->
+  <!--<link rel="stylesheet" href="libs/leaflet-1.0.0-rc.3/leaflet.css" >-->
+  <!--<link rel="stylesheet" href="libs/leaflet-1.0.1/leaflet.css" >-->
+  <!--<link rel="stylesheet" href="libs/leaflet-plugins/leaflet-dvf-0.3.0/css/dvf.css" >-->
+  <!--<link rel="stylesheet" href="libs/leaflet-plugins/sidebar-v2-master/leaflet-sidebar.min.css" >-->
+  <link rel="stylesheet" href="libs/leaflet-plugins/beautify-marker/leaflet-beautify-marker-icon.css" >
+  <link rel="stylesheet" href="libs/leaflet-plugins/leaflet-control-geocoder-1.5.4/Control.Geocoder.css" />
+  <link rel="stylesheet" href="libs/leaflet-plugins/sidebar-v2-master/leaflet-sidebar.min.css" >
+
+  <link rel="stylesheet" href="styles/plans-layout.css" >
+
+  <link rel="stylesheet" href="styles/index.css" >
+  <link rel="stylesheet" href="styles/loader.css" >
 
 
-
-
-  <link rel="stylesheet" href="/styles/plans-layout.css" >
-
-  <link href="/keystone/styles/content/editor.min.css" rel="stylesheet">
-
-  <script type="text/javascript" src="/libs/jquery-2.1.4/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" src="/libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/libs/detect.js-2.2.2/detect.min.js"></script>
+  <script type="text/javascript" src="libs/jquery-2.1.4/jquery-2.1.4.min.js"></script>
+  <!--<script type="text/javascript" src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>-->
+  <script type="text/javascript" src="libs/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="libs/detect.js-2.2.2/detect.min.js"></script>
 
   <!--[if lt IE 9]>
   <script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
   <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  <script type="text/javascript" src="/js/shared.js"></script>
+  <script type="text/javascript" src="js/shared.js"></script>
+
+  <!--<style>-->
+    <!--@import url('http://fonts.googleapis.com/css?family=Raleway: 400,700');-->
+
+    <!--html, body {-->
+      <!--font-family: 'Raleway', sans-serif;-->
+    <!--}-->
+
+    <!--.yellow {-->
+      <!--color: #ff9c00;-->
+    <!--}-->
+  <!--</style>-->
+
 </head>
 <body>
 
@@ -487,36 +523,86 @@
 <div id="footer">
   <div class="container">
     <div>
-      <p class="lead">University of Manchester - @<a href="http://www.bootle.com">Bootle 2020</a></p>
+      <p class="lead">University of Manchester - @<a href="http://www.lala.com">Lala 2017</a></p>
     </div>
   </div>
 </div>
 
 
-<script type="text/javascript" src="/libs/proj4js-2.3.12/proj4.js"></script>
-<script type="text/javascript" src="/libs/jsonfn/jsonfn.js"></script>
-<script type="text/javascript" src="/libs/autolinker-0.22.0/autolinker.min.js"></script>
+<!--<script type="text/javascript" src="libs/proj4js-2.3.12/proj4.js"></script>-->
 
-<script type="text/javascript" src="/libs/markdown-js-0.5.0/markdown.js"></script>
-<script type="text/javascript" src="/libs/marked-0.3.5/marked.min.js"></script>
-<script type="text/javascript" src="/libs/to-markdown-3.0.0/to-markdown.js"></script>
-<script type="text/javascript" src="/libs/bootstrap-markdown-2.10.0/js/bootstrap-markdown.js"></script>
+<!--<script type="text/javascript" src="libs/terraformer-1.0.4/terraformer-1.0.4.min.js"></script>-->
+<!--<script type="text/javascript" src="libs/terraformer-wkt-parser-1.0.0/terraformer-wkt-parser.min.js"></script>-->
 
-<script type="text/javascript" src="/libs/terraformer-1.0.4/terraformer-1.0.4.min.js"></script>
-<script type="text/javascript" src="/libs/terraformer-wkt-parser-1.0.0/terraformer-wkt-parser.min.js"></script>
+<!--<script type="text/javascript" src="libs/requirejs-2.3.2/require.js"></script>-->
+<!--<script type="text/javascript" src="libs/requirejs-2.3.2/require.min.js"></script>-->
 
-<script type="text/javascript" src="/libs/leaflet-0.7.7/leaflet.js"></script>
+<script type="text/javascript" src="libs/vue-1.0.26/vue.js"></script>
+<!--<script type="text/javascript" src="libs/vue-1.0.26/vue.min.js"></script>-->
+<!--<script type="text/javascript" src="libs/jsts-1.2.1/jsts.min.js"></script>-->
 
-<script type="text/javascript" src="/libs/leaflet-plugins/sidebar-v2-master/leaflet-sidebar.min.js"></script>
-<script type="text/javascript" src="/libs/leaflet-plugins/proj4leaflet-0.7.2/proj4leaflet.js"></script>
-<script type="text/javascript" src="/libs/leaflet-plugins/leaflet-grayscale/TileLayer.Grayscale.js"></script>
-<script type="text/javascript" src="/libs/leaflet-plugins/leaflet-providers-1.1.7/leaflet-providers.js"></script>
+<!--<script type="text/javascript" src="libs/echarts-3.2.3/echarts.common.js"></script>-->
+<!--<script type="text/javascript" src="libs/echarts-3.2.3/echarts.common.min.js"></script>-->
+<!--<script type="text/javascript" src="libs/echarts-3.2.3/echarts.js"></script>-->
+<script type="text/javascript" src="libs/echarts-3.2.3/echarts.min.js"></script>
+<!--<script type="text/javascript" src="libs/echarts-3.2.3/echarts.simple.js"></script>-->
+<!--<script type="text/javascript" src="libs/echarts-3.2.3/echarts.simple.min.js"></script>-->
+
+<!--<script type="text/javascript" src="libs/leaflet-0.7.7/leaflet.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-0.7.7/leaflet-src.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-1.0.0-rc.2/leaflet.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-1.0.0-rc.2/leaflet-src.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-1.0.0-rc.3/leaflet.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-1.0.0-rc.3/leaflet-src.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-1.0.1/leaflet.js"></script> -->
+<!-- @@@@ -->
+<script type="text/javascript" src="libs/leaflet-0.7.7/leaflet.js"></script>
+<!--<script type="text/javascript" src="libs/leaflet-1.0.1/leaflet-src.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-plugins/leaflet-grayscale/TileLayer.Grayscale.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-plugins/leaflet-tilefilter-1.0dev/leaflet-tilefilter.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-plugins/leaflet-tilefilter-1.0dev/leaflet-tilefilter-min.js"></script>-->
+<script type="text/javascript" src="libs/leaflet-plugins/leaflet-providers-1.1.15/leaflet-providers.js"></script>
+<script type="text/javascript" src="libs/leaflet-plugins/leaflet-control-geocoder-1.5.4/Control.Geocoder.js"></script>
+<!--<script type="text/javascript" src="libs/leaflet-plugins/leaflet-providers-1.1.15/leaflet-providers-modified.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-plugins/leaflet-dvf-0.3.0/leaflet-dvf.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-dvf-0.3.0/leaflet-dvf.min.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-dvf-0.3.0/leaflet-dvf.markers.js"></script>-->
+<!--<script type="text/javascript" src="libs/leaflet-dvf-0.3.0/leaflet-dvf.markers.min.js"></script>-->
+<script type="text/javascript" src="libs/leaflet-plugins/beautify-marker/leaflet-beautify-marker-icon.js"></script>
+<script type="text/javascript" src="libs/leaflet-plugins/beautify-marker/leaflet-beautify-marker.js"></script>
+
+<script type="text/javascript" src="libs/leaflet-plugins/sidebar-v2-master/leaflet-sidebar.min.js"></script>
 
 
-<script type="text/javascript" src="/libs/leaflet-plugins/leaflet-editable-0.6.2/leaflet.editable.js"></script>
+<!--<script type="text/javascript" src="libs/javascript.util-0.12.12/javascript.util.min.js"></script>-->
+<!--<script type="text/javascript" src="libs/jsts/jsts.js"></script>-->
 
-<script type="text/javascript" src="/js/plans.js"></script>
+<!--<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>-->
+
+<script type="text/javascript" src="libs/ps-math-stats/ps-math-stats.min.js"></script>
+
+<!--<script src="js/msoa-qc-epsg-4326.js"></script>-->
+<!--<script src="js/msoa-qc-epsg-4326-050.js"></script>-->
+<!--<script src="js/msoa-qc-epsg-4326-100.js"></script>-->
+<!--<script src="js/msoa-qc-epsg-4326-250.js"></script>-->
+<script src="js/msoa-qc-epsg-4326-500.js"></script>
+<!--<script src="js/msoa-pwc-epsg-4326.js"></script>-->
+<script src="js/commute-flow-thin-points-epsg-4326.js"></script>
+<!--<script src="js/index.js"></script>-->
+
+<!--<script type="text/javascript" src="/js/plans.js"></script>-->
 
 <script src="/keystone/js/content/editor.js"></script>
+
+<!--<script>-->
+  <!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
+      <!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
+    <!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
+  <!--})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');-->
+
+  <!--ga('create', 'UA-89222503-1', 'auto');-->
+  <!--ga('send', 'pageview');-->
+<!--</script>-->
+
 </body>
 </html>
