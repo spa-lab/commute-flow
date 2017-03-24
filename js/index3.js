@@ -6591,6 +6591,28 @@ var Spatial = {
   // TODO: Update the documentation here.
 
   /**
+   * The member variables of this application.
+   */
+  Members: {
+
+    /**
+     * The web page sidebar name.
+     */
+    sidebarName: 'sidebar',
+
+    /**
+     * The webpage sidebar position.
+     */
+    sidebarPosition: 'right',
+
+  },
+
+  /**
+   * The sidebar of the map.
+   */
+  sidebar: null,
+
+  /**
    * The map of the application.
    */
   map: null,
@@ -6617,6 +6639,11 @@ var Spatial = {
       maxZoom: Spatial.mapOptions.maxZoom
     });
 
+    // // Create the sidebar and add it on the map.
+    Spatial.sidebar = L.control.sidebar(Spatial.Members.sidebarName, {position: Spatial.Members.sidebarPosition});
+    Spatial.sidebar.addTo(Spatial.map);
+
+
     BaseMapLayers.setNamedBasemapLayers();
     BaseMapLayers.createBaseMapLayers();
 
@@ -6632,6 +6659,8 @@ var Spatial = {
     //MapLayers.CommuteFlows.createInternalCommuteFlowsMsoaLayer();
 
     Spatial.setInitialBaseMapLayer();
+
+
 
   },
 
