@@ -40,7 +40,7 @@
   <link rel="stylesheet" href="libs/leaflet-plugins/leaflet-control-geocoder-1.5.4/Control.Geocoder.css" />
   <link rel="stylesheet" href="libs/leaflet-plugins/sidebar-v2-master/leaflet-sidebar.min.css" >
 
-  <link rel="stylesheet" href="styles/plans-layout.css" >
+  <link rel="stylesheet" href="styles/index3.css" >
 
   <!--<link rel="stylesheet" href="styles/index.css" >-->
   <link rel="stylesheet" href="styles/loader.css" >
@@ -59,15 +59,15 @@
   <script type="text/javascript" src="js/shared.js"></script>
 
   <!--<style>-->
-    <!--@import url('http://fonts.googleapis.com/css?family=Raleway: 400,700');-->
+  <!--@import url('http://fonts.googleapis.com/css?family=Raleway: 400,700');-->
 
-    <!--html, body {-->
-      <!--font-family: 'Raleway', sans-serif;-->
-    <!--}-->
+  <!--html, body {-->
+  <!--font-family: 'Raleway', sans-serif;-->
+  <!--}-->
 
-    <!--.yellow {-->
-      <!--color: #ff9c00;-->
-    <!--}-->
+  <!--.yellow {-->
+  <!--color: #ff9c00;-->
+  <!--}-->
   <!--</style>-->
 
 </head>
@@ -96,56 +96,45 @@
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div id="navbar-container" class="container">
           <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand">Bootle</a>
+            <a class="navbar-brand" href="#"><span class="yellow title">commute-flow</span></a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
-              <li  >
-                <a href="/">Home</a>
+              <li class="active">
+                <a href="classification.html" data-toggle="tooltip" data-placement="bottom"
+                   title="Details of the super-group and group demographic classification">
+                  Typology
+                </a>
               </li>
-              <li  >
-                <a href="/blog">Blog</a>
+              <li>
+                <a href="research.html" data-toggle="tooltip" data-placement="bottom"
+                   title="Read more about the under-pinning research">
+                  Research
+                </a>
               </li>
-              <li  >
-                <a href="/gallery">Gallery</a>
+              <li>
+                <a href="about.html" data-toggle="tooltip" data-placement="bottom"
+                   title="Project background &amp source data">
+                  About
+                </a>
               </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Maps <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li  >
-                    <a href="/maps/census2011">Census 2011</a>
-                  </li>
-                  <li  >
-                    <a href="/maps/testmap1">TestMap 1</a>
-                  </li>
-                  <li  >
-                    <a href="/maps/testmap2">TestMap 2</a>
-                  </li>
-                  <li  >
-                    <a href="/maps/testmap3">TestMap 3</a>
-                  </li>
-                </ul>
+              <li>
+                <a href="contact.html" data-toggle="tooltip" data-placement="bottom"
+                   title="Contact us">
+                  Contacts
+                </a>
               </li>
-              <li  >
-                <a href="/plans">Plans</a>
-              </li>
-              <li  >
-                <a href="/contact">Contact</a>
-              </li>
-              <li  >
-                <a href="/test">Test</a>
-              </li>
-              <li  >
-                <a href="/test2">Test2</a>
-              </li>
+            </ul>
+            <!--ul class="nav navbar-nav navbar-right">
+              <li><a href="manchester.html">Manchester</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/keystone/signout">Sign Out</a></li>
-            </ul>
+              <li><a href="cardiff.html">Cardiff</a></li>
+            </ul-->
           </div>
         </div>
       </div>
@@ -159,21 +148,149 @@
         <div id="conta">
 
           <!--<div id="popup" class="modal fade" tabindex="-1" role="dialog">-->
-            <!--<div class="modal-dialog">-->
-              <!--<div class="modal-content">-->
-                <!--<div class="modal-header bg-primary">-->
-                  <!--<button type="button" class="close" style="opacity: 1.0;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:#fff;">&times;</span></button>-->
-                  <!--<h4 id="popupHeader" class="modal-title"></h4>-->
-                <!--</div>-->
-                <!--<div id="popupBody" class="modal-body"></div>-->
-                <!--<div class="modal-footer bg-info">-->
-                  <!--<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="OK"><b>OK</b></button>-->
-                <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
+          <!--<div class="modal-dialog">-->
+          <!--<div class="modal-content">-->
+          <!--<div class="modal-header bg-primary">-->
+          <!--<button type="button" class="close" style="opacity: 1.0;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color:#fff;">&times;</span></button>-->
+          <!--<h4 id="popupHeader" class="modal-title"></h4>-->
+          <!--</div>-->
+          <!--<div id="popupBody" class="modal-body"></div>-->
+          <!--<div class="modal-footer bg-info">-->
+          <!--<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="OK"><b>OK</b></button>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--</div>-->
           <!--</div>-->
 
-          <div id="map" class="sidebar-map"></div>
+          <!--<div id="map" class="sidebar-map"></div>-->
+
+          <div id="mapContainer" class="col-lg-9 col-md-8 col-sm-8 col-xs-8">
+
+            <div id="spinnerVM" v-show="isVisible">
+              <div class="showbox">
+                <div class="loader">
+                  <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <!-- Map search control -->
+            <div id="controls"></div>
+
+            <div id="statisticsInfoVM" v-show="isVisible">
+              <!--<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">-->
+              <div class="offer offer-danger">
+                <div class="shape">
+                  <div class="shape-text">
+                    info
+                  </div>
+                </div>
+                <div class="offer-content">
+                  <h3><span class="yellow">Commute-flow</span></h3>
+                  <h5>a geodemographic classification of commuting flows for England &amp; Wales.</h5>
+                  <h3 class="lead">
+                    Statistics
+                  </h3>
+                  <!--<p>-->
+                  <!--{{ msoa11Nm }}-->
+                  <!--<br>-->
+                  <!--{{ msoa11Nmw }}-->
+                  <!--</p>-->
+
+                  <div class="btn-group" role="group">
+                    <div class="btn-group" role="group">
+                      <button id="verticalBarDiagramButton" type="button" class="btn btn-danger"
+                              data-toggle="tooltip" data-placement="bottom" title="Show Vertical Bar Diagram"
+                              v-bind:class="[currentDiagramType == ':verticalBar' ? 'active' : '']"
+                              v-on:click="setCurrentDiagramType(':verticalBar')">
+                        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button id="horizontalBarDiagramButton" type="button" class="btn btn-danger"
+                              data-toggle="tooltip" data-placement="bottom" title="Show Horizontal Bar Diagram"
+                              v-bind:class="[currentDiagramType == ':horizontalBar' ? 'active' : '']"
+                              v-on:click="setCurrentDiagramType(':horizontalBar')">
+                        <i class="fa fa-bar-chart fa-rotate-90" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button id="doughnutDiagramButton" type="button" class="btn btn-danger"
+                              data-toggle="tooltip" data-placement="bottom" title="Show Doughnut Diagram"
+                              v-bind:class="[currentDiagramType == ':doughnut' ? 'active' : '']"
+                              v-on:click="setCurrentDiagramType(':doughnut')">
+                        <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="btn-group" role="group">
+                    <div class="btn-group" role="group">
+                      <button id="toggleMsoaScatterDiagramButton" type="button" class="btn btn-danger"
+                              data-toggle="tooltip" data-placement="bottom" title="Show MSOA Scatter"
+                              v-bind:class="[isMsoaScatterDiagramVisible == true ? 'active' : '']"
+                              v-on:click="toggleMsoaScatterDiagram">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="btn-group" role="group">
+                    <div class="btn-group" role="group">
+                      <button id="toggleMarkerLinesDiagramButton" type="button" class="btn btn-danger"
+                              data-toggle="tooltip" data-placement="bottom" title="Show Descriptive Statistics lines"
+                              v-bind:class="[isStatisticsMarkerLinesVisible == true ? 'active' : '']"
+                              v-on:click="toggleStatisticsMarkerLines">
+                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="btn-group" role="group">
+                    <div class="btn-group" role="group">
+                      <button id="showHelpButton" type="button" class="btn btn-danger"
+                              data-toggle="tooltip" data-placement="bottom" title="Commute-flow help"
+                              v-on:click="showHelp">
+                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div id="dataDiagram" style="height: 340px;"></div>
+
+              </div>
+              <!--</div>-->
+            </div>
+
+            <div id="currentMsoaInfoVM" v-show="isVisible">
+              <!--<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">-->
+              <div class="offer offer-danger">
+                <div class="shape">
+                  <div class="shape-text">
+                    info
+                  </div>
+                </div>
+                <div class="offer-content">
+                  <h3 class="lead" v-text="currentMsoaCode">
+
+                  </h3>
+                  <p>
+                    <span v-text="currentMsoa11Nm"></span>
+                    <br>
+                    <span v-text="currentMsoa11Nmw"></span>
+                  </p>
+                </div>
+              </div>
+              <!--</div>-->
+            </div>
+
+            <!--<div id='map'></div>-->
+            <div id="map" class="sidebar-map"></div>
+
+          </div>
 
           <div id="sidebar" class="sidebar collapsed">
             <div class="sidebar-tabs">
@@ -188,7 +305,7 @@
               <div class="sidebar-pane" id="info">
 
                 <h1 class="sidebar-header">
-                  Hi
+                  Sidebar
                   <div class="sidebar-close">
                     <i class="fa fa-caret-right"></i>
                   </div>
@@ -206,13 +323,13 @@
 
 </div>
 
-<div id="footer">
-  <div class="container">
-    <div>
-      <p class="lead">University of Manchester - @<a href="http://www.lala.com">Lala 2017</a></p>
-    </div>
-  </div>
-</div>
+<!--<footer>-->
+  <!--<div class="container">-->
+    <!--<img src="images/logo-university-of-manchester.png" alt="University of Manchester" height="44px">-->
+    <!--<img src="images/esrc.png" alt="ESRC" height="44px">-->
+    <!--<img src="images/sdai.png" alt="SDAI" height="44px">-->
+  <!--</div>-->
+<!--</footer>-->
 
 
 <!--<script type="text/javascript" src="libs/proj4js-2.3.12/proj4.js"></script>-->
@@ -279,13 +396,13 @@
 <script type="text/javascript" src="js/plans.js"></script>
 
 <!--<script>-->
-  <!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
-      <!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
-    <!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
-  <!--})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');-->
+<!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
+<!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
+<!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
+<!--})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');-->
 
-  <!--ga('create', 'UA-89222503-1', 'auto');-->
-  <!--ga('send', 'pageview');-->
+<!--ga('create', 'UA-89222503-1', 'auto');-->
+<!--ga('send', 'pageview');-->
 <!--</script>-->
 
 </body>
