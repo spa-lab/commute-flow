@@ -3,10 +3,10 @@
 //  University of Manchester. UK.
 //  School of Environment, Education, and Development.
 //  Spatial Policy Analysis Laboratory.
-//
+//  
 //  Name:            index.js
 //  Original coding: Vasilis Vlastaras (@gisvlasta), 05/12/2016.
-//
+// 
 //  Description:     The commute-flow web app mapping functionality.
 // ================================================================================
 
@@ -858,21 +858,21 @@ var MapLayers = {
         }
       });
 
-      // search for a places on the map
-      var geocoder = L.Control.geocoder({
-        collapsed: false,
-        position: "bottomleft",
-        showResultIcons: false,
-        geocoder: L.Control.Geocoder.nominatim({
-          geocodingQueryParams: {
-            countrycodes: "gb"  // limit to GB. Seems to be not option to limit to just England & Wales
-            //city: 'wakefield'
-          }
-        }),
-        text: "Search"
-      });
+        // search for a places on the map
+        var geocoder = L.Control.geocoder({
+            collapsed: false,
+            position: "bottomleft",
+            showResultIcons: false,
+            geocoder: L.Control.Geocoder.nominatim({
+                geocodingQueryParams: {
+                    countrycodes: "gb"  // limit to GB. Seems to be not option to limit to just England & Wales
+                    //city: 'wakefield'
+                }
+            }),
+            text: "Search"
+        });
 
-      geocoder.addTo(Spatial.map);
+        geocoder.addTo(Spatial.map);
 
 
       // Add the layer in to the map and make sure it is visible.
@@ -1868,14 +1868,14 @@ var MapLayers = {
 
           this.mapLayer.eachLayer(function(layer) {
             var htmlContent = '<div><table><tbody>' +
-              '<tr><th>Primary Key: </th><td>' + layer.feature.properties.pk + '</td></tr>' +
-              '<tr><th>Residential Code: </th><td>' + layer.feature.properties.rc + '</td></tr>' +
-              '<tr><th>Workplace Code: </th><td>' + layer.feature.properties.wc + '</td></tr>' +
-              '<tr><th>Total Persons: </th><td>' + layer.feature.properties.tp + '</td></tr>' +
-              '<tr><th>Group: </th><td>' + layer.feature.properties.g + '</td></tr>' +
-              '<tr><th>QCL Distance: </th><td>' + layer.feature.properties.qd + '</td></tr>' +
-              '<tr><th>MSOA Distance (km): </th><td>' + layer.feature.properties.md + '</td></tr>' +
-              '</tbody></table></div>';
+                                '<tr><th>Primary Key: </th><td>' + layer.feature.properties.pk + '</td></tr>' +
+                                '<tr><th>Residential Code: </th><td>' + layer.feature.properties.rc + '</td></tr>' +
+                                '<tr><th>Workplace Code: </th><td>' + layer.feature.properties.wc + '</td></tr>' +
+                                '<tr><th>Total Persons: </th><td>' + layer.feature.properties.tp + '</td></tr>' +
+                                '<tr><th>Group: </th><td>' + layer.feature.properties.g + '</td></tr>' +
+                                '<tr><th>QCL Distance: </th><td>' + layer.feature.properties.qd + '</td></tr>' +
+                                '<tr><th>MSOA Distance (km): </th><td>' + layer.feature.properties.md + '</td></tr>' +
+                              '</tbody></table></div>';
 
             //layer.bindPopup(htmlContent);
 
@@ -1927,27 +1927,27 @@ var MapLayers = {
 
             // The group is selected. Make sure internal flows are rendered displaying the total persons.
             html = '<a id="internalCommuteFlowsButton" ' +
-              'class="btn btn-xs icon-btn-info" ' +
-              'style="border-color: ' + style.borderColor +
-              '; color: ' + style.color +
-              '; background-color: ' + style.fillColor + ';" ' +
-              'href="#">' +
-              '<span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-primary"></span>' +
-              feature.properties.tp +
-              '</a>';
+                      'class="btn btn-xs icon-btn-info" ' +
+                      'style="border-color: ' + style.borderColor +
+                           '; color: ' + style.color +
+                           '; background-color: ' + style.fillColor + ';" ' +
+                      'href="#">' +
+                     '<span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-primary"></span>' +
+                        feature.properties.tp +
+                   '</a>';
 
           }
           else {
 
             // The group is not selected. Only the icon will be displayed.
             html = '<a id="internalCommuteFlowsButton" ' +
-              'class="btn btn-xs icon-btn" ' +
-              'style="border-color: ' + style.borderColor +
-              '; color: ' + style.color +
-              '; background-color: ' + style.fillColor + ';" ' +
-              'href="#">' +
-              '<span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-primary"></span>' +
-              '</a>';
+                      'class="btn btn-xs icon-btn" ' +
+                      'style="border-color: ' + style.borderColor +
+                           '; color: ' + style.color +
+                           '; background-color: ' + style.fillColor + ';" ' +
+                      'href="#">' +
+                     '<span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-primary"></span>' +
+                   '</a>';
 
           }
 
@@ -1988,7 +1988,7 @@ var MapLayers = {
 
     }
 
-  }
+}
 
 };
 
@@ -6591,28 +6591,6 @@ var Spatial = {
   // TODO: Update the documentation here.
 
   /**
-   * The member variables of this application.
-   */
-  Members: {
-
-    /**
-     * The web page sidebar name.
-     */
-    sidebarName: 'sidebar',
-
-    /**
-     * The webpage sidebar position.
-     */
-    sidebarPosition: 'right',
-
-  },
-
-  /**
-   * The sidebar of the map.
-   */
-  sidebar: null,
-
-  /**
    * The map of the application.
    */
   map: null,
@@ -6639,11 +6617,6 @@ var Spatial = {
       maxZoom: Spatial.mapOptions.maxZoom
     });
 
-    // // Create the sidebar and add it on the map.
-    Spatial.sidebar = L.control.sidebar(Spatial.Members.sidebarName, {position: Spatial.Members.sidebarPosition});
-    Spatial.sidebar.addTo(Spatial.map);
-
-
     BaseMapLayers.setNamedBasemapLayers();
     BaseMapLayers.createBaseMapLayers();
 
@@ -6659,8 +6632,6 @@ var Spatial = {
     //MapLayers.CommuteFlows.createInternalCommuteFlowsMsoaLayer();
 
     Spatial.setInitialBaseMapLayer();
-
-
 
   },
 
@@ -6879,11 +6850,11 @@ var API = {
   getCommuteFlows: function(lyrName) {
 
     var url = //this.corsProxy + // TODO: Remove this ???
-      this.flowVectorsUrlParts.baseUrl +
-      this.flowVectorsUrlParts.parametersUrl +
-      lyrName +
-      this.flowVectorsUrlParts.filterParameterUrl +
-      this.flowVectorsUrlParts.outputFormatParameterUrl;
+              this.flowVectorsUrlParts.baseUrl +
+              this.flowVectorsUrlParts.parametersUrl +
+              lyrName +
+              this.flowVectorsUrlParts.filterParameterUrl +
+              this.flowVectorsUrlParts.outputFormatParameterUrl;
 
     $.ajax({
       url: url,
@@ -7092,9 +7063,9 @@ var statisticsViewModel = new Vue({
       let headerContent = 'commute-flow Help';
 
       let bodyContent = '<div>' +
-        '<p>First start by selecting a place on the map to view outward commuting for the super-groups.</p>' +
-        '<p>You can choose inward commuting, change to map the groups or switch between visualising lines rather than polygons.</p>' +
-        '</div>';
+                          '<p>First start by selecting a place on the map to view outward commuting for the super-groups.</p>' +
+                          '<p>You can choose inward commuting, change to map the groups or switch between visualising lines rather than polygons.</p>' +
+                        '</div>';
 
       Popup.showInfo(headerContent, bodyContent);
 

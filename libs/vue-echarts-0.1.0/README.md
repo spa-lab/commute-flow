@@ -30,7 +30,7 @@ A custom directive for using [Echarts](http://echarts.baidu.com/) in Vue.js apps
         // template.html
         <div class="chart" v-echarts="barChartOption"></div>
         
-        // index.js
+        // index-old2.js
         vm.barChartOption = {
             tooltip: {},
             xAxis: {
