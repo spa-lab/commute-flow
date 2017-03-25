@@ -7093,7 +7093,8 @@ var statisticsViewModel = new Vue({
 
       let bodyContent = '<div>' +
         '<p>First start by selecting a place on the map to view outward commuting for the super-groups.</p>' +
-        '<p>You can choose inward commuting, change to map the groups or switch between visualising lines rather than polygons.</p>' +
+        '<p>Clicking on the toggle button located at the right top of the web page a collapsible panel will be revealed.</p>' +
+        '<p>From there you can choose inward commuting, change to map the groups or switch between visualising lines rather than polygons.</p>' +
         '</div>';
 
       Popup.showInfo(headerContent, bodyContent);
