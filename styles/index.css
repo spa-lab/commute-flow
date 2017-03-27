@@ -556,7 +556,8 @@ body {
 
 .sidebar.leaflet-touch {
   box-shadow: none;
-  border-right: 2px solid rgba(0, 0, 0, 0);
+  /*border-right: 2px solid rgba(0, 0, 0, 0);*/
+  border-right: 0px solid rgba(0, 0, 0, 0);
 }
 
 @media (min-width: 768px) {
@@ -564,7 +565,8 @@ body {
     border-radius: 0px; /* OVERRIDE */
   }
   .sidebar.leaflet-touch {
-    border: 2px solid rgba(0, 0, 0, 0.2);
+    /*border: 2px solid rgba(0, 0, 0, 0.2);*/
+    border: 0px solid rgba(0, 0, 0, 0.2);
   }
 }
 

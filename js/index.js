@@ -6621,7 +6621,7 @@ var Spatial = {
    * The options used to create the map.
    */
   mapOptions: {
-    center: [52.95, -2.8],
+    center: [52.95, 1.0],
     zoom: 7,
     minZoom: 6,
     maxZoom: 18
