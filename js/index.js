@@ -6856,7 +6856,7 @@ var API = {
    * The parts of urls needed in order to query the remote geospatial server so as to get commute flows in vector format.
    */
   flowVectorsUrlParts: {
-    baseUrl: 'http://maps.humanities.manchester.ac.uk:8090/geoserver/commute-flow/ows?',
+    baseUrl: 'http://maps.humanities.manchester.ac.uk/spatial/geoserver/commute-flow/ows?',
     parametersUrl: 'service=WFS&version=1.0.0&request=GetFeature&typeName=',
     filterParameterUrl: '&cql_filter=rc',
     outputFormatParameterUrl: '&outputFormat=application/json'
