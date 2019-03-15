@@ -153,7 +153,8 @@ var BaseMapLayers = {
   setNamedBasemapLayers() {
 
     this.namedBasemapLayers.dark.leafletProviderName = BaseMapLayers.leafletProviderBaseLayers.CartoDB.DarkMatter;
-    this.namedBasemapLayers.light.leafletProviderName = BaseMapLayers.leafletProviderBaseLayers.OpenMapSurfer.Grayscale;
+    //this.namedBasemapLayers.light.leafletProviderName = BaseMapLayers.leafletProviderBaseLayers.OpenMapSurfer.Grayscale;
+    this.namedBasemapLayers.light.leafletProviderName = BaseMapLayers.leafletProviderBaseLayers.CartoDB.Positron
     //this.namedBasemapLayers.roads.leafletProviderName = BaseMapLayers.leafletProviderBaseLayers.Thunderforest.Transport;
     this.namedBasemapLayers.roads.leafletProviderName = BaseMapLayers.leafletProviderBaseLayers.OpenStreetMap.HOT;
 
