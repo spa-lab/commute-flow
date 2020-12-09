@@ -6,6 +6,8 @@
 //
 //  Name:            index.js
 //  Original coding: Vasilis Vlastaras (@gisvlasta), 05/12/2016.
+//  Updated:         Vasilis Vlastaras (@gisvlasta), 09/12/2020.
+//                     Added tooltips on queried commute MSOA polygons.
 //
 //  Description:     The commute-flow web app mapping functionality.
 // ================================================================================
@@ -915,6 +917,23 @@ var MapLayers = {
         featureLayer.setStyle(
           this.namedBasemapLayers[currentBaseMap].commuteFlowStyles[feature.properties.g.toString()]
         );
+
+        var htmlContent = '<div><table><tbody>' +
+          '<tr><th>Primary Key: </th><td>' + feature.properties.pk + '</td></tr>' +
+          '<tr><th>Residential Code: </th><td>' + feature.properties.rc + '</td></tr>' +
+          '<tr><th>Workplace Code: </th><td>' + feature.properties.wc + '</td></tr>' +
+          '<tr><th>Total Persons: </th><td>' + feature.properties.tp + '</td></tr>' +
+          '<tr><th>Group: </th><td>' + feature.properties.g + '</td></tr>' +
+          '<tr><th>QCL Distance: </th><td>' + feature.properties.qd + '</td></tr>' +
+          '<tr><th>MSOA Distance (km): </th><td>' + feature.properties.md + '</td></tr>' +
+          '</tbody></table></div>';
+
+        featureLayer.bindTooltip(htmlContent, {
+          direction: 'auto',
+          permanent: false,
+          sticky: true,
+          opacity: 0.8
+        });
 
         // Add the feature layer in to the commute flows dictionary.
         this.commuteFlowsDictionary[msoaCode] = {
